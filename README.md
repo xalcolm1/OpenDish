@@ -1,24 +1,22 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Welcome to Table Ouverte
 
-Things you may want to cover:
+Table Ouverte is a clone project of Open Table
 
-* Ruby version
+[visit Open Table:](https://www.opentable.com/ "Logo Title Text 1")
+Table Ouverte is not yet online
+[visit Table Ouverte:](https://github.com/xalcolm1/Table-Ouverte)
 
-* System dependencies
 
-* Configuration
+* Users will be able to create an account or log in by using the navbar at the top of the page.
+the nav bar will also hold a dropdown that appears when a user is logged in
 
-* Database creation
+* Users can reserve tables regardless of if they have a Table Ouverte account,
 
-* Database initialization
+* Logged in users can leave a review on any restaurant they have visited.
 
-* How to run the test suite
+* on the main page all users will have access to the restaurant search bar, 
+    this component uses loaction date and number of people 
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* 
