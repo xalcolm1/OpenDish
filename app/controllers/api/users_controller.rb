@@ -3,7 +3,7 @@ class Api::UsersController < ApplicationController
         @user = User.new(user_params)
 
         if @user && @user.save
-            login(@user)
+            login!(@user)
             render :show
         else
             render json: {
@@ -16,6 +16,6 @@ class Api::UsersController < ApplicationController
     private
 
     def user_params
-        params.permit(:user).require(:username,:email, :password)
+        params.require(:users).permit(:username, :email, :password, :image_url)
     end
 end

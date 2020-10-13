@@ -1,5 +1,7 @@
 # README
+## Welcome to Table Ouverte
 
+<<<<<<< HEAD
 ## Welcome to Table Ouverte
 
 Table Ouverte is a clone project of Open Table
@@ -20,3 +22,5 @@ the nav bar will also hold a dropdown that appears when a user is logged in
     this component uses loaction date and number of people 
 
 * 
+=======
+>>>>>>> e9e93100c574b4435c9a43ecca080236e4cc93ea
