@@ -17,7 +17,7 @@ const logoutCurrentUser = () => {
     }
 }
 
-const recieveErrors = errors => {
+const recieveSessionErrors = errors => {
     return {
         type: RECIEVE_SESSION_ERRORS,
         errors
