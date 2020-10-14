@@ -8,7 +8,7 @@ import signupFormContainer from './sessions/signup_form_contaner'
 const App = () => (
     <div>
         <header>
-         <Link to="/"><img src="app/assets/images/Ouverte-main.png" alt=""/></Link>
+         <Link to="/"></Link>
          <Link to="/signup"/>
          <Link to="/login"/>
         </header>
