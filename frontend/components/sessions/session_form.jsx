@@ -1,4 +1,5 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 
 class sessionForm extends React.Component {
     constructor(props){
@@ -10,19 +11,21 @@ class sessionForm extends React.Component {
 
     handleInput(field) {
       return  e => {
-          this.setState({ [field]: e.currentTarget.value });
+          this.setState({ [field]: e.target.value });
       }
     }
 
-    handleSubmit() {
-        e.preventDefault();
+    handleSubmit(e) {
+        e.preventDefault()
         this.props.action(this.state);
+        return <Redirect to="/"/>
     }
 
+    
     render() {
         const { formType } = this.props;
         return (
-            <form onSubmit={this.handleSubmit()}>
+            <form onSubmit={this.handleSubmit} className="form-box">
                 <h1>{formType}</h1>
                     {
                     (formType === "Sign Up") ? (
@@ -32,13 +35,10 @@ class sessionForm extends React.Component {
                             </label>
 
                             <label>Lastname: 
-                                <input type="password" onChange={this.handleInput('lastname')} value={this.state.lastname}/>
+                                <input type="text" onChange={this.handleInput('lastname')} value={this.state.lastname}/>
                             </label>
                         </>
-                    ) 
-                    : 
-                    <></> 
-                    }
+                    ) : <></>  }
 
                 <label>Email: 
                     <input type="text" onChange={this.handleInput('email')} value={this.state.email}/>
@@ -49,8 +49,8 @@ class sessionForm extends React.Component {
                 </label>
 
                 <input type="submit" value={formType}/>
-            </form>
-        )
+            </form>    
+         )  
     }
 }   
 

@@ -8,11 +8,12 @@ const mapStateToProps = state => ({
         email: '',
         password: ''
     },
-    formType: 'Sign In'
+    formType: 'Sign In',
+
 })
 
 const mapDispatchToProps = dispatch => ({
-    action: () => dispatch(login)
+    action: (user) => dispatch(login(user))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(sessionForm)

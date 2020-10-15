@@ -9,11 +9,11 @@ const sessionErrorsReducer = (state = {}, action) => {
             newState[errors] = action.errors;
             return newState;
         case RECIEVE_CURRENT_USER:
-            newState[errors] = [];
-            return newState;
+             
+            return [];
         default:
             return state;
     }
 }
 
-export default sessionErrorsReducer
+export default sessionErrorsReducer;
