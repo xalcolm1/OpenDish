@@ -48,20 +48,20 @@ class sessionForm extends React.Component {
                         (formType === "Sign Up") ? (
                             <>
                                 
-                                    <input type="text" onChange={this.handleInput('firstname')} value={this.state.firstname} placeholder="Firstname: " />
+                                    <input type="text" onChange={this.handleInput('firstname')} value={this.state.firstname} placeholder="Firstname* " />
                                 
 
                                 
-                                    <input type="text" onChange={this.handleInput('lastname')} value={this.state.lastname} placeholder="Lastname: "/>
+                                    <input type="text" onChange={this.handleInput('lastname')} value={this.state.lastname} placeholder="Lastname* "/>
                                 
                             </>
                         ) : <></>  }
 
-                        <input type="text" onChange={this.handleInput('email')} value={this.state.email} placeholder="Email:"/>
+                        <input type="text" onChange={this.handleInput('email')} value={this.state.email} placeholder="Email*"/>
                     
 
                     
-                        <input type="password" onChange={this.handleInput('password')} value={this.state.password} placeholder="Password:"/>
+                        <input type="password" onChange={this.handleInput('password')} value={this.state.password} placeholder="Password*"/>
                     
 
                     <input type="submit" value={formType} className="submitBTN" onClick={() => (<Redirect to="/"/>) }/>
