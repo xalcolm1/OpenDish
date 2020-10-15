@@ -8,7 +8,7 @@ import NavContainer from './navcontainer/NavContainer'
 
 
 const App = () => (
-    <div className="">
+    <>
         <header className='hbar'>
          <Link to="/"> <img src={OuverteURL} height="45"/></Link>
        
@@ -18,7 +18,7 @@ const App = () => (
 
         <AuthRoute exact path="/signup" component={signupFormContainer}/>
         <AuthRoute exact path="/login" component={loginFormContainer}/>
-    </div>
+    </>
 
 );
 

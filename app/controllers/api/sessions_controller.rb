@@ -11,8 +11,8 @@ class Api::SessionsController < ApplicationController
         else
             render json: {
                 errors: ['invalid login information'],
-                status: 401
-                }
+                },status: 401
+
         end
     end
 

@@ -1,8 +1,10 @@
 footer{
-    display: block;
+    position: absolute;
+    bottom: 0;
+    display: flex;
     width: 100%;
     justify-content: center;
     align-items: center;
-    background-color: rgb(39, 38, 38);
+    background-color: rgb(31, 30, 30);
     color: white;
 }

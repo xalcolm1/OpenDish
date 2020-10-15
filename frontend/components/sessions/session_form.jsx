@@ -18,17 +18,33 @@ class sessionForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault()
         this.props.action(this.state);
-        return <Redirect to="/"/>;
+        
     }
 
     
     render() {
         const { formType } = this.props;
         return (
-            <div className="formBackdrop">
+            <div className="form-backdrop">
                 <form onSubmit={this.handleSubmit} className="form-box">
+                    
                     <h1>Please {formType.toLowerCase()}</h1>
                         {
+                        (this.props.errors) ? (
+                            <>
+                                <ul>
+                                    {
+                                        this.props.errors.map( (error,idx) => {
+                                        return <li key={idx} >{error}</li>
+                                        })
+                                    }
+                                </ul>
+                            </>
+                        ):(
+                            <>
+                            </>
+                        )
+                        }{
                         (formType === "Sign Up") ? (
                             <>
                                 
@@ -48,7 +64,7 @@ class sessionForm extends React.Component {
                         <input type="password" onChange={this.handleInput('password')} value={this.state.password} placeholder="Password:"/>
                     
 
-                    <input type="submit" value={formType} className="submitBTN"/>
+                    <input type="submit" value={formType} className="submitBTN" onClick={() => (<Redirect to="/"/>) }/>
                 </form>   
             </div> 
          )  
