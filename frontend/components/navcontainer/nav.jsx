@@ -5,7 +5,7 @@ const Navbar = props => {
     const{ currentUser, logout } = props;
     const LoggedOutLinks = () => (
         <nav className="nav-session">
-            <Link to="/signup" className="signup">signup</Link>
+            <Link to="/signup" className="signup">Sign Up</Link>
             <Link to="/login" className="signup">Sign In</Link>
         </nav>
     );

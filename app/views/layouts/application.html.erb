@@ -8,19 +8,21 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
-    <%= favicon_link_tag asset_path('favi-ouverte.png') %>
+    <%= favicon_link_tag asset_path('ouverte-fav.png') %>
+    <%= stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css2?family=Commissioner:wght@500&display=swap',
+        media: 'all', 'data-turbolinks-track' => true %>
   </head>
 
   <body>
     <%= yield %>
       <script type="text/javascript">
             window.OuverteURL = "<%= image_url('Ouverte-main.png') %>";
-        </script>
+      </script>
 
     <footer>
-
-    <h6>Created logo at LogoMakr.com</h6>
-      
+        <p> scources: <br/>
+        Created logo at LogoMakr.com</p>
+        <p> external links: </p>
     </footer>
   </body>
 

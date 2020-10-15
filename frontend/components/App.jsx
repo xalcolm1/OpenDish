@@ -9,11 +9,11 @@ import NavContainer from './navcontainer/NavContainer'
 
 const App = () => (
     <div className="">
-        <header>
-         <Link to="/"> <img src={OuverteURL} height="60"/></Link>
-         {/* <Link to="/signup"/>
-         <Link to="/login"/> */}
-         <NavContainer />
+        <header className='hbar'>
+         <Link to="/"> <img src={OuverteURL} height="45"/></Link>
+       
+        <NavContainer className="auth-route" />
+        
         </header>
 
         <AuthRoute exact path="/signup" component={signupFormContainer}/>

@@ -18,38 +18,39 @@ class sessionForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault()
         this.props.action(this.state);
-        return <Redirect to="/"/>
+        return <Redirect to="/"/>;
     }
 
     
     render() {
         const { formType } = this.props;
         return (
-            <form onSubmit={this.handleSubmit} className="form-box">
-                <h1>{formType}</h1>
-                    {
-                    (formType === "Sign Up") ? (
-                        <>
-                            <label>Firstname: 
-                                <input type="text" onChange={this.handleInput('firstname')} value={this.state.firstname}/>
-                            </label>
+            <div className="formBackdrop">
+                <form onSubmit={this.handleSubmit} className="form-box">
+                    <h1>Please {formType.toLowerCase()}</h1>
+                        {
+                        (formType === "Sign Up") ? (
+                            <>
+                                
+                                    <input type="text" onChange={this.handleInput('firstname')} value={this.state.firstname} placeholder="Firstname: " />
+                                
 
-                            <label>Lastname: 
-                                <input type="text" onChange={this.handleInput('lastname')} value={this.state.lastname}/>
-                            </label>
-                        </>
-                    ) : <></>  }
+                                
+                                    <input type="text" onChange={this.handleInput('lastname')} value={this.state.lastname} placeholder="Lastname: "/>
+                                
+                            </>
+                        ) : <></>  }
 
-                <label>Email: 
-                    <input type="text" onChange={this.handleInput('email')} value={this.state.email}/>
-                </label>
+                        <input type="text" onChange={this.handleInput('email')} value={this.state.email} placeholder="Email:"/>
+                    
 
-                <label>Password: 
-                    <input type="password" onChange={this.handleInput('password')} value={this.state.password}/>
-                </label>
+                    
+                        <input type="password" onChange={this.handleInput('password')} value={this.state.password} placeholder="Password:"/>
+                    
 
-                <input type="submit" value={formType}/>
-            </form>    
+                    <input type="submit" value={formType} className="submitBTN"/>
+                </form>   
+            </div> 
          )  
     }
 }   
