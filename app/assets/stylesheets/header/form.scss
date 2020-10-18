@@ -72,9 +72,7 @@
     flex-flow: column;
     justify-content: space-around;
     align-items: center;
-    // position: relative;
-    // top: 20%; 
-    // left: 40%;
+   
     background-color: rgb(250, 250, 250);  
      height: 350px;  
      max-width: 400px;
@@ -87,7 +85,6 @@
 
 .text-input{
     padding-left: 10px;
-    // margin-bottom: 10px;
 }
 .signup-form{
     height: 500px;
@@ -125,6 +122,7 @@
 }
 
 .demoBTN{
+    width: 412px;
     background-color: #da8637;
     color: rgb(240, 240, 240);
     text-align: center;
