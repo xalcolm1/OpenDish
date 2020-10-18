@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 class sessionForm extends React.Component {
     constructor(props){
@@ -7,6 +7,10 @@ class sessionForm extends React.Component {
 
         this.state = this.props.user;
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleDemo = this.handleDemo.bind(this);
+    }
+    componentDidMount() {
+        this.props.clearErrors();
     }
 
     handleInput(field) {
@@ -18,53 +22,86 @@ class sessionForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault()
         this.props.action(this.state);
+
+        return () => (<Redirect to="/"/>)
         
+    }
+
+    handleDemo(){
+
+        this.props.action({
+            email: 'jose@tableouverte.com',
+            password: 'welcomedemo'
+        })
+        return () => (<Redirect to="/"/>) 
+
+    }
+    renderErrors(){
+        if( this.props.errors.length > 0 ){
+        
+        return (
+            <ul>
+            {
+                
+              this.props.errors.map( (error,idx) => {
+                return <li key={idx} className="errors">{error}</li>
+
+                })
+            }
+        </ul>
+        )}
+    }
+
+    handleClick() {
+        return e => {
+            if(e.currentTarget.className !== this.props.classname) {
+                this.props.history.push('/')
+            }
+            
+        }
     }
 
     
     render() {
+       
         const { formType } = this.props;
         return (
-            <div className="form-backdrop">
-                <form onSubmit={this.handleSubmit} className="form-box">
+            <div className="form-backdrop" onClick={this.handleClick()}>
+                <form onSubmit={this.handleSubmit} className={this.props.classname}>
                     
-                    <h1>Please {formType.toLowerCase()}</h1>
-                        {
-                        (this.props.errors) ? (
-                            <>
-                                <ul>
-                                    {
-                                        this.props.errors.map( (error,idx) => {
-                                        return <li key={idx} >{error}</li>
-                                        })
-                                    }
-                                </ul>
-                            </>
-                        ):(
-                            <>
-                            </>
-                        )
-                        }{
+                    
+                       {
                         (formType === "Sign Up") ? (
                             <>
-                                
-                                    <input type="text" onChange={this.handleInput('firstname')} value={this.state.firstname} placeholder="Firstname* " />
+                                <h1>Welcome to Table Ouverte!</h1>
+                                {this.renderErrors()}
+                                    <input className="text-input" type="text" onChange={this.handleInput('firstname')} value={this.state.firstname} placeholder="Firstname" />
                                 
 
                                 
-                                    <input type="text" onChange={this.handleInput('lastname')} value={this.state.lastname} placeholder="Lastname* "/>
-                                
+                                    <input className="text-input" type="text" onChange={this.handleInput('lastname')} value={this.state.lastname} placeholder="Lastname "/>
+                                     
                             </>
-                        ) : <></>  }
+                        ) : (
+                        <>
+                            <h1>Please sign in</h1>
+                           {this.renderErrors()}
+                        
 
-                        <input type="text" onChange={this.handleInput('email')} value={this.state.email} placeholder="Email*"/>
+                        
+                            <input  type="submit" value="Demo" className="demoBTN" onClick={this.handleDemo }/>
+                        </> 
+                        )
+                        }
+                        <input className="text-input" type="text" onChange={this.handleInput('email')} value={this.state.email} placeholder="Email"/>
                     
 
                     
-                        <input type="password" onChange={this.handleInput('password')} value={this.state.password} placeholder="Password*"/>
+                        <input className="text-input" type="password" onChange={this.handleInput('password')} value={this.state.password} placeholder="Password"/>
                     
 
-                    <input type="submit" value={formType} className="submitBTN" onClick={() => (<Redirect to="/"/>) }/>
+                    <input type="submit" value={formType} className="submitBTN" />
+                    {(formType === "Sign In") ? (<div>New to Table Ouverte? <Link to="/signup" className="createAnAccount">Create an account</Link></div>): null}
                 </form>   
             </div> 
          )  

@@ -5,7 +5,7 @@ class User < ApplicationRecord
 
     attr_reader :password
 
-    before_validation :ensure_session_token
+    after_initialize :ensure_session_token
 
     #spire
 
@@ -31,6 +31,6 @@ class User < ApplicationRecord
     end
 
     def ensure_session_token
-        self.session_token || reset_session_token!
+        self.session_token ||= SecureRandom::urlsafe_base64
     end
 end
