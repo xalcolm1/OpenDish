@@ -9,10 +9,6 @@ const Navbar = props => {
             <Link to="/login" className="sesh signup">Sign In</Link>
         </nav>
 
-        // <hgroup className="signedin">
-        //     <button className="signup" onClick={() => <Redirect to="/"/>}>Sign Up</button>
-        //     <button className="signin" onClick={() => <Redirect to="/"/>}>Sign In</button>
-        // </hgroup>
     );
     const LoggedInLinks = () => (
         <hgroup className="signedout" >

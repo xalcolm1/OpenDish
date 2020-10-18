@@ -29,8 +29,7 @@
     "npm": "5.5.1"
   },
   "scripts": {
-    "postinstall": "webpack",
-    // "webpack": "webpack --watch --mode=development"
+    "postinstall": "webpack"
   },
   "repository": {
     "type": "git",
