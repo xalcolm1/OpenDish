@@ -28,7 +28,7 @@
 
 #ignore
 
-# node_modules_/
+node_modules_/
 bundle.js
 bundle.js.map
 .byebug_history

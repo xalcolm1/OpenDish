@@ -8,7 +8,5 @@ import {signup} from './util/session_api_util';
 document.addEventListener("DOMContentLoaded", () => {
     const root = document.getElementById('root');
     const store = configureStore();
-    window.signup = signup;
-    window.getState = store.getState
     ReactDOM.render(<Root store={store}/>, root)
 })
