@@ -1,1 +1,11 @@
 <main id="root">React is broken</main>
+
+<script type="text/javascript">
+            window.OuverteURL = "<%= image_url('Ouverte-main.png') %>";
+
+       
+            window.TableURL = "<%= image_url('table.jpeg') %>";
+      <% if current_user %>       
+          window.currentUser = {'id': '<%=current_user.id%>'}
+      <% end %>
+</script>
