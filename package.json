@@ -30,7 +30,8 @@
   },
   "scripts": {
     "postinstall": "webpack",
-     "webpack": "webpack --watch --mode=development"
+    "start": "webpack --watch --mode=development"
+
   },
   "repository": {
     "type": "git",
@@ -44,3 +45,5 @@
   },
   "homepage": "https://github.com/xalcolm1/Table-Ouverte#readme"
 }
+
+

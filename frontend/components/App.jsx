@@ -5,15 +5,19 @@ import signupFormContainer from './sessions/signup_form_contaner';
 import {AuthRoute} from '../util/route_util';
 import NavContainer from './navcontainer/NavContainer';
 import HomePage from './Homepage/Homepage'
+// import SigninModalContainer from './modal/signin_modal_container';
+// import SignupModalContainer from './modal/signup_modal_container';
 
 
 
 const App = () => (
     <>
         <header className='hbar'>
-            <Link to="/"> <img src={OuverteURL} height="45"/></Link>
+            <Link to="/" className="logo"> <img src={OuverteURL} height="45"/></Link>
        
             <NavContainer className="auth-route" />
+            {/* <SignupModalContainer />
+            <SigninModalContainer /> in development */}
         </header>
 
 

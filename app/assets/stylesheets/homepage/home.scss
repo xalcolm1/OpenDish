@@ -1,0 +1,33 @@
+
+
+.restaurant-finder{
+    background-image: url(table.jpeg);
+    height: 417px;
+    background-position: center;
+    background-size: cover; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+.table-img{
+  width: 100%;
+}
+
+.restaurant-data{
+    height: 33px;
+    width: 150px;
+}
+
+.find-restaurant{
+    height: 35px;
+    width: 80px;
+    background-color: rgb(49, 96, 60);
+}
+
+.searchbar{
+    display: flex;
+    flex-direction: row;
+
+}

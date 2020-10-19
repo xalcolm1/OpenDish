@@ -11,6 +11,7 @@
 //     flex-flow: row;
 //     justify-content: space-between;
 // }
+$light-color2: rgb(200, 200, 200);
 
 .hbar{
     // display: flex;
@@ -23,47 +24,70 @@
     position: relative;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     box-sizing: border-box;
-    height: 2.75rem;
+    height: 80px;
     background-color: white;
-   
-    padding: 0 16px;
+    border-top: 25px solid rgb(247, 247, 247);
+    padding: 4px 16px 4px;
+    // min-width: 
     width: 100%;
-}
-
-.nav-session{
     
+}
+.logo{
+    border-right: 1px solid $light-color2;
+}
+.nav-session{
     
     display: flex;  
 
     justify-content: space-between;
 }
 .sesh{
-    margin: 10px;
+    margin: 5px;
     height: 20px;
     display: flex;
     align-items: center;
     padding: 5px 10px;
     
-    border-right: rgb(206, 206, 206) 2px solid;
-    border-bottom: rgb(206, 206, 206) 2px solid;
+    color: $light-color2;
+    border-color: $light-color2;
     border-radius: 4px;
     text-decoration: none;
+    border:1px solid;
 }
+
 .signup{
-    border-right: rgb(53, 98, 149) 2px solid;
-    border-bottom:rgb(53, 98, 149) 2px solid;
+    // border-right: rgb(53, 98, 149) 2px solid;
+    // border-bottom:rgb(53, 98, 149) 2px solid;
     background-color: rgb(58, 138, 192);
+    border-color: rgb(58, 138, 192);
+
     color: white;
+}
+.close{
+    background-color: white;
+    position: fixed;
+    right: 0;
+    top: 0;
 }
 .logout{
 
-    margin-top: 5px;
+    // margin-top: 5px;
+    // padding: 5px 10px;
+    // border: none;
+    // border-right: rgb(206, 206, 206) 2px solid;
+    // border-bottom: rgb(206, 206, 206) 2px solid;
+    // border-radius: 4px;
+    margin: 5px;
+    height: 20px;
+    display: flex;
+    align-items: center;
     padding: 5px 10px;
-    border: none;
-    border-right: rgb(206, 206, 206) 2px solid;
-    border-bottom: rgb(206, 206, 206) 2px solid;
+    
     border-radius: 4px;
+    text-decoration: none;
+    border:1px solid;
 }
 
 .form-box{

@@ -54,26 +54,16 @@ class sessionForm extends React.Component {
         )}
     }
 
-    handleClick() {
-        debugger
-        return e => {
-            if(e.currentTarget.className === this.props.classname) {
-            }else{
-                
-                e.stopPropagation()
-            this.props.history.push('/')
-            }
-        }
-    }
+   
 
     
     render() {
        
     const { formType } = this.props;
         return (
-            <div className="form-backdrop" onClick={this.handleClick()}>
+            <div className="form-backdrop" >
                 <form onSubmit={this.handleSubmit} className={this.props.classname}>
-                    
+                    <Link to="/" className="sesh close">x</Link>
                     {
                         (formType === "Sign Up") ? (
                             <>
@@ -92,7 +82,7 @@ class sessionForm extends React.Component {
                                         type="text" 
                                         onChange={this.handleInput('lastname')} 
                                         value={this.state.lastname} 
-                                        placeholder="Lastname "
+                                        placeholder="Lastname"
                                     />
                                         
                             </>
