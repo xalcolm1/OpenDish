@@ -23,11 +23,28 @@
 .find-restaurant{
     height: 35px;
     width: 80px;
+    color: white;
     background-color: rgb(49, 96, 60);
+    border-color: rgb(49, 96, 60);
+}
+.find-restaurant:hover{
+    height: 35px;
+    width: 80px;
+    color: white;
+    background-color: rgb(41, 80, 50);
+    border-color: rgb(41, 80, 50);
 }
 
 .searchbar{
     display: flex;
     flex-direction: row;
+    align-content: space-between;
 
+}
+.params{
+    background-color: honeydew;
+    display: flex;
+    flex-direction: row;
+    border-radius: 4px;
+    padding: 1px;
 }

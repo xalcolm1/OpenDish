@@ -7,6 +7,9 @@ class User < ApplicationRecord
 
     after_initialize :ensure_session_token
 
+    has_many :restaurants,
+        foreign_key: :owner_id,
+        class_name: :Restaurant
     #spire
 
     def self.find_by_credentials(email, password)

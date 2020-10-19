@@ -18,14 +18,27 @@
       <script type="text/javascript">
             window.OuverteURL = "<%= image_url('Ouverte-main.png') %>";
       </script>
-          <script type="text/javascript">
+      <script type="text/javascript">
             window.TableURL = "<%= image_url('table.jpeg') %>";
       </script>
+      <% if current_user %>
+        <script type="text/javascript">
+        //this
+          window.currentUser = {'id': '<%=current_user.id%>'}
+        </script>
+      <% end %>
 
     <footer>
-        <p> scources: <br/>
-        Created logo at LogoMakr.com</p>
-        <p> external links: </p>
+      <div class="resources">
+        <p> 
+        scources: <br/>
+        Created logo at LogoMakr.com <br/>
+        image by Nils Stahl
+        </p>
+        <p> 
+        external links:
+        </p>
+      </div>
     </footer>
   </body>
 

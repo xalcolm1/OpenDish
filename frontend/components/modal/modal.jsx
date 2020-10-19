@@ -1,29 +1,21 @@
-import React from 'react';
+import React,{useStates, useRef} from 'react';
 
-const Modal = props =>  {
+function Modal(props) {
    
-    // const [display, setDisplay] = React.useState({initialState: true})
-    
-    let open = true;
-    const toggle = () => {
-        debugger
-        open = !open;
-
-
-    }
+    const [open, setOpen] = useState();
+ 
    
-        const {ModalBody, modalTitle, formType} = props
+        const {children, modalTitle, formType} = props
         return (
-            
                 (!open) ? (
-               <button onClick={() => toggle()}> {formType}  </button>
+               <button onClick={() => setOpen(!open)} > {formType}  </button>
             ) : (
                 <div className="modal" >
                     <div className="modal-head">
                         {modalTitle}
                         <button onClick={() => toggle()}>x</button>
                     </div>
-                    
+                    {children}
                 </div>
             )
         

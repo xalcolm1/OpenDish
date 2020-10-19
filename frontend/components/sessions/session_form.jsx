@@ -39,7 +39,8 @@ class sessionForm extends React.Component {
 
     }
     renderErrors(){
-        if( this.props.errors.length > 0 ){
+        let {errors} = this.props
+        if( errors.length > 0 ){
         
         return (
             <ul>
@@ -62,12 +63,18 @@ class sessionForm extends React.Component {
     const { formType } = this.props;
         return (
             <div className="form-backdrop" >
+                
                 <form onSubmit={this.handleSubmit} className={this.props.classname}>
-                    <Link to="/" className="sesh close">x</Link>
+                   
                     {
                         (formType === "Sign Up") ? (
                             <>
+                                <div className="form-top">
                                 <h1>Welcome to Table Ouverte!</h1>
+
+
+                                    <Link to="/" className="sesh close">&#x1F33F;</Link>
+                                </div>
                                 {this.renderErrors()}
                                     <input 
                                         className="text-input"
@@ -88,8 +95,13 @@ class sessionForm extends React.Component {
                             </>
                         ) : (
                             <>
-                                <h1>Please sign in</h1>
-                            {this.renderErrors()}                       
+                                <div className="form-top">
+                                    <h1>Please sign in</h1>
+
+                                    <Link to="/" className="sesh close">&#x1F33F;</Link>
+                                </div>
+                                
+                                {this.renderErrors()}                       
                                 <input  
                                     type="submit" 
                                     value="Demo" 
@@ -119,12 +131,19 @@ class sessionForm extends React.Component {
                     {
                         (formType === "Sign In") ? (
                         <div>
-                            New to Table Ouverte? 
+                            New to Table Ouverte?  
                             <Link  to="/signup" className="createAnAccount" >
-                                Create an account
+                                 Create an account
                             </Link>
                         </div>
-                        ): null
+                        ): (
+                        <div>
+                            Already have an account? 
+                            <Link  to="/login" className="createAnAccount" >
+                                 Sign in !
+                            </Link>
+                        </div>
+                        )
                     }
                 </form>   
             </div> 

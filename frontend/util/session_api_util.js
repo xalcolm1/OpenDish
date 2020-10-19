@@ -24,3 +24,11 @@ export const signup = user => {
         data: { user }
     })
 }
+
+// export const fetchCurrentUser = () => {
+//     return $.ajax({
+//         url: 'api/users',
+//         method: 'GET',
+
+//     })
+// }

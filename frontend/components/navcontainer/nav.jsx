@@ -1,5 +1,6 @@
 import React from 'react';
-import { Redirect, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { NavItem, NavList} from "./nav_item";
 
 const Navbar = props => {
     const{ currentUser, logout } = props;
@@ -13,8 +14,17 @@ const Navbar = props => {
 
     );
     const LoggedInLinks = () => (
-        <hgroup className="signedout" >
-             <Link to="/" className="sesh logout" onClick={() => logout()} > Log Out</Link>
+        <hgroup className="signedin" >
+            <NavList title="Profile">
+                <NavItem>
+                    <Link to="/"  onClick={() => logout()} > Log Out</Link>  
+                </NavItem>
+                <NavItem>
+                    <Link to="/profile" >profile</Link>
+                </NavItem>
+
+            </NavList>
+             
         </hgroup>
     )
     return currentUser ? LoggedInLinks() : LoggedOutLinks()
