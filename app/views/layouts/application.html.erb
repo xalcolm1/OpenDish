@@ -15,16 +15,7 @@
 
   <body>
     <%= yield %>
-      <script type="text/javascript">
-            window.OuverteURL = "<%= image_url('Ouverte-main.png') %>";
-
-       
-            window.TableURL = "<%= image_url('table.jpeg') %>";
-      <% if current_user %>
-        
-          window.currentUser = {'id': '<%=current_user.id%>'}
-      <% end %>
-        </script>
+      
 
     <footer>
       <div class="resources">
