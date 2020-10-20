@@ -30,12 +30,11 @@ class sessionForm extends React.Component {
     }
 
     handleDemo(){
-
-        this.props.action({
+        this.setState({
             email: 'jose@tableouverte.com',
             password: 'welcomedemo'
         })
-        return () => (<Redirect to="/"/>) 
+        
 
     }
     renderErrors(){
