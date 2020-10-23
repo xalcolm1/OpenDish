@@ -4,14 +4,12 @@ import { getRestaurant } from '../../actions/restaurant_actions';
 
 class RestaurantShowPage extends React.Component {
     componentDidMount(){
-    //   this.state = this.props.getRestaurant(this.props.match.params.restaurantId); 
     }
     render(){
     return (
         <div className="restaurant-show">
             
                 <h1>
-                    {/* {this.props.restaurant.name} */}
                 </h1>
 
                 <div >
@@ -40,7 +38,6 @@ class RestaurantShowPage extends React.Component {
                     reviews will go here
                 </div>
 
-                {/* <RestataurantIndex /> */}
             
         </div>)
     }
