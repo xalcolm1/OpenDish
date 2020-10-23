@@ -1,24 +1,43 @@
 .items{
-    background-color: rgb(247, 245, 245);
+    background-color: rgba(247, 242, 242, 0.678);
     position: absolute;
     border-radius: 4px;
     top: 40px;
     right: 2px;
+    padding:5px 0  5px 0 ;
 }
 .title-div{
     padding: 5px 10px;
     border-radius: 4px;
     border: 1px rgb(227, 227, 227) solid;
+    &:hover{
+        color: rgb(34, 80, 15);
+    }
 }
 .nav-item{
     padding: 5px 10px;
-    margin: 5px;
-    height: 20px;
+   
+    height: 25px;
     display: flex;
     align-items: center;
     
     border-bottom: rgb(237, 237, 237) 1px solid;
     color: rgb(138, 138, 138);
-    text-decoration: none;
+
+    &:hover{
+        background: rgb(121,255,93);
+        background: linear-gradient(225deg, 
+        rgba(121,255,93,0.8631827731092436) 0%, 
+        rgba(240,223,137,0.7931547619047619) 51%, 
+        rgba(249,162,140,0.8687850140056023) 100%);
+        
+    }
+    &:click{
+        background: rgb(121,255,93);
+        background: linear-gradient(225deg, 
+        rgba(68, 247, 33, 0.947) 0%, 
+        rgb(255, 223, 64) 51%, 
+        rgb(240, 71, 28) 100%);
+    }
 }
 

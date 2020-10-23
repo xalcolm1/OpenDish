@@ -44,17 +44,23 @@ body {
 	max-width: 5000px ;
 	width: 92%;
 	line-height: 1;
-	flex: 1;
 	display: flex;
-	justify-content: space-between;
+	
 	flex-direction: column;
 	align-items: stretch;
-	flex-grow: 2;
+	justify-content: space-between;
+
+	
 
 
 	min-height: 100%;
 	font-family: 'Commissioner', sans-serif;
 	background-color: rgb(255, 253, 253);
+}
+footer{
+	justify-self: flex-end;
+	align-self: flex-end;
+
 }
 ol, ul {
 	list-style: none;
@@ -77,6 +83,7 @@ input{
 	height: 60px;
 	border: 1px rgb(199, 198, 198) solid;
 	border-radius: 4px;
+	padding-left: 5px;
 }
 html{
 
@@ -101,4 +108,48 @@ h1{
 }
 button{
 	appearance: none;
+}
+
+.pretty-link{
+	text-decoration: none;
+	color: black;
+}
+.modal-backdrop{
+	background-color: rgba(2, 2, 2, 0.486);
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+}
+.modal{
+	height: 350px;
+	width: 400px;
+	padding: 20px;
+	background-color: rgb(245, 239, 239);
+	border-radius: 4px;
+	padding-bottom: 55px;
+	
+	
+}
+
+.modal-close{
+	margin: 5px;
+	height: 20px;
+	width: 20px;
+    display: flex;
+	align-items: center;
+	text-align: center;
+    padding: 5px 10px;
+	background-color: rgb(253, 253, 253);
+    color: $light-color2;
+    border-color: $light-color2;
+    border-radius: 4px;
+    text-decoration: none;
+    border:1px solid;
+	align-self: flex-end;
 }

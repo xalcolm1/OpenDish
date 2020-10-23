@@ -5,7 +5,7 @@
 #  id           :bigint           not null, primary key
 #  owner_id     :integer          not null
 #  name         :string           not null
-#  adderess     :string           not null
+#  address     :string           not null
 #  cuisine      :string
 #  phone_number :integer
 #  image_url    :string

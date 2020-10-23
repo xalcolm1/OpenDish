@@ -1,4 +1,5 @@
 import React from 'react';
+import PrettyLink from '../pretty_link';
 import { Link } from 'react-router-dom';
 import { NavItem, NavList} from "./nav_item";
 
@@ -7,20 +8,21 @@ const Navbar = props => {
     const LoggedOutLinks = () => (
         <nav className="nav-session">
             <Link to="/signup" className="sesh signup">Sign Up</Link>
-            {/* <button onClick={}></button>
-            <button onClick={}></button> */}
             <Link to="/login" className="sesh signin">Sign In</Link>
         </nav>
 
-    );
+);
     const LoggedInLinks = () => (
         <hgroup className="signedin" >
             <NavList title="Profile">
                 <NavItem>
-                    <Link to="/"  onClick={() => logout()} > Log Out</Link>  
+                    <PrettyLink to="/"  onClick={() => logout()} > Log Out</PrettyLink>  
                 </NavItem>
                 <NavItem>
-                    <Link to="/profile" >profile</Link>
+                    <PrettyLink to={`/users/${currentUser.id}`} >profile</PrettyLink>
+                </NavItem>
+                <NavItem>
+                    <PrettyLink to={`/restaurants/${currentUser.id}`} >restaurants</PrettyLink>
                 </NavItem>
 
             </NavList>

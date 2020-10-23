@@ -5,7 +5,7 @@
 #  id           :bigint           not null, primary key
 #  owner_id     :integer          not null
 #  name         :string           not null
-#  adderess     :string           not null
+#  address     :string           not null
 #  cuisine      :string
 #  phone_number :integer
 #  image_url    :string
@@ -14,6 +14,8 @@
 #
 class Restaurant < ApplicationRecord
     validates :owner_id, :address, :name, null: false
+
+    has_one_attached :photo
 
     belongs_to :owner,
         foreign_key: :owner_id,

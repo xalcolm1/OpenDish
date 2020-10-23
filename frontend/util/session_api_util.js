@@ -25,10 +25,13 @@ export const signup = user => {
     })
 }
 
-// export const fetchCurrentUser = () => {
-//     return $.ajax({
-//         url: 'api/users',
-//         method: 'GET',
+export const getUser = id => {
+    return $.ajax({
+        url: `/api/users/${id}`,
+        method: "GET"
+    })
+        
+}
 
-//     })
-// }
+
+

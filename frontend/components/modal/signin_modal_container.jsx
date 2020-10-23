@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import LoginFormContainer from '../sessions/login_form_container'
 import Modal from './modal';
 
-const mSTP = state => ({
+const mapStateToProps = state => ({
     state: state,
     modalTitle:  <h1>Please Sign in!</h1>,
     formType: 'Sign In',
@@ -14,4 +14,4 @@ const mSTP = state => ({
 
 
 
-export default connect(mSTP)(Modal);
+export default connect(mapStateToProps)(Modal);

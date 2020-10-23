@@ -5,6 +5,44 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+User.destroy_all
+Restaurant.destroy_all
 
+user1 = User.create!( 
+    firstname: 'jose',
+    lastname: 'ßåose',
+    email: 'jose@tableouverte.com', 
+    password: 'welcomedemo'
+)
+restaurant1 = Restaurant.create!(
+    owner_id: user1.id,
+    name: "burrito spot",
+    cuisine: "mexican",
+    address: "1212 13th Street, San Francisco CA, United-States"
+)
+restaurant2 = Restaurant.create!(
+    owner_id: user1.id,
+    name: "",``
+    cuisine: "Mediterranean",
+    address: "11 10th Street, Ithica NY, United-States"
+)
 
-User.create!( firstname: 'jose', lastname: 'ßåose', email: 'jose@tableouverte.com', password: 'welcomedemo')
+restaurant3 = Restaurant.create!(
+    owner_id: user1.id,
+    name: "boba guys",
+    cuisine: "boba",
+    address: "8 Octavia Street, San Francisco CA, United-States"
+)
+restaurant4 = Restaurant.create!(
+    owner_id: user1.id,
+    name: "1110 Fries & Burgers",
+    cuisine: "Canadian",
+    address: "4 Grove Street, San Francisco CA, United-States"
+)
+
+restaurant5 = Restaurant.create!(
+    owner_id: user1.id,
+    name: "burrito spot",
+    cuisine: "mexican",
+    address: "12 Post Street, San Francisco CA, United-States"
+)

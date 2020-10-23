@@ -1,0 +1,74 @@
+// Place all the styles related to the api/restaurants controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.Cre-button{
+    margin: 20px;
+    background-color: rgb(247, 244, 244);
+    color: rgb(83, 83, 83);
+    text-align: center;
+    width: 200px;
+    padding: 10px;
+    
+    border-radius: 4px;
+    &:hover{
+        background-color: #fafafa;
+    }
+    
+}
+
+
+.restaurant-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 100%;
+    
+}
+
+.restaurant-index{
+    
+    -webkit-overflow-scrolling: touch;
+    
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0);
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-around;
+    overflow-x: scroll;
+    height: 200px;
+    width: 800px;
+    min-width: 330px;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    box-shadow: inset -.2em 0 .3em rgba(0, 0, 0, 0.653);
+    border-left: rgba(0, 0, 0, 0.685);
+    border-right: rgba(0, 0, 0, 0.584);
+    &:first-child {
+        margin-left: 100px;
+        background: red;
+    }
+
+   
+
+}
+
+.restaurant-index-item{
+    background-color: rgb(254, 255, 240);
+    color: rgb(91, 91, 91);
+    height: 180px;
+    width: 400px;
+    margin: 8px;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow:  -.2em 0 .3em rgba(0, 0, 0, 0.548);
+}
+

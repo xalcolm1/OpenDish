@@ -2,14 +2,12 @@ import React from 'react';
 import { Link, Route, Switch } from 'react-router-dom';
 import loginFormContainer from './sessions/login_form_container';
 import signupFormContainer from './sessions/signup_form_contaner';
-import {AuthRoute} from '../util/route_util';
+import { AuthRoute } from '../util/route_util';
 import NavContainer from './navcontainer/NavContainer';
 import HomePage from './Homepage/Homepage'
 import Modal from './modal/modal'
-// import SigninModalContainer from './modal/signin_modal_container';
-// import SignupModalContainer from './modal/signup_modal_container';
-
-
+import UserShowPage from './Homepage/user_show_page'
+import RestaurantShowPage from './restaurants/restaurant-show'
 
 const App = () => (
     <>
@@ -17,16 +15,17 @@ const App = () => (
             <Link to="/" className="logo"> <img src={OuverteURL} height="45"/></Link>
        
             <NavContainer className="auth-route" />
-            {/* <SignupModalContainer />
-            <SigninModalContainer /> in development */}
         </header>
 
 
-        {/* <HomePage/>  */}
+        
 
         <Switch>
+
+            <Route path='/restaurants/:restaurantId' component={RestaurantShowPage}/>
+            <Route  path='/users/:userId' component={UserShowPage}/>
+            <Route path='/restaurants'/>
             <Route  path="/" component={HomePage}/>
-            <Route  path="/profile" component={Modal}/>
         </Switch>
     
         <AuthRoute exact path="/signup" component={signupFormContainer}/>

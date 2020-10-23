@@ -24,6 +24,9 @@ class User < ApplicationRecord
     has_many :restaurants,
         foreign_key: :owner_id,
         class_name: :Restaurant
+
+    has_one_attached :photo
+
     #spire
 
     def self.find_by_credentials(email, password)
