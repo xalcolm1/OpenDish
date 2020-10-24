@@ -22,7 +22,7 @@ restaurant1 = Restaurant.create!(
 )
 restaurant2 = Restaurant.create!(
     owner_id: user1.id,
-    name: "",``
+    name: "",
     cuisine: "Mediterranean",
     address: "11 10th Street, Ithica NY, United-States"
 )

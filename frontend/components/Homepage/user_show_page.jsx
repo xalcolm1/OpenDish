@@ -28,7 +28,6 @@ class UserShowPage extends React.Component {
                     restaurants={this.props.restaurants}
                     search={this.props.search}
                     currentUser={this.props.currentUser}
-
                     />
                        
     
