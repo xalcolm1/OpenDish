@@ -1,10 +1,4 @@
 
-# json.restaurants do
-    # json.array! @restaurants do |restaurant|
-    #     json.extract! restaurant, :id, :name, :owner_id, :address, :cuisine
-    # end
-# end
-
 
 
 
