@@ -5,7 +5,7 @@ class Api::RestaurantsController < ApplicationController
 
     def search 
         
-       
+        params.require(:q).permit(:owner_id, :name, :address, :cuisine)
 
         sql_string = ""
         

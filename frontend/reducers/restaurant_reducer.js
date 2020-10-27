@@ -21,7 +21,7 @@ const restaurantReducer = (state = {}, action) => {
             return newState;
 
         case DELETE_RESTAURANT:
-            delete newState[action.id]
+            delete newState[action.id];
             return newState;
 
         default:
