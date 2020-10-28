@@ -2,7 +2,7 @@ import {
     RECIEVE_RESTAURANT,
     RECIEVE_ALL_RESTAURANTS,
     DELETE_RESTAURANT
-} from '../actions/restaurant_actions'
+} from '../actions/restaurant_actions';
 
 const restaurantReducer = (state = {}, action) => {
 
