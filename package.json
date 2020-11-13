@@ -30,9 +30,7 @@
   },
   "scripts": {
     "postinstall": "webpack",
-    "start": "serve -s build",
-    "heroku-postbuild": "npm run build",
-    "dev-start": "webpack --watch --mode=development"
+    "start": "webpack --watch --mode=development"
   },
   "repository": {
     "type": "git",
