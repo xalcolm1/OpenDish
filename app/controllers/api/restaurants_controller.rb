@@ -42,8 +42,7 @@ class Api::RestaurantsController < ApplicationController
 
     def create
         @restaurant = Restaurant.new(restaurant_params)
-
-        if @restaurants &&  @restaurant.save
+        if @restaurant && @restaurant.save
             render json: @restaurant
         else
             render json: @restaurant.errors.full_messages, status: 401
