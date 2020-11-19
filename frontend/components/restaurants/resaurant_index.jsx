@@ -19,7 +19,7 @@ export class RestaurantIndex extends React.Component{
         
         if(overflow) this.slider.current.scrollTo(0,0);
         if((newPosition < 8 )&&(direction === 'left')) this.slider.current.scrollTo(width,0);
-        
+
           this.slider.current.scrollBy(offset ,0)  
     }
     
@@ -29,26 +29,28 @@ export class RestaurantIndex extends React.Component{
     render() {
         return (
             <div className='outer-restaurant-index'>
-                    <div className="right-pointer arrow" onClick={() => this.scroll('right')}></div>       
-                    <div className="left-pointer arrow" onClick={() => this.scroll('left')}></div>
-            <div className='restaurant-index' ref={this.slider}>
-                {
-                            this.props.restaurants.map((restaurant) => {
+                <div className="left-pointer arrow" onClick={() => this.scroll('left')}></div>
+
+                <div className='restaurant-index' ref={this.slider}>
+                    {
+                        this.props.restaurants.map((restaurant) => {
                             return(
-                                 <RestaurantIndexItem key={restaurant.id}>
-                                    <div className='restaurant-img'>
-                                        
-                                    </div>
-                                    <div className='restaurant-information'>
-                                        <h4>{restaurant.name}</h4>
-                                        <h6>{restaurant.cuisine}</h6>
-                                        <h6>{restaurant.address}</h6>                                    
-                                    </div>
-                                </RestaurantIndexItem>    
-                                ) 
-                            })
-                        }
-            </div>
+                                <RestaurantIndexItem key={restaurant.id}>
+                                        <div className='restaurant-img'>
+                                            
+                                        </div>
+                                        <div className='restaurant-information'>
+                                            <h4>{restaurant.name}</h4>
+                                            <h6>{restaurant.cuisine}</h6>
+                                            <h6>{restaurant.address}</h6>                                    
+                                        </div>
+                                    </RestaurantIndexItem>    
+                                    ) 
+                                })
+                            }
+                </div>
+                
+                <div className="right-pointer arrow" onClick={() => this.scroll('right')}></div>       
 
             </div>
         );
