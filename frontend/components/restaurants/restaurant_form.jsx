@@ -18,7 +18,6 @@ class RestaurantForm extends React.Component{
     }
     
     handleSubmit() {
-        debugger
         this.props.action(this.state)
     }
 

@@ -1,66 +1,55 @@
-import React,{useState} from 'react';
-
+import React from 'react';
 
 export class RestaurantIndex extends React.Component{
     constructor(props){
-        super(props)
+        super(props);
         this.state = {
-            scrollPosition: 0
+            left: 0
         }
-        this.scroll = this.scroll.bind(this)
-        this.handleScroll = this.handleScroll.bind(this)
+        this.slider = React.createRef()
     }
 
-    handleScroll(){
-        
-
-            this.setState({
-                scrollPosition: this.pageXOffset
-            })
-        
-    }
     scroll(direction){
-        let x = this.state.scrollPosition
-        let newX = direction === 'left' ? x -= 100 : x += 100 
-        this.setState({ scrollPosition: this.pageXOffset})
-        scrollTo({left: this.state.scrollPosition}, 0)
         
+        let offset;
+        direction === 'left' ? offset = -800 : offset = 800;
+        let width = this.slider.current.scrollWidth;
+        let newPosition = this.slider.current.scrollLeft + offset ;
+        let overflow = newPosition === width;
+        
+        if(overflow) this.slider.current.scrollTo(0,0);
+        if((newPosition < 8 )&&(direction === 'left')) this.slider.current.scrollTo(width,0);
+        
+          this.slider.current.scrollBy(offset ,0)  
     }
-
     
-
     componentDidMount() {
-        debugger
         this.props.search({owner_id: this.props.currentUser.id, address: '', cuisine: '', name: ''})
     }
     render() {
         return (
-            <div className='restaurant-index' onScroll={() => this.handleScroll()}>
-    
+            <div className='outer-restaurant-index'>
+                    <div className="right-pointer arrow" onClick={() => this.scroll('right')}></div>       
+                    <div className="left-pointer arrow" onClick={() => this.scroll('left')}></div>
+            <div className='restaurant-index' ref={this.slider}>
                 {
                             this.props.restaurants.map((restaurant) => {
                             return(
                                  <RestaurantIndexItem key={restaurant.id}>
-    
-                                    <h1>{restaurant.name}</h1>
-                                    <div className='restaurant-information'>
-                                        <h6>{restaurant.cuisine}</h6>
-                                        <h6>{restaurant.address}</h6>
+                                    <div className='restaurant-img'>
                                         
                                     </div>
-                                    <p>
-                                    </p>
-
-                                </RestaurantIndexItem> 
-
-                            
+                                    <div className='restaurant-information'>
+                                        <h4>{restaurant.name}</h4>
+                                        <h6>{restaurant.cuisine}</h6>
+                                        <h6>{restaurant.address}</h6>                                    
+                                    </div>
+                                </RestaurantIndexItem>    
                                 ) 
                             })
                         }
+            </div>
 
-                        <button className="left-arrow" onClick={() => this.scroll('left')}></button>
-                        <button className="right-arrow" onClick={() => this.scroll('right')}></button>
-                       
             </div>
         );
     }

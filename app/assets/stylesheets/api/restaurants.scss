@@ -2,6 +2,22 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+@keyframes pulse{
+    0% {
+        box-shadow: 1px;
+        margin-top: 15px; 
+        height: 260px;
+        width: 230px;
+       }
+    100% {
+        box-shadow: 1px;
+        height: 265px;
+        width: 235px;
+        margin-top: 0px;
+    }
+}   
+
 .Cre-button{
     margin: 20px;
     background-color: rgb(247, 244, 244);
@@ -16,8 +32,6 @@
     }
     
 }
-
-
 .restaurant-form{
     display: flex;
     flex-direction: column;
@@ -37,26 +51,14 @@
     flex-direction: row;
     justify-content: flex-start;
     overflow-x: auto;
- 
     height: 280px;
     width: 800px;
     min-width: 330px;
     scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
-    // box-shadow: inset -.2em 0 .3em rgba(0, 0, 0, 0.653);
     border-left: rgba(0, 0, 0, 0.685);
     border-right: rgba(0, 0, 0, 0.584);
-    &:first-child {
-        margin-left: 100px;
-        background: red;
-    }
-
-    &:-webkit-scrollbar {
-        display: none;
-      }
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-
+    
 }
 
 
@@ -66,23 +68,37 @@
     color: rgb(91, 91, 91);
     height: 260px;
     width: 230px;
-    margin: 8px;
+    margin: 15px;
     box-sizing: border-box;
     flex-shrink: 0;
-    
+    scroll-snap-align: start;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     padding: 10px;
     border-radius: 4px;
-    // box-shadow:  -.2em 0 .3em rgba(0, 0, 0, 0.548);
+
+    &:hover{
+        animation: pulse 500ms forwards;
+    }
 }
 
-
-.left-arrow{
-    z-index: 3;
+.arrow{
+    margin: none;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: rgb(203, 201, 204);
+}
+.left-pointer{
+    &:hover{
+        background-color: rgb(179, 37, 37);
+    }
 }
 
-.right-arrow{
- z-index: 10000;
+.right-pointer{
+    &:hover{
+        background-color: rgb(95, 185, 54);
+    }
 }
+
