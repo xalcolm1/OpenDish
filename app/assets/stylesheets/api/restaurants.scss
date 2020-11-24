@@ -5,13 +5,13 @@
 
 @keyframes pop{
     0% {
-        box-shadow: 1px;
-        margin-top: 15px; 
+        // box-shadow: 7px 7px 11px -3px rgba(0,0,0,0);
+        margin-top: 10px;
         height: 260px;
         width: 230px;
        }
     100% {
-        box-shadow: 1px;
+        box-shadow: 0px 2px 5px -2px rgba(0,0,0,0.69);    
         height: 265px;
         width: 235px;
         margin-top: 0px;
@@ -52,7 +52,6 @@
     -webkit-overflow-scrolling: touch;
     
     box-sizing: border-box;
-    background-color: rgba(255, 255, 255, 0);
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -61,10 +60,9 @@
     min-width: 330px;
     scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
-    border-left: rgba(0, 0, 0, 0.685);
-    border-right: rgba(0, 0, 0, 0.584);
-    overflow-x: auto;
-    overflow-y: hidden;
+    // overflow-x: auto;
+    // overflow-y: hidden;
+    overflow: hidden;
 }
 
 
@@ -74,7 +72,7 @@
     color: rgb(91, 91, 91);
     height: 260px;
     width: 230px;
-    margin: 15px;
+    margin: 10px;
     box-sizing: border-box;
     flex-shrink: 0;
     scroll-snap-align: start;
@@ -85,31 +83,48 @@
     border-radius: 4px;
 
     &:hover{
-        animation: pop 500ms forwards;
+        animation: pop 400ms forwards;
     }
+  
 }
 
 
 .arrow{ 
     position: relative;
-    // top: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin: none;
     height: 40px;
     width: 40px;
+    border: grey 1px solid;
     border-radius: 50%;
-    background-color: rgb(203, 201, 204);
+    background-color: rgb(234, 230, 236);
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.164);
+
 }
 .left-pointer{
-    left: 18px;
+    left: 20px;
+    transform: rotate(180deg);
     &:hover{
-        background-color: rgb(179, 37, 37);
+        height: 38px;
+        width: 38px;
+        border: 2px green solid;
+
     }
 }
 
 .right-pointer{
     right:  18px;
     &:hover{
-        background-color: rgb(95, 185, 54);
+        height: 38px;
+        width: 38px;
+        border: 2px green solid;
     }
 }
 
+.arrow-svg{
+    height: 15px;
+    margin-top: 1px;
+    margin-left: 2px;
+}

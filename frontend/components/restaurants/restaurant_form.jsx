@@ -18,35 +18,82 @@ class RestaurantForm extends React.Component{
     }
     
     handleSubmit() {
-        this.props.action(this.state)
+        this.props.action(this.state);
+
+        // e.preventDefault();
+        const formData = new FormData();
+        // formData.append('post[title]', this.state.title);
+        if (this.state.photoFile) {
+      
+          formData.append('restaurant[photo]', this.state.photoFile);
+        }
+        $.ajax({
+          url: '/api/restaurants',
+          method: 'POST',
+          data: formData,
+          contentType: false,
+          processData: false
+        });
+    
+    }
+
+    previewFile() {
+        e => {
+              const reader = new FileReader();
+            const file = e.currentTarget.files[0];
+            reader.onloadend = () =>
+            this.setState({ imageUrl: reader.result, imageFile: file });
+            if (file) {
+                reader.readAsDataURL(file);
+            } else {
+                this.setState({ imageUrl: "", imageFile: null });
+            }
+            console.log(this.state.imageUrl)
+        
+        }
+     
     }
 
     render() {
+        debugger
         return(
+            <div>
+                <img src={this.state.imageUrl} alt="idk"/>
             <form onSubmit={this.handleSubmit} className='restaurant-form'>
                
                 <input 
                     type="text" 
                     onChange={this.handleInput('name')}
                     placeholder='Name'
-                />
+                    />
                 <input 
                     type="text" 
                     onChange={this.handleInput('address')}
                     placeholder='Address'
-                />
+                    />
                 <input 
                     type="text" 
                     onChange={this.handleInput('cuisine')}
                     placeholder='Cuisine'
-                />
-                
+                    />
+
+                <input 
+                    type="file" 
+                    name="restaurant image" 
+                    onChange={this.previewFile()}
+                    className="file-chooser"
+                    /> 
+                <img src={this.state.imageUrl} alt=""/>
                 <input 
                     type="submit" 
                     value="Create Restaurant"
-                />
+                    />
+
+               
+
 
             </form>
+        </div>
         );  
     }
     

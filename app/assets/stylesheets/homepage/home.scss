@@ -26,6 +26,7 @@
     color: white;
     background-color: rgb(49, 96, 60);
     border-color: rgb(49, 96, 60);
+    // flex-grow: 0;
 }
 .find-restaurant:hover{
     height: 35px;
@@ -38,6 +39,18 @@
 .searchbar{
     display: flex;
     flex-direction: row;
-    align-content: space-between;
+    align-content: baseline;
+    flex-wrap: wrap;
 
+
+}
+
+.headline {
+    margin: 16px;
+    font-size: 100%;
+    font-weight: 700;
+}
+.params{
+    display: flex;
+    flex-wrap: wrap;
 }

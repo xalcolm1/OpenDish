@@ -1,15 +1,15 @@
 import React from 'react';
 
-export class RestaurantIndex extends React.Component{
-    constructor(props){
-        super(props);
-        this.state = {
-            left: 0
-        }
-        this.slider = React.createRef()
-    }
+//fix this::
 
-    scroll(direction){
+const RestaurantCategory = (props) => {
+
+    React.useEffect(() => {
+
+    },[])
+
+    const slider = React.useRef()
+    const scroll = (direction) => {
         
         let offset;
         direction === 'left' ? offset = -800 : offset = 800;
@@ -22,20 +22,23 @@ export class RestaurantIndex extends React.Component{
 
           this.slider.current.scrollBy(offset ,0)  
     }
-    
-    componentDidMount() {
-        this.props.search({owner_id: this.props.currentUser.id, address: '', cuisine: '', name: ''})
-    }
-    render() {
-        return (
+    return (
+        <section>
+            <div>
+                <title>
+            
+                </title>
+                <div>See all</div>
+            </div>
+
             <div className='outer-restaurant-index'>
                     <div className="left-pointer arrow" onClick={() => this.scroll('left')}><img src={window.ArrowURL} alt='&#x2347;' className="arrow-svg"/>	</div>
 
-                <div className='restaurant-index' ref={this.slider}>
+                <div className='restaurant-index' ref={slider}>
                     {
-                        this.props.restaurants.map((restaurant) => {
+                        props.restaurants.map((restaurant) => {
                             return(
-                                <RestaurantIndexItem key={restaurant.id}>
+                                <div className='restaurant-index-item' key={restaurant.id}>
                                         <div className='restaurant-img'>
                                             
                                         </div>
@@ -44,7 +47,7 @@ export class RestaurantIndex extends React.Component{
                                             <h6>{restaurant.cuisine}</h6>
                                             <h6>{restaurant.address}</h6>                                    
                                         </div>
-                                    </RestaurantIndexItem>    
+                                    </div>    
                                     ) 
                                 })
                             }
@@ -53,18 +56,6 @@ export class RestaurantIndex extends React.Component{
                 <div className="right-pointer arrow" onClick={() => this.scroll('right')}><img src={window.ArrowURL} alt='&#x2347;' className="arrow-svg"/>	</div>       
 
             </div>
-        );
-    }
-    
-};
-
-export function RestaurantIndexItem(props) {
-
-    return (
-        <div className='restaurant-index-item'>
-            {props.children}
-        </div>
-    );
-};
-
-
+        </section>
+    )
+}
