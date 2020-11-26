@@ -4,19 +4,19 @@ class Api::RestaurantsController < ApplicationController
 
 
     def search 
-        
+        debugger
         params.require(:q).permit(:owner_id, :name, :address, :cuisine)
 
         sql_string = ""
         
         if(params[:q][:name].present?)
-            sql_string += " name LIKE %#{params[:q][:name]}%"
+            sql_string += " name LIKE '%#{params[:q][:name]}%'"
 
         elsif(params[:q][:address].present?)
-            sql_string += " address LIKE %#{params[:q][:address]}%"
+            sql_string += " address LIKE '%#{params[:q][:address]}%'"
 
         elsif (params[:q][:cuisine].present?)
-            sql_string += " cuisine LIKE %#{params[:q][:cuisine]}%"
+            sql_string += " cuisine LIKE '%#{params[:q][:cuisine]}%'"
 
         elsif (params[:q][:owner_id].present?)
             sql_string += " owner_id = #{params[:q][:owner_id]}"

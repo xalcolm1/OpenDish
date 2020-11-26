@@ -24,7 +24,10 @@ export class RestaurantIndex extends React.Component{
     }
     
     componentDidMount() {
-        this.props.search({owner_id: this.props.currentUser.id, address: '', cuisine: '', name: ''})
+
+        this.props.search({owner_id: this.props.currentUser.id})
+        
+        //, address: '', cuisine: '', name: ''
     }
     render() {
         return (
@@ -36,18 +39,18 @@ export class RestaurantIndex extends React.Component{
                         this.props.restaurants.map((restaurant) => {
                             return(
                                 <RestaurantIndexItem key={restaurant.id}>
-                                        <div className='restaurant-img'>
-                                            
-                                        </div>
-                                        <div className='restaurant-information'>
-                                            <h4>{restaurant.name}</h4>
-                                            <h6>{restaurant.cuisine}</h6>
-                                            <h6>{restaurant.address}</h6>                                    
-                                        </div>
-                                    </RestaurantIndexItem>    
-                                    ) 
-                                })
-                            }
+                                    <div className='restaurant-img'>
+                                        
+                                    </div>
+                                    <div className='restaurant-information'>
+                                        <h4>{restaurant.name}</h4>
+                                        <h6>{restaurant.cuisine}</h6>
+                                        <h6>{restaurant.address}</h6>                                    
+                                    </div>
+                                </RestaurantIndexItem>    
+                            ) 
+                        })
+                    }
                 </div>
                 
                 <div className="right-pointer arrow" onClick={() => this.scroll('right')}><img src={window.ArrowURL} alt='&#x2347;' className="arrow-svg"/>	</div>       
