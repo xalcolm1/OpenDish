@@ -115,6 +115,13 @@ button{
 	text-decoration: none;
 	color: black;
 }
+a{
+	text-decoration: none;
+	color: rgb(96, 141, 52);
+	&:hover{
+		color: rgb(60, 85, 34);
+	}
+}
 .modal-backdrop{
 	background-color: rgba(2, 2, 2, 0.486);
     position: absolute;
@@ -126,10 +133,6 @@ button{
     left: 0;
     right: 0;
     z-index: 2;
-}
-a{
-	text-decoration: none;
-	color: rgb(96, 141, 52);
 }
 .modal{
 	height: 350px;

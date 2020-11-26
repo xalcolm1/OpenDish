@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+// need to run animations in async manner --note to self
 @keyframes pop{
     0% {
         // box-shadow: 7px 7px 11px -3px rgba(0,0,0,0);
@@ -38,7 +39,6 @@
     align-items: center;
     justify-content: space-around;
     height: 100%;
-    
 }
 
 .outer-restaurant-index{
@@ -46,7 +46,6 @@
     flex-direction: row;
     align-items: center;
 }
-
 .restaurant-index{
     
     -webkit-overflow-scrolling: touch;
@@ -62,6 +61,7 @@
     scroll-snap-type: x mandatory;
     // overflow-x: auto;
     // overflow-y: hidden;
+    
     overflow: hidden;
 }
 

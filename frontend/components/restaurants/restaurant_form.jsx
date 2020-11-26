@@ -21,19 +21,19 @@ class RestaurantForm extends React.Component{
         this.props.action(this.state);
 
         // e.preventDefault();
-        const formData = new FormData();
-        // formData.append('post[title]', this.state.title);
-        if (this.state.photoFile) {
+        // const formData = new FormData();
+        // // formData.append('post[title]', this.state.title);
+        // if (this.state.photoFile) {
       
-          formData.append('restaurant[photo]', this.state.photoFile);
-        }
-        $.ajax({
-          url: '/api/restaurants',
-          method: 'POST',
-          data: formData,
-          contentType: false,
-          processData: false
-        });
+        //   formData.append('restaurant[photo]', this.state.photoFile);
+        // }
+        // $.ajax({
+        //   url: '/api/restaurants',
+        //   method: 'POST',
+        //   data: formData,
+        //   contentType: false,
+        //   processData: false
+        // });
     
     }
 
@@ -55,10 +55,9 @@ class RestaurantForm extends React.Component{
     }
 
     render() {
-        debugger
+        
         return(
             <div>
-                <img src={this.state.imageUrl} alt="idk"/>
             <form onSubmit={this.handleSubmit} className='restaurant-form'>
                
                 <input 
@@ -76,14 +75,14 @@ class RestaurantForm extends React.Component{
                     onChange={this.handleInput('cuisine')}
                     placeholder='Cuisine'
                     />
-
+                
                 <input 
                     type="file" 
                     name="restaurant image" 
                     onChange={this.previewFile()}
                     className="file-chooser"
+
                     /> 
-                <img src={this.state.imageUrl} alt=""/>
                 <input 
                     type="submit" 
                     value="Create Restaurant"

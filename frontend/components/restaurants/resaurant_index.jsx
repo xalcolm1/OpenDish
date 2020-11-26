@@ -1,5 +1,5 @@
 import React from 'react';
-
+//if restaurant index does not appear on heroku run rails heroku run db:migrate:seed
 export class RestaurantIndex extends React.Component{
     constructor(props){
         super(props);

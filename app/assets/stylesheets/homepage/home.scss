@@ -36,6 +36,19 @@
     border-color: rgb(41, 80, 50);
 }
 
+
+.search-text{
+    
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+
+}
+
+.search{
+    flex-grow: 2;
+}
+
 .searchbar{
     display: flex;
     flex-direction: row;

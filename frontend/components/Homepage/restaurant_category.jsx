@@ -1,6 +1,6 @@
 import React from 'react';
 
-//fix this::
+//fix this:::::::::::::::
 
 const RestaurantCategory = (props) => {
 
