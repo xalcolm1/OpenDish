@@ -15,10 +15,11 @@ const RestaurantSearch = (props) => {
    
     const handleSearch = () => {
         console.log(query);
-        // props.search({address: query, cuisine: query, name: query});
-        props.search({owner_id: props.currentUser.id, name: "souvla"});
-        console.log(props.restaurants);
+        props.search({address: query, cuisine: query, name: query});
+        // props.search({name: "query"});
+        console.log(props.restaurants)
     }
+
     
     return (
         <div className="searchbar" >
@@ -39,7 +40,6 @@ const RestaurantSearch = (props) => {
 //connect search action from actions
 const mSTP = state => {
     return {
-        currentUser: state.session,
         restaurants: state.entities.restaurants
     }
 }
