@@ -41,6 +41,11 @@
     height: 100%;
 }
 
+.restaurant-show{
+    margin: 0 auto 0;
+    padding: 50px;
+}
+
 .outer-restaurant-index{
     display: flex;
     flex-direction: row;
@@ -88,6 +93,16 @@
   
 }
 
+.restaurant-search-index{
+    margin: 0 auto 0;
+    width: 65%;
+}
+
+.restaurant-search-index-item{
+    padding: 50px;
+    border-bottom: 1px  rgb(201, 201, 201) solid;
+}
+
 
 .arrow{ 
     position: relative;
@@ -127,4 +142,10 @@
     height: 15px;
     margin-top: 1px;
     margin-left: 2px;
+}
+
+.results-found{
+    text-align: center;
+    padding: 50px;
+    border-bottom: 1px #c9c9c9 solid;
 }

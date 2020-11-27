@@ -104,16 +104,9 @@ main{
 h1{
 	font-size: 22px;
 }
-.errors{
-	color: red
-}
+
 button{
 	appearance: none;
-}
-
-.pretty-link{
-	text-decoration: none;
-	color: black;
 }
 a{
 	text-decoration: none;
@@ -122,6 +115,20 @@ a{
 		color: rgb(60, 85, 34);
 	}
 }
+
+#root{
+	background-color: #f7f7f7;
+}
+
+.errors{
+	color: red
+}
+
+.pretty-link{
+	text-decoration: none;
+	color: black;
+}
+
 .modal-backdrop{
 	background-color: rgba(2, 2, 2, 0.486);
     position: absolute;
@@ -161,7 +168,3 @@ a{
     border:1px solid;
 	align-self: flex-end;
 }
-
-// .external-links{
-
-// }

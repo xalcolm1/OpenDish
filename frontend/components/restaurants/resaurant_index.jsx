@@ -1,4 +1,5 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 //if restaurant index does not appear on heroku run rails heroku run db:migrate:seed
 export class RestaurantIndex extends React.Component{
     constructor(props){
@@ -26,6 +27,10 @@ export class RestaurantIndex extends React.Component{
     componentDidMount() {
 
         this.props.search({owner_id: this.props.currentUser.id})
+        .then(() => {
+            return (<Redirect to="/restaurants"/>)
+        })
+        this.setState({})
         
         //, address: '', cuisine: '', name: ''
     }

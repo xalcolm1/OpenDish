@@ -16,21 +16,21 @@ user1 = User.create!(
 )
 restaurant1 = Restaurant.create!(
     owner_id: user1.id,
-    name: "burrito spot",
-    cuisine: "mexican",
+    name: "Burrito Spot",
+    cuisine: "Mexican",
     address: "1212 13th Street, San Francisco CA, United-States"
 )
 restaurant2 = Restaurant.create!(
     owner_id: user1.id,
-    name: "",
-    cuisine: "Mediterranean",
+    name: "Ciao",
+    cuisine: "Italian",
     address: "11 10th Street, Ithica NY, United-States"
 )
 
 restaurant3 = Restaurant.create!(
     owner_id: user1.id,
-    name: "boba guys",
-    cuisine: "boba",
+    name: "Boba Guys",
+    cuisine: "Boba",
     address: "8 Octavia Street, San Francisco CA, United-States"
 )
 restaurant4 = Restaurant.create!(
@@ -42,7 +42,7 @@ restaurant4 = Restaurant.create!(
 
 restaurant5 = Restaurant.create!(
     owner_id: user1.id,
-    name: "burrito spot",
-    cuisine: "mexican",
+    name: "Burrito Spot",
+    cuisine: "Mexican",
     address: "12 Post Street, San Francisco CA, United-States"
 )

@@ -13,7 +13,8 @@
 #  updated_at   :datetime         not null
 #
 class Restaurant < ApplicationRecord
-    validates :owner_id, :address, :name, null: false
+    validates :owner_id, :address, :name,  presence: true
+
 
     has_one_attached :photo
 

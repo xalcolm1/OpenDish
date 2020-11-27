@@ -4,13 +4,15 @@ import { getRestaurant } from '../../actions/restaurant_actions';
 
 class RestaurantShowPage extends React.Component {
     componentDidMount(){
+        this.props.getRestaurant(this.props.match.params.restaurantId)
     }
     render(){
     return (
         <div className="restaurant-show">
             
-                <h1>
-                </h1>
+            {this.props.restaurant ?<h1>{this.props.restaurant.name}</h1> : null}
+
+
 
                 <div >
                     When the hearth fire turns to blue<br/>

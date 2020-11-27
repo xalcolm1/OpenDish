@@ -6,7 +6,7 @@ import {
 
 const restaurantReducer = (state = {}, action) => {
 
-
+// refactor for search 
 
     Object.freeze(state);
     let newState = Object.assign({}, state);

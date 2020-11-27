@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { searchRestaurants } from '../../actions/restaurant_actions';
+import { withRouter } from 'react-router';
 
 const RestaurantSearch = (props) => {
   
@@ -14,12 +15,16 @@ const RestaurantSearch = (props) => {
     const [query, setQuery] = useState('');
    
     const handleSearch = () => {
-        console.log(query);
-        props.search({address: query, cuisine: query, name: query});
-        // props.search({name: "query"});
-        console.log(props.restaurants)
+        if(query.length > 0){
+        props.search({address: query, cuisine: query, name: query})
+        .then(() => {
+            props.history.push('restaurants');
+        })       
+       }
     }
 
+
+    //  next step make a restaurant index for displaying all restaurants 
     
     return (
         <div className="searchbar" >
@@ -38,16 +43,12 @@ const RestaurantSearch = (props) => {
 }
 
 //connect search action from actions
-const mSTP = state => {
-    return {
+const mSTP = state => ({
         restaurants: state.entities.restaurants
-    }
-}
+})
 
-const mDTP = dispatch => {
-    return {
+const mDTP = dispatch => ({
         search: (query) => dispatch(searchRestaurants(query)) 
-    }
-}
+})
 
-export default connect(mSTP, mDTP)(RestaurantSearch);
+export default withRouter(connect(mSTP, mDTP)(RestaurantSearch));

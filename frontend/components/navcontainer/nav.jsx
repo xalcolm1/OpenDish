@@ -22,7 +22,7 @@ const Navbar = props => {
                     <PrettyLink to={`/users/${currentUser.id}`} >profile</PrettyLink>
                 </NavItem>
                 <NavItem>
-                    <PrettyLink to={`/restaurants/${currentUser.id}`} >restaurants</PrettyLink>
+                    <PrettyLink to={`/restaurants`} >restaurants</PrettyLink>
                 </NavItem>
 
             </NavList>
