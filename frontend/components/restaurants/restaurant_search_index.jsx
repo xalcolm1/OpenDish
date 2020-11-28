@@ -2,7 +2,6 @@ import React from "react";
 import { connect } from "react-redux";
 
 const RestaurantSearchIndex = (props) => {
-debugger
     return (
         <div>
             <h1 className="results-found">{(Object.values(props.restaurants).length !== 0 )? ("Results") :  ("No Results Found") }</h1>
