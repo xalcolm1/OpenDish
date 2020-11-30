@@ -50,7 +50,7 @@ const mapStateToProps = (state, ownProps) => {
     
 
     return {
-         restaurant: state.entities.restaurants[ownProps.match.params.restaurantId]
+         restaurant: state.entities.restaurants.all[ownProps.match.params.restaurantId]
     }
 }
 const mapDispatchToProps = dispatch => {

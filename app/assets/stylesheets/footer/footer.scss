@@ -2,36 +2,43 @@ footer{
     padding-top: 18px;
     align-self: flex-end;
     display: flex;
-    align-items: center;
+    // align-items: center;
 
     width: 100%;
-    
+
     // flex-direction: row;
     // justify-content: space-around;
     // align-content: space-around;
     // background-color: #2d333f;
     background: #2d333f;
 // background: linear-gradient(0deg, rgba(18,23,32,1) 76%, rgba(28,41,71,1) 79%, rgba(106,106,106,1) 88%, rgba(161,161,161,1) 94%, rgba(255,255,255,1) 100%);
-    color: rgb(155, 154, 154);
+    color: rgb(204, 204, 204);
 }
 
 .resources{
     margin: 20px 80px 20px;
     width: 100%;
+    min-height: 20vh;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
-    align-content: space-between;
+
+    align-content: center;
 }
 
 .sources{
-	display: flex;
-	flex-direction: column;
-	align-items: space-around;
+    display: flex;
+    // max-width: 33%;
+	flex-flow: row wrap;
+    justify-content: space-between;
+    padding-bottom: 50px;
+    margin-bottom: 50px;
+    border-bottom: 1px rgb(124, 124, 124) solid;
 }
 .external-links{
-	display: flex;
-	flex-direction: column;
-	justify-content: space-around;
+    display: flex;
+    max-width: 33%;
+    flex-flow: row wrap;
+	justify-content: space-evenly;
 
 }

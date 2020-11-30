@@ -4,24 +4,26 @@ import {
     DELETE_RESTAURANT
 } from '../actions/restaurant_actions';
 
-const restaurantReducer = (state = {}, action) => {
+const restaurantReducer = (state = {all: {}, search: {}, categories: {}}, action) => {
 
-// refactor for search 
+// refactor for categories 
 
     Object.freeze(state);
     let newState = Object.assign({}, state);
 
     switch(action.type){
         case RECIEVE_ALL_RESTAURANTS:
-            newState = action.restaurants;
+            newState.all = action.restaurants;
             return newState;
             
         case RECIEVE_RESTAURANT:
-            newState[action.restaurant.id] = action.restaurant;
+            newState.all[action.restaurant.id] = action.restaurant;
             return newState;
+        
+        
 
         case DELETE_RESTAURANT:
-            delete newState[action.id];
+            delete newState.all[action.id];
             return newState;
 
         default:
@@ -32,7 +34,4 @@ const restaurantReducer = (state = {}, action) => {
 
 export default restaurantReducer;
 
-//     See a man without a face?
-// Move like Ghosts from place to place.
-// What’s their Plan? What’s their plan?
-// Chandrian. Chandrian.
+//  

@@ -55,6 +55,9 @@ $light-color2: rgb(200, 200, 200);
     border-radius: 4px;
     text-decoration: none;
     border:1px solid;
+    &:hover{
+        color: $light-color2;
+    }
 }
 
 .signup{
@@ -64,6 +67,10 @@ $light-color2: rgb(200, 200, 200);
     border-color: rgb(58, 138, 192);
 
     color: white;
+    &:hover{
+        color: white;
+    }
+   
 }
 .close{
     align-self: flex-end;

@@ -44,7 +44,7 @@ const RestaurantSearch = (props) => {
 
 //connect search action from actions
 const mSTP = state => ({
-        restaurants: state.entities.restaurants
+        restaurants: state.entities.restaurants.all
 })
 
 const mDTP = dispatch => ({

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 //if restaurant index does not appear on heroku run rails heroku run db:migrate:seed
 export class RestaurantIndex extends React.Component{
     constructor(props){
@@ -27,10 +27,10 @@ export class RestaurantIndex extends React.Component{
     componentDidMount() {
 
         this.props.search({owner_id: this.props.currentUser.id})
-        .then(() => {
-            return (<Redirect to="/restaurants"/>)
-        })
-        this.setState({})
+        // .then(() => {
+        //     return (<Redirect to="/restaurants"/>)
+        // })
+        // this.setState({})
         
         //, address: '', cuisine: '', name: ''
     }
@@ -43,16 +43,18 @@ export class RestaurantIndex extends React.Component{
                     {
                         this.props.restaurants.map((restaurant) => {
                             return(
-                                <RestaurantIndexItem key={restaurant.id}>
-                                    <div className='restaurant-img'>
-                                        
-                                    </div>
-                                    <div className='restaurant-information'>
-                                        <h4>{restaurant.name}</h4>
-                                        <h6>{restaurant.cuisine}</h6>
-                                        <h6>{restaurant.address}</h6>                                    
-                                    </div>
-                                </RestaurantIndexItem>    
+                                <Link to={`/restaurants/${restaurant.id}`}>
+                                    <RestaurantIndexItem key={restaurant.id}>
+                                        <div className='restaurant-img'>
+                                            
+                                        </div>
+                                        <div className='restaurant-information'>
+                                            <h4>{restaurant.name}</h4>
+                                            <h6>{restaurant.cuisine}</h6>
+                                            <h6>{restaurant.address}</h6>                                    
+                                        </div>
+                                    </RestaurantIndexItem>    
+                                </Link>
                             ) 
                         })
                     }

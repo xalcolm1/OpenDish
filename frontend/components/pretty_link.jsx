@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 //so I only need to style one classname
 function PrettyLink(props){
     return (
-        <NavLink to={props.to}  onClick={props.onClick ? props.onClick : null}className="pretty-link">
+        <NavLink to={props.to}  onClick={props.onClick ? props.onClick : null} className="pretty-link">
             {props.children}
         </NavLink> 
     )
