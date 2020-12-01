@@ -8,40 +8,35 @@ class RestaurantShowPage extends React.Component {
     }
     render(){
     return (
-        <div className="restaurant-show">
-            
-            {this.props.restaurant ?<h1>{this.props.restaurant.name}</h1> : null}
+        <div>
+            <div>
+             
+                <div className="restaurant-show">
+                    
+                    {this.props.restaurant ?<h1>{this.props.restaurant.name}</h1> : null}
 
 
+
+                    <div className='review'>
+                            reviews will go here
+                    </div>
+
+                    
+                </div>  
 
                 <div >
-                    When the hearth fire turns to blue<br/>
-                    What to do? What to do?<br/>
-                    Run outside.  Run and hide.<br/>
-                    <br/>
-                    When your bright sword turns to rust<br/>
-                    Who to trust? Who to trust?<br/>
-                    Stand alone. Standing stone.<br/>
-                    <br/>
-                    See a woman pale as Snow?<br/>
-                    Silent come and silent go.<br/>
-                    What’s their plan? What’s their plan?<br/>
-                    Chandrian. Chandrian.<br/>
-                    <br/>
-                    When the hearth fire turns to blue<br/>
-                    What to do? What to do?<br/>
-                    Run outside.  Run and hide.<br/>
-                    <br/>
-                    When his eyes are black as crow<br/>
-                    Where to go? Where to go?<br/>
-                    Near and far. Here they are.<br/>
-                    <br/>
-                    <br/>
-                    reviews will go here
+                        <div className='reservation'>
+                            make a reservation
+                        </div>
+                        
+                        <div>
+
+                        </div>
                 </div>
 
-            
-        </div>)
+            </div>
+        </div>
+        )
     }
 
 }
@@ -58,4 +53,4 @@ const mapDispatchToProps = dispatch => {
         getRestaurant: (id) => dispatch(getRestaurant(id))
     }
 }
-export default connect(null,mapDispatchToProps)(RestaurantShowPage);
+export default connect(mapStateToProps,mapDispatchToProps)(RestaurantShowPage);
