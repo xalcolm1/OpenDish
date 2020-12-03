@@ -21,7 +21,7 @@
 
 .Cre-button{
     margin: 20px;
-    background-color: rgb(247, 244, 244);
+    background-color: rgb(243, 243, 243);
     color: rgb(83, 83, 83);
     text-align: center;
     width: 200px;
@@ -44,12 +44,13 @@
 .restaurant-show{
     margin: 0 auto 0;
     padding: 50px;
-}
+}f
 
 .outer-restaurant-index{
     display: flex;
     flex-direction: row;
     align-items: center;
+    width: 90%;
 }
 .restaurant-index{
     
@@ -60,7 +61,7 @@
     flex-direction: row;
     justify-content: flex-start;
     height: 280px;
-    width: 800px;
+    width: 80%;
     min-width: 330px;
     scroll-behavior: smooth;
     scroll-snap-type: x mandatory;

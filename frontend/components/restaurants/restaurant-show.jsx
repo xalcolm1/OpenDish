@@ -9,29 +9,25 @@ class RestaurantShowPage extends React.Component {
     render(){
     return (
         <div>
-            <div>
+{/* 
+    element.style {
+    flex-direction: column;
+    display: flex;
+    align-items: center; */}
+            <div className='restaurants'>
              
-                <div className="restaurant-show">
+                <div className="restaurant-box">
                     
                     {this.props.restaurant ?<h1>{this.props.restaurant.name}</h1> : null}
 
-
-
-                    <div className='review'>
-                            reviews will go here
-                    </div>
-
-                    
                 </div>  
 
-                <div >
+                <div className='reservation-box' >
                         <div className='reservation'>
                             make a reservation
                         </div>
                         
-                        <div>
-
-                        </div>
+                     
                 </div>
 
             </div>
