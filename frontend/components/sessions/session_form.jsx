@@ -69,7 +69,7 @@ class sessionForm extends React.Component {
                         (formType === "Sign Up") ? (
                             <>
                                 <div className="form-top">
-                                <h1>Welcome to Table Ouverte!</h1>
+                                <h2>Welcome to Table Ouverte!</h2>
 
 
                                     <Link to="/" className="sesh close">&#x1F33F;</Link>
@@ -95,7 +95,7 @@ class sessionForm extends React.Component {
                         ) : (
                             <>
                                 <div className="form-top">
-                                    <h1>Please sign in</h1>
+                                    <h2>Please sign in</h2>
 
                                     <Link to="/" className="sesh close">&#x1F33F;</Link>
                                 </div>

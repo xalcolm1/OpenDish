@@ -10,5 +10,4 @@
 #  updated_at   :datetime         not null
 json.extract! @restaurant, :id, :owner_id, :name, :address, :cuisine
 json.photoUrl url_for(@restaurant.photo)
-json.backgroundUrl url_for(@restaurant.background)
 # json.images json.array! do ||

@@ -155,10 +155,13 @@ Link {
     z-index: 2;
 }
 .modal{
-	height: 350px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 380px;
 	width: 400px;
 	padding: 20px;
-	background-color: rgb(245, 239, 239);
+	background-color: rgb(245, 245, 245);
 	border-radius: 4px;
 	padding-bottom: 55px;
 	
@@ -175,7 +178,7 @@ Link {
     padding: 5px 10px;
 	background-color: rgb(253, 253, 253);
     color: $light-color2;
-    border-color: $light-color2;
+    border-bottom:2px solid $light-color2;
     border-radius: 4px;
     text-decoration: none;
     border:1px solid;
