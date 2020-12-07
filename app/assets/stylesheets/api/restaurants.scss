@@ -150,3 +150,14 @@
     padding: 50px;
     border-bottom: 1px #c9c9c9 solid;
 }
+
+.restaurants{
+    display: grid;
+    grid-template-rows: repeat(5, 1fr);
+    grid-template-columns: 2fr 1fr;
+    column-gap: 1rem;
+}
+
+.restaurant-box{
+    background-color: white;
+}

@@ -19,7 +19,7 @@ class RestaurantShowPage extends React.Component {
                 <div className="restaurant-box">
                     
                     {this.props.restaurant ?<h1>{this.props.restaurant.name}</h1> : null}
-
+                    
                 </div>  
 
                 <div className='reservation-box' >

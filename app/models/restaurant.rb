@@ -17,7 +17,8 @@ class Restaurant < ApplicationRecord
 
 
     has_one_attached :photo
-
+    has_many_attached :images
+    
     belongs_to :owner,
         foreign_key: :owner_id,
         class_name: :User

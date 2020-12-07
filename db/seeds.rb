@@ -46,3 +46,4 @@ restaurant5 = Restaurant.create!(
     cuisine: "Mexican",
     address: "12 Post Street, San Francisco CA, United-States"
 )
+
