@@ -8,15 +8,16 @@ class RestaurantForm extends React.Component{
         super(props);
         this.state = this.props.restaurant
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.previewFile = this.previewFile.bind(this);
     }
+    
     handleInput(field) {
-        
-        return  e => {
-            
+        return  e => {   
             this.setState({ [field]: e.target.value });
         }
     }
-    
+ 
+
     handleSubmit() {
         this.props.action(this.state);
 
@@ -39,10 +40,10 @@ class RestaurantForm extends React.Component{
 
     previewFile() {
         e => {
-              const reader = new FileReader();
+            const reader = new FileReader();
             const file = e.currentTarget.files[0];
             reader.onloadend = () =>
-            this.setState({ imageUrl: reader.result, imageFile: file });
+            this.setState({ photo: reader.result, photo: file });
             if (file) {
                 reader.readAsDataURL(file);
             } else {
@@ -79,7 +80,7 @@ class RestaurantForm extends React.Component{
                 <input 
                     type="file" 
                     name="restaurant image" 
-                    onChange={this.previewFile()}
+                    onChange={this.handleInput('photo')}
                     className="file-chooser"
 
                     /> 
@@ -103,7 +104,8 @@ const mapStateToProps = state => ({
         owner_id: state.session.id,
         name: '',
         address: '',
-        cuisine: ''
+        cuisine: '', 
+        photo: null
     },
     formType: 'restaurant-create'
 })

@@ -42,7 +42,7 @@ class Api::RestaurantsController < ApplicationController
     end
     
     def show
-        @restaurant = Restaurant.find_by(owner_id: current_user.id)
+        @restaurant = Restaurant.find_by(id: params[:id])
         render :show
     end
 
@@ -74,7 +74,7 @@ class Api::RestaurantsController < ApplicationController
     end
 
     def restaurant_params
-        params.require(:restaurant).permit(:owner_id, :name, :address, :cuisine, :photo, :images)
+        params.require(:restaurant).permit(:id, :owner_id, :name, :address, :cuisine, :photo, images: [])
     end
 
 end

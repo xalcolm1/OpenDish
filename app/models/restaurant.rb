@@ -17,6 +17,7 @@ class Restaurant < ApplicationRecord
 
 
     has_one_attached :photo
+    has_one_attached :background
     has_many_attached :images
     
     belongs_to :owner,
