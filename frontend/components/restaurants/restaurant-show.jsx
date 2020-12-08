@@ -15,7 +15,7 @@ class RestaurantShowPage extends React.Component {
     return (
         // <>
         <div className='backdrop'>
-            <img src="" alt="restaurant img" className="background-img" height='200'/>
+            <img src="" alt="restaurant img" className="background-img"/>
             
             <div className='restaurant'>
              

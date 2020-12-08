@@ -1,5 +1,5 @@
 import React from 'react';
-import RestaurantSearch from '../restaurants/restaurant_search';
+import RestaurantSearch from '../restaurants/restaurant_search/restaurant_search';
 import RestaurantCategories from '../restaurants/restaurant_categories';
 
 const Homepage = props => (

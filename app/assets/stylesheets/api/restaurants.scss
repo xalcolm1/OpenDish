@@ -61,7 +61,7 @@
     flex-direction: row;
     justify-content: flex-start;
     height: 280px;
-    width: 90%;
+    width: 95%;
     min-width: 330px;
     scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
@@ -152,15 +152,20 @@
     border-bottom: 1px #c9c9c9 solid;
 }
  ////restaurant showpage
-
+.backdrop{
+    z-index: 2;
+}
 .restaurant{
+
     display: flex;
     max-width: 992px;
-    margin-left: auto;
-    margin-right: auto;
+    justify-content: space-around;
+    margin: 150px auto 0 auto ;
+    // margin-left: auto;
+    // margin-right: auto;
     min-height: 600px;
     max-height: 1000px;
-    margin-top: 100px;
+    // margin-top: 100px;
     
     // grid-template-rows: 200px 3fr 2fr ;
     // grid-template-columns: 2fr 1fr;
@@ -218,4 +223,28 @@
     height: 200px;
     border-radius: 4px;
     background-color: white;
+}
+.background-img{
+    height: 210px;
+	max-width: 1600px ;
+    position: absolute;
+    z-index: -1;
+    background-color: honeydew;
+
+}
+.file{
+    display: flex;
+    justify-content: flex-start;
+}
+
+.file > *{
+    padding: 4px;
+    height: 80px;
+
+}
+
+.file > input{
+    border: none;
+    width: 90%;
+
 }

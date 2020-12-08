@@ -1,9 +1,12 @@
 
 export const createRestaurant = restaurant => {
+    debugger
     return $.ajax({
         url: "/api/restaurants",
         method: "POST",
-        data: { restaurant }
+        data: { restaurant },
+        // contentType: false,
+        // processData: false
     })
 }
 

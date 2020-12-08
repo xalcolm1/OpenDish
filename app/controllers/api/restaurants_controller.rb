@@ -8,29 +8,29 @@ class Api::RestaurantsController < ApplicationController
 
         sql_string = ""
         sql_order = ""
+
         if(params[:q][:name].present?)
             sql_string += " OR "if(sql_string.length > 1)
-            p sql_string
+
             sql_string += " lower(name) LIKE '%#{params[:q][:name]}%'"
         end
+
         if(params[:q][:address].present?)
             sql_string += " OR "if(sql_string.length > 1)
-            p sql_string
 
             sql_string += " lower(address) LIKE '%#{params[:q][:address]}%'"
         end
+
         if (params[:q][:cuisine].present?)
             sql_string += " OR "if(sql_string.length > 1)
-            p sql_string
 
             sql_string += " lower(cuisine) LIKE '%#{params[:q][:cuisine]}%'"
         end
+
         if (params[:q][:owner_id].present?)
             sql_string += " OR "if(sql_string.length > 1)
-            p sql_string
 
             sql_string += " owner_id = #{params[:q][:owner_id]}"
-
         end
 
         sql_order = " ORDER BY #{sql_order} DESC" if(sql_order.length > 0)
@@ -38,9 +38,8 @@ class Api::RestaurantsController < ApplicationController
             
         @restaurants = Restaurant.find_by_sql(sql_string)
         render '/api/restaurants/index'
-
     end
-    
+
     def show
         @restaurant = Restaurant.find_by(id: params[:id])
         render :show
@@ -52,13 +51,14 @@ class Api::RestaurantsController < ApplicationController
     end 
 
     def create
+        
         @restaurant = Restaurant.new(restaurant_params)
         if @restaurant && @restaurant.save
+            
             render json: @restaurant
         else
             render json: @restaurant.errors.full_messages, status: 401
         end
-
     end
 
     def destroy
@@ -66,11 +66,9 @@ class Api::RestaurantsController < ApplicationController
 
         if @restaurant.destroy
             render json: {}
-
         else
             render json: @restaurant.errors.full_messages, status: 422
         end
-
     end
 
     def restaurant_params

@@ -42,8 +42,9 @@ restaurant4 = Restaurant.create!(
 
 restaurant5 = Restaurant.create!(
     owner_id: user1.id,
-    name: "Burrito Spot",
-    cuisine: "Mexican",
-    address: "12 Post Street, San Francisco CA, United-States"
+    name: "Souvla",
+    cuisine: "Greek",
+    address: "517 Hayes Street, San Francisco CA, United-States"
 )
 
+restaurant1.photo.attach(io: File.open('/Users/malcolm/Downloads/greek_food.jpg'), filename: 'greek_food.jpg')

@@ -8,7 +8,7 @@ import HomePage from './Homepage/Homepage'
 import Modal from './modal/modal';
 import UserShowPage from './Homepage/user_show_page';
 import RestaurantShowPage from './restaurants/restaurant-show';
-import RestaurantSearchIndex from './restaurants/restaurant_search_index';
+import RestaurantSearchIndex from './restaurants/restaurant_search/restaurant_search_index';
 const App = () => (
     <>
         <header className='hbar'>

@@ -18,7 +18,7 @@ export class RestaurantIndex extends React.Component{
         let newPosition = this.slider.current.scrollLeft + offset ;
         let overflow = newPosition === width;
         
-        if(overflow) this.slider.current.scrollTo(0,0);
+        if(overflow) this.slider.current.scrollTo(7,0);
         if((newPosition < 8 )&&(direction === 'left')) this.slider.current.scrollTo(width,0);
 
           this.slider.current.scrollBy(offset ,0)  
@@ -35,9 +35,14 @@ export class RestaurantIndex extends React.Component{
         //, address: '', cuisine: '', name: ''
     }
     render() {
+        
         return (
             <div className='outer-restaurant-index'>
-                    <div className="left-pointer arrow" onClick={() => this.scroll('left')}><img src={window.ArrowURL} alt='&#x2347;' className="arrow-svg"/>	</div>
+                
+                        <div className="left-pointer arrow" onClick={() => this.scroll('left')}>
+                                <img src={window.ArrowURL} alt='&#x2347;' className="arrow-svg"/>
+                        </div>
+          
 
                 <div className='restaurant-index' ref={this.slider}>
                     {
@@ -59,9 +64,11 @@ export class RestaurantIndex extends React.Component{
                         })
                     }
                 </div>
-                
-                <div className="right-pointer arrow" onClick={() => this.scroll('right')}><img src={window.ArrowURL} alt='&#x2347;' className="arrow-svg"/>	</div>       
-
+          
+                        <div className="right-pointer arrow" onClick={() => this.scroll('right')}>
+                            <img src={window.ArrowURL} alt='&#x2347;' className="arrow-svg"/>
+                        </div>       
+              
             </div>
         );
     }
