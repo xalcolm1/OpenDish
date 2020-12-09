@@ -184,3 +184,25 @@ Link {
     border:1px solid;
 	align-self: flex-end;
 }
+
+.sticky{
+	position: sticky;
+	top: 0;
+	background-color: white;
+}
+.selection-nav{
+	padding: 9.5px;
+}
+.selection-nav > *{
+	margin-left: 30px;
+	color: black;
+	padding: 8px;
+	&:first-child{
+		margin-left: 0;
+	}
+	&:hover{
+		color: rgb(48, 148, 48);
+		border-bottom: 2px green solid;
+	}
+
+}

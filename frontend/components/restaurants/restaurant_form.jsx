@@ -35,16 +35,17 @@ class RestaurantForm extends React.Component{
             //   formData.append('restaurant[photo]', this.state.photoFile);
     
             // }
-              let restaurant = {
+            let restaurant = {
                 owner_id: this.state.owner_id,
                 name: this.state.name,
                 address: this.state.address,
                 cuisine: this.state.cuisine
-                }
-    
-            if (this.state.photoFile) restaurant[photo] = this.state.photoFile
-            
-            this.props.action(restaurant).then(r => {console.log(r)});
+
+            }
+
+            if (this.state.imageFile !== null) restaurant['photo'] = this.state.imageFile
+
+            this.props.action(restaurant).then(r => {debugger});
         }
     }
 
@@ -60,7 +61,7 @@ class RestaurantForm extends React.Component{
             if (file) {
                 reader.readAsDataURL(file);
             } else {
-                this.setState({ imageUrl: "", imageFile: null });
+                this.setState({ imageUrl: "", imageFile: null});
             }
 
         }

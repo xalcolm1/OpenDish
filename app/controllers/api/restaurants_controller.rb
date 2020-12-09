@@ -51,7 +51,7 @@ class Api::RestaurantsController < ApplicationController
     end 
 
     def create
-        
+        debugger
         @restaurant = Restaurant.new(restaurant_params)
         if @restaurant && @restaurant.save
             

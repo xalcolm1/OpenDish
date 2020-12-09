@@ -5,8 +5,8 @@ export const createRestaurant = restaurant => {
         url: "/api/restaurants",
         method: "POST",
         data: { restaurant },
-        // contentType: false,
-        // processData: false
+        contentType: false,
+        processData: false
     })
 }
 
