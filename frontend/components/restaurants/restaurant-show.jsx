@@ -27,7 +27,8 @@ class RestaurantShowPage extends React.Component {
             <div className='restaurant'>
              
                 <main className="restaurant-box">
-                    <nav className="selection-nav sticky"> 
+                    <nav className="selection-nav sticky">
+                        <a href="#overview">Overview</a>
                         <a href="#menu">Menu</a>
                         <a href="#photos">Photos</a>
                         <a href="#reviews">Reviews</a>
