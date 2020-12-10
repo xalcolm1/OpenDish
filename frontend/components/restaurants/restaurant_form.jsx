@@ -22,34 +22,37 @@ class RestaurantForm extends React.Component{
         
         return e => {
 
+
             e.preventDefault();
-            // const formData = new FormData();
-            // // formData.append('post[title]', this.state.title); 
-         
-            // formData.append('restaurant[owner_id]', this.state.owner_id);
-            // formData.append('restaurant[name]', this.state.name);
-            // formData.append('restaurant[address]', this.state.address);
-            // formData.append('restaurant[cuisine]', this.state.cuisine);
-    
-            // if (this.state.photoFile) {
-            //   formData.append('restaurant[photo]', this.state.photoFile);
-    
-            // }
-            let restaurant = {
-                owner_id: this.state.owner_id,
-                name: this.state.name,
-                address: this.state.address,
-                cuisine: this.state.cuisine
+            const restaurant = new FormData();
+            // formData.append('post[title]', this.state.title); 
+            debugger
+
+            restaurant.append('restaurant[owner_id]', this.state.owner_id);
+            restaurant.append('restaurant[name]', this.state.name);
+            restaurant.append('restaurant[address]', this.state.address);
+            restaurant.append('restaurant[cuisine]', this.state.cuisine);
+            if (this.state.photoFile !== null) {
+              restaurant.append('restaurant[photo]', this.state.photoFile);
 
             }
+            // let restaurant = {
+            //     owner_id: this.state.owner_id,
+            //     name: this.state.name,
+            //     address: this.state.address,
+            //     cuisine: this.state.cuisine
 
-            if (this.state.imageFile !== null) restaurant['photo'] = this.state.imageFile
+            // }
 
-            this.props.action(restaurant).then(r => {debugger});
+            // if (this.state.imageFile !== null) restaurant['photo'] = this.state.imageFile
+
+            this.props.action(restaurant)
+            console.log(restaurant)
         }
     }
 
     previewFile() {
+        
        return e => {
             
             const reader = new FileReader();

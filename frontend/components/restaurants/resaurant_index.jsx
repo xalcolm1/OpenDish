@@ -50,7 +50,10 @@ export class RestaurantIndex extends React.Component{
                             return(
                                 <Link to={`/restaurants/${restaurant.id}`}>
                                     <RestaurantIndexItem key={restaurant.id}>
-                                        <div className='restaurant-img'>
+                                        <div 
+                                            className='restaurant-img'
+                                            style={{backgroundImage : `url(${this.props.imageUrl ? this.props.imageUrl : ivyWallURL})`}}
+                                            >
                                             
                                         </div>
                                         <div className='restaurant-information'>

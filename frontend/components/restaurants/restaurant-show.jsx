@@ -18,7 +18,7 @@ class RestaurantShowPage extends React.Component {
         <div className='backdrop'>
             <div 
             style={{backgroundImage : `url(${this.props.imageUrl ? this.props.imageUrl : ivyWallURL})`}}
-            className="background-img">
+            className="restaurant img-img">
                 {/* <img src={this.props.imageUrl ? this.props.imageUrl : ivyWallURL} alt="" /> */}
             </div>
            

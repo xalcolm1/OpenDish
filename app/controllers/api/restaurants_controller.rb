@@ -52,9 +52,9 @@ class Api::RestaurantsController < ApplicationController
 
     def create
         debugger
-        @restaurant = Restaurant.new(restaurant_params)
+        @restaurant = Restaurant.create!(restaurant_params)#is c?reate neccessary
         if @restaurant && @restaurant.save
-            
+            # @restaurant.photo.attach(restaurant_params[:photo]) 
             render json: @restaurant
         else
             render json: @restaurant.errors.full_messages, status: 401

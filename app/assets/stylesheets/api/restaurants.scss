@@ -84,8 +84,8 @@
     scroll-snap-align: start;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    padding: 10px;
+    // justify-content: space-around;
+
     border-radius: 4px;
 
     &:hover{
@@ -94,6 +94,22 @@
   
 }
 
+
+.restaurant-information{
+    padding:  18px 8px 8px 8px;
+    overflow-x: scroll;
+}
+.restaurant-img{
+    background-position: center bottom;
+    background-size: cover;
+    position: relative;
+    // top: -21px;
+    // left: -10px;
+    height: 130px;
+    // width: 228px;
+    border-radius:3px 3px 0 0 ;
+  
+}
 .restaurant-search-index{
     margin: 0 auto 0;
     width: 65%;
@@ -106,6 +122,7 @@
 
 
 .arrow{ 
+    z-index: 1;
     position: relative;
     top: 45%;
     display: flex;
@@ -149,6 +166,7 @@
 .results-found{
     text-align: center;
     padding: 50px;
+    border-top: 1px #f5f1f1 solid;
     border-bottom: 1px #c9c9c9 solid;
 }
  ////restaurant showpage
@@ -223,29 +241,23 @@
 }
 
 .reservation-box > * {
-    // box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.164);
     text-align: center;
     width: 266px;
     height: 200px;
     border-radius: 4px;
     background-color: white;
+    // box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.164);
 }
 .background-img{
     min-height: 210px;
     height: 21vw;
     min-width: 665px;
     max-width: 1600px;
-    // position: absolute;
     z-index: -1;
-    // overflow: hidden;
     background-position: center bottom;
     background-size: cover;
     
     // background-position: center center;
-
-
-
-
 }
 .file{
     display: flex;

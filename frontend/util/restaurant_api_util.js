@@ -1,10 +1,10 @@
 
 export const createRestaurant = restaurant => {
-    debugger
+
     return $.ajax({
         url: "/api/restaurants",
         method: "POST",
-        data: { restaurant },
+        data:  restaurant ,//removed {}
         contentType: false,
         processData: false
     })

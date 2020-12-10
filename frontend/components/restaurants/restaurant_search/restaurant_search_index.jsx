@@ -6,7 +6,7 @@ const RestaurantSearchIndex = (props) => {
 
     return (
         <div>
-            <h1 className="results-found">{(Object.values(props.restaurants).length !== 0 )? ("Results") :  ("No Results Found") }</h1>
+            <h2 className="results-found">{(Object.values(props.restaurants).length !== 0 )? ("Results") :  ("No Results Found") }</h2>
             <div className="restaurant-search-index">
                 
 
@@ -14,13 +14,23 @@ const RestaurantSearchIndex = (props) => {
                 
                         Object.values(props.restaurants).map(restaurant => {
                             return (
-                                <Link  to={`/restaurants/${restaurant.id}`} key={restaurant.id}>
-                                    <div className="restaurant-search-index-item">
-                                        <h1>{restaurant.name}</h1>
-                                        <h3>{restaurant.address}</h3>
-                                        <h5>{restaurant.cuisine}</h5>
+                               
+                                    <div className="restaurant-search-index-item"  key={restaurant.id}>
+                                        <div 
+                                             style={{backgroundImage : `url(${props.imageUrl ? props.imageUrl : ivyWallURL})`}}
+                                            className="card-img">
+                                            <Link  to={`/restaurants/${restaurant.id}`}/>
+                                        </div>
+                                        <div className="left">
+                                            <Link  to={`/restaurants/${restaurant.id}`}>
+                                                <h2>{restaurant.name}</h2>
+                                            </Link>
+                                            <h3>{restaurant.address}</h3>
+                                            <h5>{restaurant.cuisine}</h5>
+                                        </div>
+                                        
                                     </div>
-                                </Link>
+                                
                             )
                     }) 
                     

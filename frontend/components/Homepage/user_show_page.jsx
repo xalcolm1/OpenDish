@@ -18,21 +18,24 @@ class UserShowPage extends React.Component {
         return (
             
             <div className='profile-page'>
-                <h1>
+                <h1 id="profile-header">
                     your profile
                 </h1>
     
-                    <Modal formType="Create Restaurant">
-                        <RestaurantForm/>
-                    </Modal>
-                    <div className="index-title">
-                         <PrettyLink to="/restaurants" className="all-restaurants">All your restaurants</PrettyLink> 
-                    </div>
-                    <RestaurantIndex 
-                    restaurants={restaurants}
-                    search={search}
-                    currentUser={currentUser}
-                    />
+                <Modal formType="Create Restaurant">
+                    <RestaurantForm/>
+                </Modal>
+
+                <div className="index-title">
+                        <PrettyLink to="/restaurants" className="all-restaurants">All your restaurants</PrettyLink> 
+                </div>
+
+                <RestaurantIndex 
+                restaurants={restaurants}
+                search={search}
+                currentUser={currentUser}
+                />
+
             </div>
         )
         
