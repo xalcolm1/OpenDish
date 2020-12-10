@@ -102,11 +102,9 @@
 .restaurant-img{
     background-position: center bottom;
     background-size: cover;
-    position: relative;
-    // top: -21px;
-    // left: -10px;
+
+
     height: 130px;
-    // width: 228px;
     border-radius:3px 3px 0 0 ;
   
 }
@@ -116,11 +114,23 @@
 }
 
 .restaurant-search-index-item{
+    display: flex;
+
     padding: 50px;
     border-bottom: 1px  rgb(201, 201, 201) solid;
 }
 
-
+.left{
+    margin-left: 10px;
+    
+}
+.card-img{
+    height: 150px;
+    width: 150px;
+    border-radius: 4px;
+    background-position: center bottom;
+    background-size: cover;
+}
 .arrow{ 
     z-index: 1;
     position: relative;
