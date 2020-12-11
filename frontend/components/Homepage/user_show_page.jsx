@@ -21,7 +21,7 @@ class UserShowPage extends React.Component {
             
             <div className='profile-page'>
                 <h1 id="profile-header">
-                    {this.props.currentUser.firstname}'s profile
+                     profile
                 </h1>
     
                 <Modal formType="Create Restaurant">

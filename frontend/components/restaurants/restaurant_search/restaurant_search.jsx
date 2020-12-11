@@ -35,7 +35,7 @@ const RestaurantSearch = (props) => {
             </div>
 
             <div className="search-text">
-                <input type="text" className="restaurant-data search" onChange={(event) => setQuery(event.target.value)} placeholder="search restaurants, cuisine or location" />
+                <input type="text" className="search" onChange={(event) => setQuery(event.target.value)} placeholder="search restaurants, cuisine or location" />
                 <input type="submit" value="Search" className="find-restaurant"  />
             </div>
         </form>

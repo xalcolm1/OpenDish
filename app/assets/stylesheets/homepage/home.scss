@@ -2,7 +2,6 @@
 
 .restaurant-finder{
     background-image: image-url('table.jpeg');
-    height: 417px;
     background-position: center;
     background-size: cover; 
     display: flex;
@@ -10,35 +9,47 @@
     justify-content: center;
     align-items: center;
     color: white;
+    min-height: 417px;
 }
 .table-img{
   width: 100%;
 }
 
 .restaurant-data{
-    height: 33px;
+    height: 38px;
     width: 150px;
+    border-radius: 0px;
+    &:first-child{
+        border-radius:  4px 0 0 4px ;
+    }
+    &:last-child{
+        border-radius: 0 4px  4px 0   ;
+    }
+
 }
 
 .find-restaurant{
-    height: 35px;
-    width: 80px;
+    margin-left: 10px;
+    text-align: center;
+    height: 40px;
+    width: 170px;
     color: white;
-    background-color: rgb(49, 96, 60);
-    border-color: rgb(49, 96, 60);
+    padding: 5px 20px;
+
+    background-color:  #52c352;
+    border-color:  #52c352;
     // flex-grow: 0;
-}
-.find-restaurant:hover{
-    height: 35px;
-    width: 80px;
-    color: white;
-    background-color: rgb(41, 80, 50);
-    border-color: rgb(41, 80, 50);
+    &:hover{
+
+        background-color:  #3ba23b;
+        border-color:  #3ba23b;
+    }
+    flex-grow: 0;
 }
 
 
 .search-text{
-    
+    margin-left: 10px;
     display: flex;
     flex-direction: row;
     align-items: stretch;
@@ -46,7 +57,8 @@
 }
 
 .search{
-    flex-grow: 2;
+    height: 38px;
+    flex-grow: 1;
 }
 
 .searchbar{
@@ -55,12 +67,18 @@
     align-content: baseline;
     flex-wrap: wrap;
 
+    margin-left: 50px;
+    margin-right: 50px;
 
+
+}
+.params > * {
+    height: 38px;
 }
 
 .headline {
     margin: 16px;
-    font-size: 100%;
+
     font-weight: 700;
 }
 .params{

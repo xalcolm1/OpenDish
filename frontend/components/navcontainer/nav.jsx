@@ -15,15 +15,18 @@ const Navbar = props => {
     const LoggedInLinks = () => (
         <hgroup className="signedin" >
             <NavList title="Profile">
-                <NavItem>
-                    <PrettyLink to="/"  onClick={() => logout()} > Log Out</PrettyLink>  
-                </NavItem>
-                <NavItem>
-                    <PrettyLink to={`/users/${currentUser.id}`} >profile</PrettyLink>
-                </NavItem>
-                <NavItem>
-                    <PrettyLink to={`/restaurants`} >restaurants</PrettyLink>
-                </NavItem>
+                
+                <PrettyLink to="/"  onClick={() => logout()} >
+                    <NavItem> Log Out</NavItem>
+                </PrettyLink>  
+                <PrettyLink to={`/users/${currentUser.id}`} >
+                    <NavItem> profile </NavItem>
+                </PrettyLink>
+                
+                <PrettyLink to={`/restaurants`} >
+                    <NavItem>restaurants</NavItem>
+                </PrettyLink>
+                
 
             </NavList>
              
