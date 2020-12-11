@@ -9,10 +9,11 @@
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 
-# json.set! restaurant.id do
-    # json.extract! @restaurant, :id, :owner_id, :name, :address, :cuisine
-    # json.photoUrl url_for(@restaurant.photo) if @restaurant.photo.attached?
-# end
+json.set! @restaurant.id do
 
-json.extract! @restaurant, :id, :owner_id, :name, :address, :cuisine
-json.photoUrl url_for(@restaurant.photo) if @restaurant.photo.attached?
+    json.extract! @restaurant, :id, :owner_id, :name, :address, :cuisine
+    json.photoUrl url_for(@restaurant.photo) if @restaurant.photo.attached?
+end
+
+# json.extract! @restaurant, :id, :owner_id, :name, :address, :cuisine
+# json.photoUrl url_for(@restaurant.photo) if @restaurant.photo.attached?

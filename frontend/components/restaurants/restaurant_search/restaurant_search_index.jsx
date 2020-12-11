@@ -16,11 +16,12 @@ const RestaurantSearchIndex = (props) => {
                             return (
                                
                                     <div className="restaurant-search-index-item"  key={restaurant.id}>
-                                        <div 
-                                             style={{backgroundImage : `url(${props.imageUrl ? props.imageUrl : ivyWallURL})`}}
-                                            className="card-img">
-                                            <Link  to={`/restaurants/${restaurant.id}`}/>
-                                        </div>
+                                        <Link  to={`/restaurants/${restaurant.id}`}>
+                                            <div 
+                                                style={{backgroundImage : `url(${restaurant.photoUrl ? restaurant.photoUrl : ivyWallURL})`}}
+                                                className="card-img">
+                                            </div>
+                                        </Link>
                                         <div className="left">
                                             <Link  to={`/restaurants/${restaurant.id}`}>
                                                 <h2>{restaurant.name}</h2>

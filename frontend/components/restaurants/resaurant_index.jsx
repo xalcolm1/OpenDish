@@ -18,10 +18,15 @@ export class RestaurantIndex extends React.Component{
         let newPosition = this.slider.current.scrollLeft + offset ;
         let overflow = newPosition === width;
         
-        if(overflow) this.slider.current.scrollTo(7,0);
-        if((newPosition < 8 )&&(direction === 'left')) this.slider.current.scrollTo(width,0);
+        if(overflow) {this.slider.current.scrollTo(7,0)} 
+        
+        if((newPosition < 8 )&&(direction === 'left')){ this.slider.current.scrollTo(width,0)}
+     
+            this.slider.current.scrollBy(offset ,0) 
+        
 
-          this.slider.current.scrollBy(offset ,0)  
+        
+
     }
     
     componentDidMount() {
@@ -39,10 +44,15 @@ export class RestaurantIndex extends React.Component{
         return (
             <div className='outer-restaurant-index'>
                 
-                        <div className="left-pointer arrow" onClick={() => this.scroll('left')}>
+                  
+                        {/* {
+                        (this.slider.current && this.slider.current.scrollLeft - 800 > this.slider.current.scrollWidth) ? */}
+                            <div className="left-pointer arrow" onClick={() => this.scroll('left')}>
                                 <img src={window.ArrowURL} alt='&#x2347;' className="arrow-svg"/>
-                        </div>
-          
+                            </div>  
+                        {/* :
+                            null
+                    } */}
 
                 <div className='restaurant-index' ref={this.slider}>
                     {
@@ -52,7 +62,7 @@ export class RestaurantIndex extends React.Component{
                                     <RestaurantIndexItem key={restaurant.id}>
                                         <div 
                                             className='restaurant-img'
-                                            style={{backgroundImage : `url(${this.props.imageUrl ? this.props.imageUrl : ivyWallURL})`}}
+                                            style={{backgroundImage : `url(${restaurant.photoUrl ? restaurant.photoUrl: ivyWallURL})`}}
                                             >
                                             
                                         </div>
@@ -67,10 +77,14 @@ export class RestaurantIndex extends React.Component{
                         })
                     }
                 </div>
-          
+                    {/* {
+                        (this.slider.current && this.slider.current.scrollLeft + 800 < this.slider.current.scrollWidth) ? */}
                         <div className="right-pointer arrow" onClick={() => this.scroll('right')}>
                             <img src={window.ArrowURL} alt='&#x2347;' className="arrow-svg"/>
                         </div>       
+                         {/* :
+                        null
+                     } */}
               
             </div>
         );

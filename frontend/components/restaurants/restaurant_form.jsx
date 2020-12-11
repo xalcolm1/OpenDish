@@ -25,8 +25,7 @@ class RestaurantForm extends React.Component{
 
             e.preventDefault();
             const restaurant = new FormData();
-            // formData.append('post[title]', this.state.title); 
-            debugger
+            // debugger
 
             restaurant.append('restaurant[owner_id]', this.state.owner_id);
             restaurant.append('restaurant[name]', this.state.name);
@@ -47,14 +46,14 @@ class RestaurantForm extends React.Component{
             // if (this.state.imageFile !== null) restaurant['photo'] = this.state.imageFile
 
             this.props.action(restaurant)
-            console.log(restaurant)
+
         }
     }
 
     previewFile() {
         
        return e => {
-            
+
             const reader = new FileReader();
             const file = e.currentTarget.files[0];
         
@@ -121,7 +120,7 @@ const mapStateToProps = state => ({
         address: '',
         cuisine: '', 
         imageUrl: null,
-        fileUrl: null
+        imageFile: null
     },
     formType: 'restaurant-create'
 })

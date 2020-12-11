@@ -51,8 +51,8 @@ class Api::RestaurantsController < ApplicationController
     end 
 
     def create
-        debugger
-        @restaurant = Restaurant.create!(restaurant_params)#is c?reate neccessary
+
+        @restaurant = Restaurant.new(restaurant_params)#is c?reate neccessary
         if @restaurant && @restaurant.save
             # @restaurant.photo.attach(restaurant_params[:photo]) 
             render json: @restaurant

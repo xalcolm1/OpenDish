@@ -1,23 +1,24 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { getRestaurant } from '../../actions/restaurant_actions';
-// import { } from 'react-dom';
+import { Link } from 'react-router-dom';
 
 class RestaurantShowPage extends React.Component {
     componentDidMount(){
-        // debugger
+
 
 
         this.props.getRestaurant(this.props.match.params.restaurantId)
+        // debugger
     }
 
     render(){
-        // debugger
+
     return (
         // <>
         <div className='backdrop'>
             <div 
-            style={{backgroundImage : `url(${this.props.imageUrl ? this.props.imageUrl : ivyWallURL})`}}
+            style={{backgroundImage : `url(${this.props.restaurant.photoUrl ? this.props.restaurant.photoUrl : ivyWallURL})`}}
             className="background-img">
                 {/* <img src={this.props.imageUrl ? this.props.imageUrl : ivyWallURL} alt="" /> */}
             </div>
@@ -28,10 +29,10 @@ class RestaurantShowPage extends React.Component {
              
                 <main className="restaurant-box">
                     <nav className="selection-nav sticky">
-                        <a href="#overview">Overview</a>
-                        <a href="#menu">Menu</a>
-                        <a href="#photos">Photos</a>
-                        <a href="#reviews">Reviews</a>
+                        <Link to={`/restauarants/${this.props.match.params.restaurantId}#overview`}>Overview</Link>
+                        <Link to={`/restauarants/${this.props.match.params.restaurantId}#menu`}>Menu</Link>
+                        <Link to={`/restauarants/${this.props.match.params.restaurantId}#photos`}>Photos</Link>
+                        <Link to={`/restauarants/${this.props.match.params.restaurantId}#reviews`}>Reviews</Link>
                     </nav>
 
                     {this.props.restaurant ?
@@ -100,6 +101,7 @@ class RestaurantShowPage extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
+
     return {
          restaurant: state.entities.restaurants.all[ownProps.match.params.restaurantId]
     }

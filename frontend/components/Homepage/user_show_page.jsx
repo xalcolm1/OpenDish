@@ -8,18 +8,20 @@ import PrettyLink from '../pretty_link';
 
 
 
+
 class UserShowPage extends React.Component {
     constructor(props){
         super(props)
 
     }
+
     render() {
         const {search, currentUser, restaurants } = this.props
         return (
             
             <div className='profile-page'>
                 <h1 id="profile-header">
-                    your profile
+                    {this.props.currentUser.firstname}'s profile
                 </h1>
     
                 <Modal formType="Create Restaurant">
@@ -27,7 +29,7 @@ class UserShowPage extends React.Component {
                 </Modal>
 
                 <div className="index-title">
-                        <PrettyLink to="/restaurants" className="all-restaurants">All your restaurants</PrettyLink> 
+                        <PrettyLink to="/restaurants" className="all-restaurants">Your restaurants</PrettyLink> 
                 </div>
 
                 <RestaurantIndex 
@@ -53,7 +55,9 @@ const mapStateToProps = ({session, entities : {users, restaurants}}) => {
 const mapDispatchToProps = dispatch => {
     
     return{
-        search: (query) => dispatch(searchRestaurants(query))
+        search: (query) => dispatch(searchRestaurants(query)),
+
+
     }
 }
 

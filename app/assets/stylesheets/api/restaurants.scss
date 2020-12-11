@@ -8,13 +8,13 @@
     0% {
         // box-shadow: 7px 7px 11px -3px rgba(0,0,0,0);
         margin-top: 10px;
-        height: 260px;
-        width: 230px;
+        height: 254px;
+        width: 236px;
        }
     100% {
         box-shadow: 0px 2px 5px -2px rgba(0,0,0,0.69);    
-        height: 265px;
-        width: 235px;
+        height: 260px;
+        width: 240px;
         margin-top: 0px;
     }
 }   
@@ -76,8 +76,8 @@
     background-color: rgb(250, 250, 250);
     border: 1px  rgb(201, 201, 201) solid;
     color: rgb(91, 91, 91);
-    height: 260px;
-    width: 230px;
+    height: 254px;
+    width: 236px;
     margin: 10px;
     box-sizing: border-box;
     flex-shrink: 0;
@@ -100,11 +100,11 @@
     overflow-x: scroll;
 }
 .restaurant-img{
-    background-position: center bottom;
+    background-position: center;
     background-size: cover;
 
 
-    height: 130px;
+    height: 135px;
     border-radius:3px 3px 0 0 ;
   
 }
@@ -138,33 +138,34 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
     margin: none;
+
     height: 40px;
     width: 40px;
+    
     border: grey 1px solid;
     border-radius: 50%;
     background-color: rgb(234, 230, 236);
     box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.164);
 
+    &:hover{
+        height: 38px;
+        width: 38px;
+        border: 2px green solid;
+        border: 2px #26b826 solid;
+    }
+
 }
 .left-pointer{
     left: 20px;
     transform: rotate(180deg);
-    &:hover{
-        height: 38px;
-        width: 38px;
-        border: 2px green solid;
 
-    }
 }
 
 .right-pointer{
     right:  18px;
-    &:hover{
-        height: 38px;
-        width: 38px;
-        border: 2px green solid;
-    }
+
 }
 
 .arrow-svg{
@@ -260,12 +261,13 @@
 }
 .background-img{
     min-height: 210px;
-    height: 21vw;
+
+    height: 25vw;
     min-width: 665px;
     max-width: 1600px;
     z-index: -1;
-    background-position: center bottom;
-    background-size: cover;
+    background-position: center;
+    background-size: cover, contain;
     
     // background-position: center center;
 }
