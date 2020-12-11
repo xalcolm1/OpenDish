@@ -47,8 +47,8 @@ restaurant5 = Restaurant.create!(
     address: "517 Hayes Street, San Francisco CA, United-States"
 )
 
-restaurant1.photo.attach(io: File.open('/Users/malcolm/Downloads/Burrito.jpg'), filename: 'Burrito.jpg')
-restaurant5.photo.attach(io: File.open('/Users/malcolm/Downloads/greek_food.jpg'), filename: 'greek_food.jpg')
-restaurant2.photo.attach(io: File.open('/Users/malcolm/Downloads/italian.jpg'), filename: 'italian.jpg')
-restaurant3.photo.attach(io: File.open('/Users/malcolm/Downloads/bobaguys.jpg'), filename: 'bobaguys.jpg')
-restaurant4.photo.attach(io: File.open('/Users/malcolm/Downloads/burgers.jpg'), filename: 'burgers.jpg')
+# restaurant1.photo.attach(io: File.open('/Users/malcolm/Downloads/Burrito.jpg'), filename: 'Burrito.jpg')
+# restaurant5.photo.attach(io: File.open('/Users/malcolm/Downloads/greek_food.jpg'), filename: 'greek_food.jpg')
+# restaurant2.photo.attach(io: File.open('/Users/malcolm/Downloads/italian.jpg'), filename: 'italian.jpg')
+# restaurant3.photo.attach(io: File.open('/Users/malcolm/Downloads/bobaguys.jpg'), filename: 'bobaguys.jpg')
+# restaurant4.photo.attach(io: File.open('/Users/malcolm/Downloads/burgers.jpg'), filename: 'burgers.jpg')
