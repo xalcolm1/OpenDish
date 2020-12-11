@@ -25,6 +25,10 @@ class User < ApplicationRecord
         foreign_key: :owner_id,
         class_name: :Restaurant
 
+    has_many :reviews,
+        foreign_key: :user_id,
+        class_name: :Review
+
     has_one_attached :photo
 
     #spire
