@@ -101,12 +101,7 @@ class sessionForm extends React.Component {
                                 </div>
                                 
                                 {this.renderErrors()}                       
-                                <input  
-                                    type="submit" 
-                                    value="Demo" 
-                                    className="demoBTN" 
-                                    onClick={this.handleDemo }
-                                />
+                            
                             </> 
                         )
                     }
@@ -129,19 +124,31 @@ class sessionForm extends React.Component {
                     <input type="submit" value={formType} className="submitBTN" />
                     {
                         (formType === "Sign In") ? (
+                            <>
+                            <input  
+                                   type="submit" 
+                                   value="Demo" 
+                                   className="demoBTN" 
+                                   onClick={this.handleDemo }
+                               />
+                           
+
+                               
                         <div>
                             New to Table Ouverte?  
                             <Link  to="/signup" className="createAnAccount" >
                                  Create an account
                             </Link>
                         </div>
+                        </>
                         ): (
-                        <div>
-                            Already have an account? 
-                            <Link  to="/login" className="createAnAccount" >
-                                 Sign in !
-                            </Link>
-                        </div>
+                            <div>
+                                Already have an account? 
+                                <Link  to="/login" className="createAnAccount" >
+                                    Sign in !
+                                </Link>
+                            </div>
+                        
                         )
                     }
                 </form>   

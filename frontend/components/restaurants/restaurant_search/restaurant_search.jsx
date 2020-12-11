@@ -15,19 +15,23 @@ const RestaurantSearch = (props) => {
     const [query, setQuery] = useState('');
    
     const handleSearch = () => {
-        if(query.length > 0){
+        return e => {
+            e.preventDefault()
+            if(query.length > 0){
         props.search({address: query, cuisine: query, name: query})
         .then(() => {
             props.history.push('restaurants');
         })       
        }
+        }
+        
     }
 
 
     //  next step make a restaurant index for displaying all restaurants 
     
     return (
-        <form className="searchbar" onSubmit={() => handleSearch()}>
+        <form className="searchbar" onSubmit={handleSearch()}>
             <div className="params">
                 <input type="date" className="restaurant-data" placeholder='today' value={dateTime} onChange={(event) => setDateTime(event.value)}/>
                 <input type="time" className="restaurant-data" value={time} onChange={(event) => setTime(event.value)}/>
