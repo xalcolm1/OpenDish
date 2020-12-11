@@ -11,7 +11,7 @@
 #  restaurant_id :bigint           not null
 #
 class Review < ApplicationRecord
-    validates :body, :user_id, :restaurant_id, pressence: true
+    validates :body, :user_id, :restaurant_id,  presence: true
 
     belongs_to :user,
         foreign_key: :user_id,
