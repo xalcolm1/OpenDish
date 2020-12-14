@@ -1,3 +1,27 @@
 // Place all the styles related to the api/reviews controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    // unicode-bidi: bidi-override;
+    // direction: rt1;
+}
+.rating >   span {
+    color: rgb(224, 222, 222);
+    &:hover ~ :before,
+    &:hover:before{
+        content: "\2605";
+        position: absolute;
+        color: green
+    };
+    &:click ~ :before,
+    &:click:before{
+        content: "\2605";
+        position: absolute;
+        color: green
+    };
+    
+}

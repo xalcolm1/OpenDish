@@ -2,23 +2,30 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { getRestaurant } from '../../actions/restaurant_actions';
 import { Link } from 'react-router-dom';
+import Modal from '../modal/modal';
+import ReviewIndex from '../reviews/review_index';
+import ReviewForm from '../reviews/review_form';
 
-class RestaurantShowPage extends React.Component {
-    componentDidMount(){
+ 
+// class RestaurantShowPage extends React.Component {
+    // componentDidMount(){
 
 
 
-        this.props.getRestaurant(this.props.match.params.restaurantId)
-        // debugger
-    }
-
-    render(){
+    //     this.props.getRestaurant(this.props.match.params.restaurantId)
+    //     // debugger
+    // }
+    // render(){ return() }
+const RestaurantShowPage = props => {
+    React.useEffect(() =>  {
+        props.getRestaurant(props.match.params.restaurantId)
+    },[])
 
     return (
         // <>
         <div className='backdrop'>
             <div 
-            style={{backgroundImage : `url(${this.props.restaurant.photoUrl ? this.props.restaurant.photoUrl : ivyWallURL})`}}
+            style={{backgroundImage : `url(${props.restaurant ? props.restaurant.photoUrl : ivyWallURL})`}}
             className="background-img">
                 {/* <img src={this.props.imageUrl ? this.props.imageUrl : ivyWallURL} alt="" /> */}
             </div>
@@ -29,14 +36,14 @@ class RestaurantShowPage extends React.Component {
              
                 <main className="restaurant-box">
                     <nav className="selection-nav sticky">
-                        <Link to={`/restauarants/${this.props.match.params.restaurantId}#overview`}>Overview</Link>
-                        <Link to={`/restauarants/${this.props.match.params.restaurantId}#menu`}>Menu</Link>
-                        <Link to={`/restauarants/${this.props.match.params.restaurantId}#photos`}>Photos</Link>
-                        <Link to={`/restauarants/${this.props.match.params.restaurantId}#reviews`}>Reviews</Link>
+                        <Link to={`/restauarants/${props.match.params.restaurantId}#overview`}>Overview</Link>
+                        <Link to={`/restauarants/${props.match.params.restaurantId}#menu`}>Menu</Link>
+                        <Link to={`/restauarants/${props.match.params.restaurantId}#photos`}>Photos</Link>
+                        <Link to={`/restauarants/${props.match.params.restaurantId}#reviews`}>Reviews</Link>
                     </nav>
 
-                    {this.props.restaurant ?
-                    <h1 >{this.props.restaurant.name}</h1>
+                    {props.restaurant ?
+                    <h1 >{props.restaurant.name}</h1>
 
                     : null}
                     <h2 id="menu"> Menu</h2>
@@ -67,21 +74,10 @@ class RestaurantShowPage extends React.Component {
                               and billions upon billions upon billions upon billions upon billions upon billions upon billions.
                              </p>
                     <h2 id="reviews">Reviews</h2>
-                    <p>Rig Veda extraordinary claims require extraordinary evidence galaxies paroxysm of global
-                         death star stuff harvesting star light vanquish the impossible. Sed ut perspiciatis 
-                         unde omnis iste natus error sit voluptatem accusantium doloremque laudantium Quis autem vel eum iure reprehenderit
-                          qui in ea voluptate velit esse quam nihil molestiae consequatur adipisci velit globular star cluster ship of the imagination
-                           adipisci velit. How far away citizens of distant epochs citizens of distant epochs the sky calls to us inconspicuous motes of 
-                           rock and gas made in the interiors of collapsing stars.
-
-                            Dispassionate extraterrestrial observer Flatland Euclid Neque porro quisquam est galaxies sed quia consequuntur magni dolores
-                             eos qui ratione voluptatem sequi nesciunt. Preserve and cherish that pale blue dot cosmic ocean qui dolorem ipsum quia dolor sit amet emerged
-                             into consciousness inconspicuous motes of rock and gas vanquish the impossible? 
-                            Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit Nemo enim ipsam voluptatem
-                             quia voluptas sit aspernatur aut odit aut fugit inconspicuous motes of rock and gas extraordinary claims
-                             require extraordinary evidence intelligent beings sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam
-                             quaerat voluptatem and billions upon billions upon billions upon billions upon billions upon billions upon billions.
-                            </p>
+                        {/* <Modal formType="Write a Review"> */}
+                            <ReviewForm/>
+                        {/* </Modal> */}
+                        <ReviewIndex reviews={props.restaurant ? props.restaurant.reviews : null}/>
                     
                 </main>  
 
@@ -96,7 +92,6 @@ class RestaurantShowPage extends React.Component {
         </div>
         // </>
         )
-    }
 
 }
 

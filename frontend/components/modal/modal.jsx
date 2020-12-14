@@ -1,5 +1,5 @@
 import React,{useState, useRef} from 'react';
-import {connect} from 'react-redux';
+
 
 function Modal(props) {
    

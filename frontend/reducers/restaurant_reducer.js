@@ -1,8 +1,13 @@
 import {
     RECIEVE_RESTAURANT,
     RECIEVE_ALL_RESTAURANTS,
-    DELETE_RESTAURANT
+    DELETE_RESTAURANT,
 } from '../actions/restaurant_actions';
+
+// import {
+//     RECIEVE_REVIEW,
+//     DELETE_REVIEW
+// } from '../actions/review_actions';
 
 const restaurantReducer = (state = {all: {}, search: {}, categories: {}}, action) => {
 
@@ -17,11 +22,10 @@ const restaurantReducer = (state = {all: {}, search: {}, categories: {}}, action
             return newState;
             
         case RECIEVE_RESTAURANT:
+
             newState.all[action.restaurant.id] = action.restaurant;
             return newState;
         
-        
-
         case DELETE_RESTAURANT:
             delete newState.all[action.id];
             return newState;

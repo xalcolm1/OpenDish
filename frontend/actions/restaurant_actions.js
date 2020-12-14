@@ -5,7 +5,7 @@ export const RECIEVE_RESTAURANT = 'RECIEVE_RESTAURANT';
 export const RECIEVE_ALL_RESTAURANTS = 'RECIEVE_ALL_RESTAURANTS';
 export const DELETE_RESTAURANT = 'DELETE_RESTAURANT';
 
-const recieveRestaurant = restaurant => {
+export const recieveRestaurant = restaurant => {
     return {
         type: RECIEVE_RESTAURANT,
         restaurant

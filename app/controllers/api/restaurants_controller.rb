@@ -1,6 +1,6 @@
 class Api::RestaurantsController < ApplicationController
 
-    before_action :require_logged_in, only: [:create, :destroy]
+    before_action :require_logged_in, only: [:create, :update, :destroy]
 
 
     def search 
@@ -59,6 +59,10 @@ class Api::RestaurantsController < ApplicationController
         else
             render json: @restaurant.errors.full_messages, status: 401
         end
+    end
+
+    def update
+        
     end
 
     def destroy

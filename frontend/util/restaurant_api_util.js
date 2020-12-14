@@ -9,6 +9,17 @@ export const createRestaurant = restaurant => {
         processData: false
     })
 }
+ 
+export const updateRestaurant = restaurant => {
+
+    return $.ajax({
+        url: "/api/restaurants",
+        method: "UPDATE",
+        data:  restaurant ,//removed {}
+        contentType: false,
+        processData: false
+    })
+}
 
 export const deleteRestaurant = id => {
     return $.ajax({
