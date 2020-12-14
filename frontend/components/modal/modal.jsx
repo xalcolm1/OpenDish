@@ -6,8 +6,10 @@ function Modal(props) {
     const [open, setOpen] = useState();
    
     const {children, formType} = props;
-    const inside = useRef();
 
+    const handleClick = () => {
+           if (event.path[0].className === "modal-backdrop")setOpen(!open) 
+    }
     return (
         (!open) ? (
             <div 
@@ -15,8 +17,8 @@ function Modal(props) {
             className={`${formType.slice(0,3)}-button`}
             >{formType}</div>
         ) : (
-            <div className='modal-backdrop'>
-                <div className="modal" ref={inside} onSubmit={() => setOpen(!open)}>
+            <div className='modal-backdrop' onClick={() => handleClick()}>
+                <div className="modal" onSubmit={() => setOpen(!open)}>
                 
                     <div onClick={() => setOpen(!open)} className="modal-close">&#x1F33F;</div>
     

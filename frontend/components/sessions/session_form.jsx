@@ -13,6 +13,10 @@ class sessionForm extends React.Component {
         this.props.clearErrors();
     }
 
+    handleClick() {
+        debugger
+        if(event.path[0].className === "form-backdrop") this.props.history.push('/')
+    }
     handleInput(field) {
         
       return  e => {
@@ -61,7 +65,7 @@ class sessionForm extends React.Component {
        
     const { formType } = this.props;
         return (
-            <div className="form-backdrop" >
+            <div className="form-backdrop" onClick={() => this.handleClick()}>
                 
                 <form onSubmit={this.handleSubmit} className={this.props.classname}>
                    

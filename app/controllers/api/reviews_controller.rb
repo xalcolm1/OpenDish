@@ -6,7 +6,7 @@ class Api::ReviewsController < ApplicationController
         if review.save
             p 'success'
         else
-           p 'fail'
+            render json: review.errors.full_messages, status: 401
         end
     end
 
@@ -19,7 +19,7 @@ class Api::ReviewsController < ApplicationController
         if review.destroy
             p 'success'
         else
-            p 'fail'
+            review.errors.full_messages, status: 401
         end
 
     end
