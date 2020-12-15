@@ -74,9 +74,10 @@ const RestaurantShowPage = props => {
                               and billions upon billions upon billions upon billions upon billions upon billions upon billions.
                              </p>
                     <h2 id="reviews">Reviews</h2>
-                        {/* <Modal formType="Write a Review"> */}
-                            <ReviewForm restaurant={props.restaurant ? props.match.params.restaurantId : null}/>
-                        {/* </Modal> */}
+
+                            <ReviewForm restaurantId={props.restaurant ? props.match.params.restaurantId : null}/>
+
+
                         <ReviewIndex reviews={props.restaurant ? props.restaurant.reviews : null}/>
                     
                 </main>  

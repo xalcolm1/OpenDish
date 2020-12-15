@@ -9,30 +9,42 @@ class ReviewForm extends React.Component{
 
         this.state = {
             body: '',
-            rating: 1
-
+            overall: 1,
+            food: 1,
+            service: 1, 
+            ambiance: 1,
+            user_id: this.props.currentUser.id,
+            restaurant_id: this.props.restaurantId
         }
         this.handleClick = this.handleClick.bind(this)
     }
-    // const [body, setBody] = React.useState('');
-    // const [rating, setRating] = React.useState();
 
     handleSubmit(){
+        event.preventDefault()
 
-        createReview(this.state)  
+        this.props.createReview(this.state)  
         this.setState({
             body: '',
             rating: 1,
-            user_id: currentUser.id,
-            restaurant_id: props.restaurantId
+
         })
 
     }
     
-    handleClick(){
-
+    handleClick(rating){
         return e => {
-            this.setState({rating: parseInt(e.target.id)})
+            this.setState({[ rating ]: parseInt(e.target.id)});
+            // debugger
+            let ratingElements = e.target.parentElement.children;
+            let targetRating = e.target;
+            let color = "rgb(102, 218, 102)"
+
+            for(let i = ratingElements.length - 1; i >= 0; i--){
+                e.target.parentElement.children[i].style.color = color
+                if(ratingElements[i] === targetRating) color = "rgb(224, 222, 222)"
+            }
+
+
         }
     }
     render(){
@@ -40,14 +52,43 @@ class ReviewForm extends React.Component{
        return (
             <form 
             onSubmit={() => this.handleSubmit()}>
-                <div className="rating"> 
-                   <span id='5' onClick={this.handleClick()}>&#x2605;</span>
-                   <span id='4' onClick={this.handleClick()}>&#x2605;</span>
-                   <span id='3' onClick={this.handleClick()}>&#x2605;</span>
-                   <span id='2' onClick={this.handleClick()}>&#x2605;</span>
-                   <span id='1' onClick={this.handleClick()}>&#x2605;</span>
-                </div>
-                <textarea name="" id="" cols="30" rows="10" onChange={e => this.setState({body: e.target.value})}></textarea>
+                <label htmlFor="rating">Overall: </label>
+                <span className="rating"> 
+                   <span id='5' onClick={this.handleClick('overall')}>&#x2605;</span>
+                   <span id='4' onClick={this.handleClick('overall')}>&#x2605;</span>
+                   <span id='3' onClick={this.handleClick('overall')}>&#x2605;</span>
+                   <span id='2' onClick={this.handleClick('overall')}>&#x2605;</span>
+                   <span id='1' onClick={this.handleClick('overall')}>&#x2605;</span>
+                </span>
+                
+                <label htmlFor="rating1">Food: </label>
+                <span className="rating"> 
+                   <span id='5' onClick={this.handleClick('food')}>&#x2605;</span>
+                   <span id='4' onClick={this.handleClick('food')}>&#x2605;</span>
+                   <span id='3' onClick={this.handleClick('food')}>&#x2605;</span>
+                   <span id='2' onClick={this.handleClick('food')}>&#x2605;</span>
+                   <span id='1' onClick={this.handleClick('food')}>&#x2605;</span>
+                </span>
+
+                <label htmlFor="rating2">Service: </label>
+                <span className="rating"> 
+                   <span id='5' onClick={this.handleClick('service')}>&#x2605;</span>
+                   <span id='4' onClick={this.handleClick('service')}>&#x2605;</span>
+                   <span id='3' onClick={this.handleClick('service')}>&#x2605;</span>
+                   <span id='2' onClick={this.handleClick('service')}>&#x2605;</span>
+                   <span id='1' onClick={this.handleClick('service')}>&#x2605;</span>
+                </span>
+
+                <label htmlFor="rating3">Ambiance: </label>
+                <span className="rating"> 
+                   <span id='5' onClick={this.handleClick('ambiance')}>&#x2605;</span>
+                   <span id='4' onClick={this.handleClick('ambiance')}>&#x2605;</span>
+                   <span id='3' onClick={this.handleClick('ambiance')}>&#x2605;</span>
+                   <span id='2' onClick={this.handleClick('ambiance')}>&#x2605;</span>
+                   <span id='1' onClick={this.handleClick('ambiance')}>&#x2605;</span>
+                </span>
+
+                <textarea name="" id="" cols="30" rows="10" onChange={e => this.setState({body: e.target.value})} value={this.state.body}></textarea>
                 <input type="submit" value="publish"/>
             </form>
         )   

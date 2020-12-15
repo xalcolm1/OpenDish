@@ -3,8 +3,9 @@ class Api::ReviewsController < ApplicationController
 
     def create   
         review = Review.new(review_params)
+        debugger
         if review.save
-            p 'success'
+            render json: review
         else
             render json: review.errors.full_messages, status: 401
         end
@@ -19,12 +20,12 @@ class Api::ReviewsController < ApplicationController
         if review.destroy
             p 'success'
         else
-            review.errors.full_messages, status: 401
+            render json: review.errors.full_messages, status: 401
         end
 
     end
 
     def review_params
-        params.require(:review).permit(:body, :restaurant_id, :user_id)
+        params.require(:review).permit(:body, :restaurant_id, :user_id, :overall, :food, :service, :ambiance)
     end
 end

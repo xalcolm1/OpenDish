@@ -6,6 +6,7 @@
   namespace :api, defaults: {format: :json} do
     resources :users, only: [:create, :show]
     resources :restaurants, only: [:create, :destroy, :show, :index]
+    resources :reviews, only: [:create, :update, :destroy]
     resource :session, only: [:create, :destroy]
     get :search, to: "restaurants#search"
   end

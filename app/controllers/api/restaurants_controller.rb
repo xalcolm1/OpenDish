@@ -52,9 +52,9 @@ class Api::RestaurantsController < ApplicationController
 
     def create
 
-        @restaurant = Restaurant.new(restaurant_params)#is c?reate neccessary
+        @restaurant = Restaurant.new(restaurant_params)
         if @restaurant && @restaurant.save
-            # @restaurant.photo.attach(restaurant_params[:photo]) 
+
             render json: @restaurant
         else
             render json: @restaurant.errors.full_messages, status: 401
@@ -69,7 +69,7 @@ class Api::RestaurantsController < ApplicationController
         @restaurant = Restaurant.find_by(owner_id: current_user.id)
 
         if @restaurant.destroy
-            render json: {}
+            render json: @restaurant
         else
             render json: @restaurant.errors.full_messages, status: 422
         end
