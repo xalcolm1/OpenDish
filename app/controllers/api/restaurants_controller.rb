@@ -8,7 +8,7 @@ class Api::RestaurantsController < ApplicationController
 
         sql_string = ""
         sql_order = ""
-
+f
         if(params[:q][:name].present?)
             sql_string += " OR "if(sql_string.length > 1)
 

@@ -9,8 +9,11 @@ const ReviewIndex = props => {
                 props.reviews.forEach((review, idx)=> {
                    return(
                     <li key={idx}>
-                        { props.review.rating}
-                        { props.review.body}
+                        { review.overall}
+                        { review.food}
+                        { review.service}
+                        { review.ambiance}
+                        { review.body}
                     </li>
                    )
                 }) 

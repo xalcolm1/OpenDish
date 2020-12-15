@@ -16,11 +16,14 @@ import ReviewForm from '../reviews/review_form';
     //     // debugger
     // }
     // render(){ return() }
-const RestaurantShowPage = props => {
+    let reviews = [];
+    const RestaurantShowPage = props => {
+
     React.useEffect(() =>  {
         props.getRestaurant(props.match.params.restaurantId)
+        reviews = props.restaurant.reviews 
     },[])
-
+// debugger
     return (
         // <>
         <div className='backdrop'>
@@ -74,11 +77,9 @@ const RestaurantShowPage = props => {
                               and billions upon billions upon billions upon billions upon billions upon billions upon billions.
                              </p>
                     <h2 id="reviews">Reviews</h2>
+                        <ReviewForm restaurantId={props.match.params.restaurantId}/>
 
-                            <ReviewForm restaurantId={props.restaurant ? props.match.params.restaurantId : null}/>
-
-
-                        <ReviewIndex reviews={props.restaurant ? props.restaurant.reviews : null}/>
+                        <ReviewIndex reviews={reviews}/>
                     
                 </main>  
 
