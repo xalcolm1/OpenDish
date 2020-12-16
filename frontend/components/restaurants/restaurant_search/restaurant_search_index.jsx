@@ -16,9 +16,12 @@ const RestaurantSearchIndex = (props) => {
                         Object.values(props.restaurants).map(restaurant => {
                             let targetRating = 0;
                             if(restaurant.reviews){
+
                                 targetRating = 0;
-                                restaurant.reviews.forEach((review) => targetRating += review.overall) 
+                                if(restaurant.reviews.length > 0){
+                                restaurant.reviews.forEach((review) => targetRating += review.review.overall) 
                                 targetRating = targetRating / restaurant.reviews.length
+                                }
                             }
                                 
                             

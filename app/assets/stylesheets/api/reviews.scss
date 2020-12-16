@@ -49,3 +49,19 @@ textarea{
         background-color: rgb(231, 230, 230);
     }
 }
+
+
+///review
+
+.review-index-item{
+    display: flex;
+    padding: 10px;
+    border-bottom: 1px solid rgb(202, 199, 199); ;
+}
+.review-side{
+    margin-left: 15px;
+}
+.review-side > *{
+    
+    margin-bottom: 15px;
+}

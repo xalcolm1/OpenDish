@@ -28,6 +28,7 @@ class Restaurant < ApplicationRecord
         foreign_key: :restaurant_id,
         class_name: :Review
 
+
     # def ensure_photo 
     #     unless self.photo.attached?
     #         errors[:photo] << "Must be attached"

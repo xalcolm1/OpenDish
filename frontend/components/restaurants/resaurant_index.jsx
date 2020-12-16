@@ -58,12 +58,16 @@ export class RestaurantIndex extends React.Component{
                 <div className='restaurant-index' ref={this.slider}>
                     {
                         this.props.restaurants.map((restaurant) => {
-                            // let targetRating = 0;
-                            // if(restaurant.reviews){
-                            //     targetRating = 0;
-                            //     restaurant.reviews.forEach((review) => targetRating += review.overall) 
-                            //     targetRating = targetRating / restaurant.reviews.length
-                            // }
+                            let targetRating = 0;
+
+                            if(restaurant.reviews){
+
+                                targetRating = 0;
+                                if(restaurant.reviews.length > 0){
+                                restaurant.reviews.forEach((review) => targetRating += review.review.overall) 
+                                targetRating = targetRating / restaurant.reviews.length
+                                }
+                            }
                             return(
                                 <Link to={`/restaurants/${restaurant.id}`} key={restaurant.id}>
                                     <RestaurantIndexItem >
@@ -74,7 +78,7 @@ export class RestaurantIndex extends React.Component{
                                             
                                         </div>
                                         <div className='restaurant-information'>
-                                            {/* <Stars targetRating={targetRating}/> */}
+                                            <Stars targetRating={targetRating}/>
                                             <h4>{restaurant.name}</h4>
                                             <h6>{restaurant.cuisine}</h6>
                                             <h6>{restaurant.address}</h6>                                    

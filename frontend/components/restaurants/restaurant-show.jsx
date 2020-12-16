@@ -26,17 +26,24 @@ const RestaurantShowPage = props => {
 
     let targetRating = 0
 
-    if (props.restaurant && props.restaurant.reviews){
-        targetRating = 0
-        props.restaurant.reviews.forEach((review) => targetRating += review.overall) 
-        targetRating = targetRating / props.restaurant.reviews.length
+    // if (props.restaurant && props.restaurant.reviews.reviews){
+    //     targetRating = 0
+    //     props.restaurant.reviews.reviews.forEach((review) => targetRating += review.overall) 
+    //     targetRating = targetRating / props.restaurant.reviews.reviews.length
+    // }
+    if(props.restaurant && props.restaurant.reviews){
 
+        targetRating = 0;
+        if(props.restaurant.reviews.length > 0){
+        props.restaurant.reviews.forEach((review) => targetRating += review.review.overall) 
+        targetRating = targetRating / props.restaurant.reviews.length
+        }
     }
 
 
     return (
         // <>
-        <div className='backdrop white'>
+        <div className='backdrop '>
             <div 
             style={{backgroundImage : `url(${props.restaurant ? props.restaurant.photoUrl : ivyWallURL})`}}
             className="background-img">
@@ -84,6 +91,8 @@ const RestaurantShowPage = props => {
                         <Modal formType="Review">
                             <ReviewForm restaurantId={props.match.params.restaurantId}/>
                         </Modal>
+
+
                         <ReviewIndex reviews={props.restaurant ? props.restaurant.reviews : []}/>
                     
                 </main>  

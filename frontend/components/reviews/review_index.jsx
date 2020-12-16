@@ -4,33 +4,31 @@ import Stars from './stars';
 const ReviewIndex = props => {
     const reviews = [];
 
-    if(props.review){
+    if(props.reviews){
        for(let i = 0; i < props.reviews.length; i++){
        let review =  props.reviews[i] 
-    }
-    
 
+            reviews.push(
+                    <li key={i} className="review-index-item">
+                        <div className="user-side">
+                            {review.firstname}
+                        </div>
+                        <div className="review-side">
+                            <Stars targetRating={review.review.overall}/>
+                            <div className="ratings">
 
-       reviews.push(
-            <li key={i}>
-                <div className="user-side">
-
-                </div>
-                <div className="review-side">
-                    <Stars targetRating={review.overall}/>
-                    <div className="ratings">
-
-                        Overall {review.overall} *
-                        Food {review.food} *
-                        Service {review.service} *
-                        Ambiance {review.ambiance} *
-                    </div>
-                    <p>
-                    { review.body} 
-                    -</p>
-                </div>
-            </li>
-       )    
+                                Overall <span className="filledStar">{review.review.overall}</span> •
+                                Food <span className="filledStar">{review.review.food}</span> •
+                                Service <span className="filledStar">{review.review.service}</span> •
+                                Ambiance <span className="filledStar">{review.review.ambiance}</span>
+                            </div>
+                            <p>
+                            { review.review.body } 
+                            </p>
+                        </div>
+                    </li>
+            ) 
+        }   
     }
 
     return (
