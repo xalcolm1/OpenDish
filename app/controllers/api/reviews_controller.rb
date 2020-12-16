@@ -4,9 +4,13 @@ class Api::ReviewsController < ApplicationController
         render :show
     end
 
+    # def index
+    #     render :index
+    # end
+
     def create   
         review = Review.new(review_params)
-        debugger
+
         if review.save
             render json: review
         else

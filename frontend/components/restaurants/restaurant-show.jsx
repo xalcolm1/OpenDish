@@ -16,12 +16,18 @@ import ReviewForm from '../reviews/review_form';
     //     // debugger
     // }
     // render(){ return() }
-    let reviews = [];
-    const RestaurantShowPage = props => {
+    // let reviews = [];
+const RestaurantShowPage = props => {
 
     React.useEffect(() =>  {
         props.getRestaurant(props.match.params.restaurantId)
-        reviews = props.restaurant.reviews 
+        // .then(reviews => {
+            
+            // debugger
+        //     props.restaurant.reviews = reviews
+
+        // })
+        
     },[])
 // debugger
     return (
@@ -79,7 +85,7 @@ import ReviewForm from '../reviews/review_form';
                     <h2 id="reviews">Reviews</h2>
                         <ReviewForm restaurantId={props.match.params.restaurantId}/>
 
-                        <ReviewIndex reviews={reviews}/>
+                        <ReviewIndex reviews={props.restaurant ? props.restaurant.reviews : []}/>
                     
                 </main>  
 
@@ -98,7 +104,7 @@ import ReviewForm from '../reviews/review_form';
 }
 
 const mapStateToProps = (state, ownProps) => {
-
+    // debugger
     return {
          restaurant: state.entities.restaurants.all[ownProps.match.params.restaurantId]
     }
@@ -108,4 +114,4 @@ const mapDispatchToProps = dispatch => {
         getRestaurant: (id) => dispatch(getRestaurant(id))
     }
 }
-export default connect(mapStateToProps,mapDispatchToProps)(RestaurantShowPage);
+export default connect(mapStateToProps ,mapDispatchToProps)(RestaurantShowPage);

@@ -3,6 +3,7 @@ import {
     RECIEVE_ALL_RESTAURANTS,
     DELETE_RESTAURANT,
 } from '../actions/restaurant_actions';
+import { RECIEVE_REVIEW } from '../actions/review_actions';
 
 // import {
 //     RECIEVE_REVIEW,
@@ -25,7 +26,7 @@ const restaurantReducer = (state = {all: {}, search: {}, categories: {}}, action
 
             newState.all[action.restaurant.id] = action.restaurant;
             return newState;
-        
+
         case DELETE_RESTAURANT:
             delete newState.all[action.id];
             return newState;
