@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { createReview } from '../../actions/review_actions';
+import Stars from './stars';
 
 
 class ReviewForm extends React.Component{
@@ -50,6 +51,7 @@ class ReviewForm extends React.Component{
     render(){
 
        return (
+
             <form 
             onSubmit={() => this.handleSubmit()}>
                 <label htmlFor="rating">Overall: </label>
@@ -91,6 +93,7 @@ class ReviewForm extends React.Component{
                 <textarea name="" id="" cols="30" rows="10" onChange={e => this.setState({body: e.target.value})} value={this.state.body}></textarea>
                 <input type="submit" value="publish"/>
             </form>
+
         )   
       
     }

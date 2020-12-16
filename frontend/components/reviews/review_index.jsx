@@ -1,25 +1,38 @@
-import React from 'react'
+import React from 'react';
+import Stars from './stars';
 
 const ReviewIndex = props => {
     const reviews = [];
-    for(let i = 0; i < props.reviews.length; i++){
-       let review =  props.reviews[i]
-       
+
+    if(props.review){
+       for(let i = 0; i < props.reviews.length; i++){
+       let review =  props.reviews[i] 
+    }
+    
+
+
        reviews.push(
             <li key={i}>
-                <div className="ratings">
-                    Overall {review.overall} *
-                    Food {review.food} *
-                    Service {review.service} *
-                    Ambiance {review.ambiance} *
+                <div className="user-side">
+
                 </div>
-                <p>
-                   { review.body} 
-                </p>
+                <div className="review-side">
+                    <Stars targetRating={review.overall}/>
+                    <div className="ratings">
+
+                        Overall {review.overall} *
+                        Food {review.food} *
+                        Service {review.service} *
+                        Ambiance {review.ambiance} *
+                    </div>
+                    <p>
+                    { review.body} 
+                    -</p>
+                </div>
             </li>
        )    
     }
-debugger
+
     return (
         <ul>
             { reviews }

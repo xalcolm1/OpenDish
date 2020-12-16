@@ -1,9 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
-// import { PrettyLink } from '../pretty_link';
+import Stars from '../../reviews/stars';
 import { Link } from 'react-router-dom'
 const RestaurantSearchIndex = (props) => {
-
+   
+    
     return (
         <div>
             <h2 className="results-found">{(Object.values(props.restaurants).length !== 0 )? ("Results") :  ("No Results Found") }</h2>
@@ -13,6 +14,15 @@ const RestaurantSearchIndex = (props) => {
                 {
                 
                         Object.values(props.restaurants).map(restaurant => {
+                            let targetRating = 0;
+                            if(restaurant.reviews){
+                                targetRating = 0;
+                                restaurant.reviews.forEach((review) => targetRating += review.overall) 
+                                targetRating = targetRating / restaurant.reviews.length
+                            }
+                                
+                            
+
                             return (
                                
                                     <div className="restaurant-search-index-item"  key={restaurant.id}>
@@ -23,9 +33,11 @@ const RestaurantSearchIndex = (props) => {
                                             </div>
                                         </Link>
                                         <div className="left">
+
                                             <Link  to={`/restaurants/${restaurant.id}`}>
                                                 <h2>{restaurant.name}</h2>
                                             </Link>
+                                            <Stars targetRating={targetRating}/>
                                             <h3>{restaurant.address}</h3>
                                             <h5>{restaurant.cuisine}</h5>
                                         </div>

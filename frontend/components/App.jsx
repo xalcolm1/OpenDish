@@ -9,6 +9,7 @@ import Modal from './modal/modal';
 import UserShowPage from './Homepage/user_show_page';
 import RestaurantShowPage from './restaurants/restaurant-show';
 import RestaurantSearchIndex from './restaurants/restaurant_search/restaurant_search_index';
+import ReviewForm from './reviews/review_form';
 const App = () => (
     <>
         <header className='hbar'>
@@ -28,8 +29,11 @@ const App = () => (
             <Route path="/" component={HomePage}/>
         </Switch>
     
+
         <AuthRoute exact path="/signup" component={signupFormContainer}/>
         <AuthRoute exact path="/login" component={loginFormContainer}/>
+
+
     </>
 
 );

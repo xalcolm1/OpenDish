@@ -14,7 +14,6 @@ class sessionForm extends React.Component {
     }
 
     handleClick() {
-        debugger
         if(event.path[0].className === "form-backdrop") this.props.history.push('/')
     }
     handleInput(field) {

@@ -25,8 +25,27 @@
    
     
 }
+.filledStar{
+    color: rgb(102, 218, 102);
+}
+.emptyStar{
+    color: rgb(224, 222, 222);
+}
 textarea{
     height: 91px;
     width: 397px;
 }
 
+
+.restaurant-box .modal-backdrop{
+    background: rgba(0, 0, 0, 0);
+}
+.Rev-button{
+    background-color: rgb(245, 245, 245);
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid rgb(202, 199, 199);
+    &:hover{
+        background-color: rgb(231, 230, 230);
+    }
+}

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Stars from '../reviews/stars';
 //if restaurant index does not appear on heroku run rails heroku run db:migrate:seed
 export class RestaurantIndex extends React.Component{
     constructor(props){
@@ -20,9 +21,9 @@ export class RestaurantIndex extends React.Component{
         
         if(overflow) {this.slider.current.scrollTo(7,0)} 
         
-        if((newPosition < 8 )&&(direction === 'left')){ this.slider.current.scrollTo(width,0)}
+        if((newPosition < 8 )&&(direction === 'left')){ this.slider.current.scrollTo(width,0) }
      
-            this.slider.current.scrollBy(offset ,0) 
+            this.slider.current.scrollBy(offset, 0) 
         
 
         
@@ -40,7 +41,7 @@ export class RestaurantIndex extends React.Component{
         //, address: '', cuisine: '', name: ''
     }
     render() {
-        
+
         return (
             <div className='outer-restaurant-index'>
                 
@@ -57,9 +58,15 @@ export class RestaurantIndex extends React.Component{
                 <div className='restaurant-index' ref={this.slider}>
                     {
                         this.props.restaurants.map((restaurant) => {
+                            // let targetRating = 0;
+                            // if(restaurant.reviews){
+                            //     targetRating = 0;
+                            //     restaurant.reviews.forEach((review) => targetRating += review.overall) 
+                            //     targetRating = targetRating / restaurant.reviews.length
+                            // }
                             return(
-                                <Link to={`/restaurants/${restaurant.id}`}>
-                                    <RestaurantIndexItem key={restaurant.id}>
+                                <Link to={`/restaurants/${restaurant.id}`} key={restaurant.id}>
+                                    <RestaurantIndexItem >
                                         <div 
                                             className='restaurant-img'
                                             style={{backgroundImage : `url(${restaurant.photoUrl ? restaurant.photoUrl: ivyWallURL})`}}
@@ -67,6 +74,7 @@ export class RestaurantIndex extends React.Component{
                                             
                                         </div>
                                         <div className='restaurant-information'>
+                                            {/* <Stars targetRating={targetRating}/> */}
                                             <h4>{restaurant.name}</h4>
                                             <h6>{restaurant.cuisine}</h6>
                                             <h6>{restaurant.address}</h6>                                    
