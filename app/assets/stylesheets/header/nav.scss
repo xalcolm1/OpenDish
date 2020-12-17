@@ -36,8 +36,8 @@ $light-color2: rgb(200, 200, 200);
     background-color:  rgb(250, 250, 250);
     position: absolute;
     margin-top: 10px;
-    margin-left: -35px;
-    border-radius: 5px 2px 5px 5px;
+    margin-left: -170px;
+    border-radius: 5px;
     // top: 70px;
 
     z-index: 3; 
@@ -46,8 +46,8 @@ $light-color2: rgb(200, 200, 200);
 }
 .items > * {
     padding: 5px 10px;
-   
-    height: 25px;
+    width: 205px;
+    height: 35px;
     display: flex;
     align-items: center;
     
@@ -56,10 +56,10 @@ $light-color2: rgb(200, 200, 200);
 
     &:hover{
         // background: rgb(101, 165, 88);
-        background: #60d860;
+        background: #e9e9e9;
     }
     &:first-child{
-        border-radius: 5px 2px 0px 0px;
+        border-radius: 5px 5px 0px 0px;
     }
     
     &:last-child{

@@ -1,4 +1,4 @@
-import * as reviewApiUtil from '../util/review_api_util';
+import * as reviewApiUtil from '../util/review_api_util'
 
 
 export const RECIEVE_REVIEW = 'RECIEVE_REVIEW';
@@ -20,7 +20,10 @@ const destroyReview = reviewId => {
 
 export const createReview = review => dispatch => {
     return reviewApiUtil.createReview(review)
-    .then(review => dispatch(recieveReview(review)))
+    .then(review => {
+
+        dispatch(recieveReview(review))
+    })
 }
 
 export const updateReview = review => dispatch => {

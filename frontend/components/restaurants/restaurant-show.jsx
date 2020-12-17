@@ -2,37 +2,25 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { getRestaurant } from '../../actions/restaurant_actions';
 import { Link } from 'react-router-dom';
-import Modal from '../modal/modal';
+
 import ReviewIndex from '../reviews/review_index';
 import ReviewForm from '../reviews/review_form';
 import Stars from '../reviews/stars';
 
-// class RestaurantShowPage extends React.Component {
-    // componentDidMount(){
 
-
-
-    //     this.props.getRestaurant(this.props.match.params.restaurantId)
-    //     // debugger
-    // }
-    // render(){ return() }
-    // let reviews = [];
 const RestaurantShowPage = props => {
-
+    const [open, setOpen] = React.useState(false);
+    
     React.useEffect(() =>  {
         props.getRestaurant(props.match.params.restaurantId)
       
     },[])
-
+    
+    
     let targetRating = 0
-
-    // if (props.restaurant && props.restaurant.reviews.reviews){
-    //     targetRating = 0
-    //     props.restaurant.reviews.reviews.forEach((review) => targetRating += review.overall) 
-    //     targetRating = targetRating / props.restaurant.reviews.reviews.length
-    // }
+    
     if(props.restaurant && props.restaurant.reviews){
-
+        
         targetRating = 0;
         if(props.restaurant.reviews.length > 0){
         props.restaurant.reviews.forEach((review) => targetRating += review.review.overall) 
@@ -40,6 +28,14 @@ const RestaurantShowPage = props => {
         }
     }
 
+    let reviewForm
+
+        if (open){
+           reviewForm = <ReviewForm restaurantId={props.match.params.restaurantId}/>
+        } else {
+            reviewForm = <div className="Rev-button" onClick={() => setOpen(!open)}> write a review </div>
+        }
+    
 
     return (
         // <>
@@ -88,10 +84,13 @@ const RestaurantShowPage = props => {
 
                         
                     <h2 id="reviews">Reviews</h2>
-                        <Modal formType="Review">
-                            <ReviewForm restaurantId={props.match.params.restaurantId}/>
-                        </Modal>
-
+                        {
+                            props.loggedIn ?
+                            reviewForm 
+                            : null
+                        }
+                     
+                        {/* add  */}
 
                         <ReviewIndex reviews={props.restaurant ? props.restaurant.reviews : []}/>
                     
@@ -112,9 +111,10 @@ const RestaurantShowPage = props => {
 }
 
 const mapStateToProps = (state, ownProps) => {
-    // debugger
+
     return {
-         restaurant: state.entities.restaurants.all[ownProps.match.params.restaurantId]
+        loggedIn: Boolean(state.session.id),
+        restaurant: state.entities.restaurants.all[ownProps.match.params.restaurantId]
     }
 }
 const mapDispatchToProps = dispatch => {

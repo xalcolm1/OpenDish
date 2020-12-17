@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Redirect, withRouter } from 'react-router-dom';
 import { createReview } from '../../actions/review_actions';
 import Stars from './stars';
 
@@ -26,9 +27,11 @@ class ReviewForm extends React.Component{
         this.props.createReview(this.state)  
         this.setState({
             body: '',
-            rating: 1,
+            overall: 1,
 
         })
+
+        this.props.history.push(`/restaurants/${this.props.restaurantId}`)
 
     }
     
@@ -48,6 +51,8 @@ class ReviewForm extends React.Component{
 
         }
     }
+   
+    
     render(){
 
        return (
@@ -111,5 +116,4 @@ const mDTP = dispatch => ({
     createReview: (review) => dispatch(createReview(review))
     
 })
-
-export default connect(mSTP, mDTP)(ReviewForm);
+export default withRouter(connect(mSTP, mDTP)(ReviewForm));

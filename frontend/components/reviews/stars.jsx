@@ -8,18 +8,16 @@ const Stars = props => {
     for(let i = 1; i <= 5; i ++){
         rating.push(
             <span
-            className={i <= props.targetRating ? "filledStar" : "emptyStar"}
-            key={i}
+            className={ i <= props.targetRating ? "filledStar" : "emptyStar" }
+            key={ i }
             >&#x2605;
             </span>
         )
     }
     return (
-        <span>
-            
-                {rating}
-            
-        </span>
+        <div>
+                { rating } 
+        </div>
     )
 }
 
