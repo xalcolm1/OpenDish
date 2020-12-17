@@ -29,6 +29,15 @@ class User < ApplicationRecord
         foreign_key: :user_id,
         class_name: :Review
 
+    has_many :reservations,
+        foreign_key: :user_id,
+        class_name: :Reservation
+    
+    has_many :reserved_restaurants, 
+        through: :reservations,
+        source: :restaurant
+    
+
     has_one_attached :photo
 
     #spire

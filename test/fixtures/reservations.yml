@@ -1,17 +1,13 @@
 # == Schema Information
 #
-# Table name: reviews
+# Table name: reservations
 #
 #  id            :bigint           not null, primary key
-#  body          :text             not null
+#  date          :datetime         not null
+#  user_id       :integer
+#  restaurant_id :integer
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
-#  user_id       :bigint           not null
-#  restaurant_id :bigint           not null
-#  overall       :integer
-#  food          :integer
-#  service       :integer
-#  ambiance      :integer
 #
 
 # This model initially had no columns defined. If you add columns to the

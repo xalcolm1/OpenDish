@@ -3,12 +3,15 @@
 # Table name: reviews
 #
 #  id            :bigint           not null, primary key
-#  rating        :integer
 #  body          :text             not null
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #  user_id       :bigint           not null
 #  restaurant_id :bigint           not null
+#  overall       :integer
+#  food          :integer
+#  service       :integer
+#  ambiance      :integer
 #
 class Review < ApplicationRecord
     validates :body, :user_id, :restaurant_id,  presence: true
