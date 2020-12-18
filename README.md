@@ -1,5 +1,5 @@
 # README
-## Welcome to Table Ouverte
+
 
 
 ## Welcome to Table Ouverte
@@ -11,18 +11,24 @@ Table Ouverte is now online
 [visit Table Ouverte:](https://tableouverte.herokuapp.com)
 
 
-* Users will be able to create an account or log in by using the navbar at the top of the page.
-the nav bar will also hold a dropdown that appears when a user is logged in,
-in the future a user will also be able to use the dropdown to view a list of their restaurants
+* Users are able to create an account or log in by using the navbar at the top of the page.
+the nav bar holds a dropdown that appears when a user is logged in, a user can currently access their restaurants and profile from this navbar 
 
-* on the main page all users will have access to the restaurant search bar, 
-    this component uses loaction date and number of people 
+
+* on the main page all users have access to the restaurant search bar, 
+    this component uses loaction date and number of people to help users find a table that will match their request
 
 * Users can reserve tables regardless of if they have a Table Ouverte account,
 however users will not be able to create restaurants or view previous reservations if they are not a member, and they will not be able to leave reviews
 
-* Logged in users can leave a review on any restaurant they have visited.
+* Logged in users can leave a review on any restaurant.
  
-* on the user profile page all users will be able to see a list of the restaurants that they own and also a form that will allow them to create a new restaurant
+* on the user profile page all users are able to see a list of the restaurants that they own and also a form that will allow them to create a new restaurant
 =======
+
+upcoming features:
+
+  *  google api:
+        *users will be able to find the exact location of the restaurant they would like to visit
+ 
 
