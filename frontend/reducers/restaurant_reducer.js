@@ -23,18 +23,19 @@ const restaurantReducer = (state = {all: {}, search: {}, categories: {}}, action
             return newState;
             
         case RECIEVE_RESTAURANT:
-
             newState.all[action.restaurant.id] = action.restaurant;
             return newState;
+
         case RECIEVE_REVIEW:
-            //
-            // newState.all[action.review.restaurant_id].reviews.push({review: action.review})
+            newState.all[action.review.restaurant_id].reviews.push({review: action.review})
+
         case DELETE_RESTAURANT:
             delete newState.all[action.id];
             return newState;
 
         default:
             return state;
+            
     }
 
 }

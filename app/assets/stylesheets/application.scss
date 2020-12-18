@@ -23,7 +23,8 @@
 @import "header/*";
 @import "homepage/*";
 $primary-color: rgba(250, 246, 246, 0.975);
-
+$ouverte: #29c729;
+$ouverte-h: #30db30;
 * {
 	// box-sizing: border-box;
 	margin: 0;
@@ -115,7 +116,7 @@ a{
 	text-decoration: none;
 	// color: rgb(96, 141, 52);
 	// color: #46ff9a;
-	color: #29c729;
+	color: $ouverte;
 	&:hover{
 		// color: rgb(60, 85, 34);
 		color: #46ce83;
@@ -206,9 +207,21 @@ Link {
 	&:hover{
 		// color: rgb(48, 148, 48);
 		color: #46ff9a;
-		color: #29c729;
+		color: $ouverte;
 		border-bottom: 2px #46ff9a solid;
-		border-bottom: 2px #29c729 solid;
+		border-bottom: 2px $ouverte solid;
 	}
 
+
+}
+
+.Ouverte{
+	background-color: $ouverte;
+}
+
+.Ouverte-hover{
+	background-color: $ouverte;
+	&:hover{
+		background-color: $ouverte-h;
+	}
 }

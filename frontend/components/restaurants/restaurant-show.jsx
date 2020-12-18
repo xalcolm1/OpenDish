@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 
 import ReviewIndex from '../reviews/review_index';
 import ReviewForm from '../reviews/review_form';
+import ReservationForm from '../reservations/reservation_form';
 import Stars from '../reviews/stars';
 
 
@@ -99,6 +100,7 @@ const RestaurantShowPage = props => {
                 <aside className="reservation-box sticky">
                         <div className='reservation'>
                             <h2>make a reservation</h2>
+                            <ReservationForm restaurant={props.restaurant ? props.restaurant : props.match.params.restaurantId}/>
                             
                         </div>
              

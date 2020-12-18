@@ -30,6 +30,7 @@ const destroyRestaurant = id => {
 export const createRestaurant = restaurant => dispatch => {
     return restaurantApiUtil.createRestaurant(restaurant)
         .then(restaurant => dispatch(recieveRestaurant(restaurant)))
+        .fail(err => dispatch(recieveSessionErrors(err.responseJSON)))
 }
 
 export const getAllRestaurants = () => dispatch => {
@@ -44,7 +45,7 @@ export const getRestaurant = id => dispatch => {
 
 export const deleteRestaurant = id => dispatch => {
     return restaurantApiUtil.deleteRestaurant(id)
-        .then( (restaurant) => dispatch(destroyRestaurant(restaurant.id)))
+        .then((restaurant) => dispatch(destroyRestaurant(restaurant.id)))
         //look into this one
 }
 

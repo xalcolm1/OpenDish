@@ -20,19 +20,19 @@ const destroyReview = reviewId => {
 
 export const createReview = review => dispatch => {
     return reviewApiUtil.createReview(review)
-    .then(review => {
-
-        dispatch(recieveReview(review))
-    })
+    .then(review => dispatch(recieveReview(review)))
+    .fail(err => dispatch(recieveSessionErrors(err.responseJSON)))
 }
 
 export const updateReview = review => dispatch => {
     return reviewApiUtil.updateReview(review)
     .then(review => dispatch(recieveReview(review)))
+    .fail(err => dispatch(recieveSessionErrors(err.responseJSON)))
     
 }
 
 export const deleteReview = reviewId => dispatch => {
     return reviewApiUtil.deleteReview(reviewId)
     .then(review => dispatch(destroyReview(review.id)))
+    .fail(err => dispatch(recieveSessionErrors(err.responseJSON)))
 }
