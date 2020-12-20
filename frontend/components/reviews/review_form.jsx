@@ -31,7 +31,7 @@ class ReviewForm extends React.Component{
 
         })
 
-        this.props.history.push(`/restaurants/${this.props.restaurantId}`)
+
 
     }
     

@@ -19,7 +19,7 @@ const RestaurantSearchIndex = (props) => {
 
                                 targetRating = 0;
                                 if(restaurant.reviews.length > 0){
-                                restaurant.reviews.forEach((review) => targetRating += review.review.overall) 
+                                restaurant.reviews.forEach((review) => targetRating += review.overall) 
                                 targetRating = targetRating / restaurant.reviews.length
                                 }
                             }

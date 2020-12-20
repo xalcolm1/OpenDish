@@ -14,16 +14,16 @@ const ReviewIndex = props => {
                             {review.firstname}
                         </div>
                         <div className="review-side">
-                            <Stars targetRating={review.review.overall}/>
+                            <Stars targetRating={review.overall}/>
                             <div className="ratings">
 
-                                Overall <span className="filledStar">{review.review.overall}</span> •
-                                Food <span className="filledStar">{review.review.food}</span> •
-                                Service <span className="filledStar">{review.review.service}</span> •
-                                Ambiance <span className="filledStar">{review.review.ambiance}</span>
+                                Overall <span className="filledStar">{review.overall}</span> •
+                                Food <span className="filledStar">{review.food}</span> •
+                                Service <span className="filledStar">{review.service}</span> •
+                                Ambiance <span className="filledStar">{review.ambiance}</span>
                             </div>
                             <p>
-                            { review.review.body } 
+                            { review.body } 
                             </p>
                         </div>
                     </li>
@@ -32,7 +32,7 @@ const ReviewIndex = props => {
     }
 
     return (
-        <ul>
+        <ul className="review-index">
             { reviews }
         </ul>
     )

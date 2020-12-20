@@ -14,6 +14,7 @@ const RestaurantShowPage = props => {
     
     React.useEffect(() =>  {
         props.getRestaurant(props.match.params.restaurantId)
+        props.restaurant ? props.restaurant.reviews.push(props.reviews) : []
       
     },[])
     
@@ -24,7 +25,7 @@ const RestaurantShowPage = props => {
         
         targetRating = 0;
         if(props.restaurant.reviews.length > 0){
-        props.restaurant.reviews.forEach((review) => targetRating += review.review.overall) 
+        props.restaurant.reviews.forEach((review) => targetRating += review.overall) 
         targetRating = targetRating / props.restaurant.reviews.length
         }
     }
@@ -116,7 +117,8 @@ const mapStateToProps = (state, ownProps) => {
 
     return {
         loggedIn: Boolean(state.session.id),
-        restaurant: state.entities.restaurants.all[ownProps.match.params.restaurantId]
+        restaurant: state.entities.restaurants.all[ownProps.match.params.restaurantId],
+        reviews: state.entities.reviews[[ownProps.match.params.restaurantId]]
     }
 }
 const mapDispatchToProps = dispatch => {

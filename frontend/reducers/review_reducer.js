@@ -1,33 +1,30 @@
-// import {
-//     RECIEVE_REVIEW,
-//     DELETE_REVIEW
+import {
+    RECIEVE_REVIEW,
+    DELETE_REVIEW
     
-// } from '../actions/review_actions';
+} from '../actions/review_actions';
 
-// const restaurantReducer = (state = {all: {}, search: {}, categories: {}}, action) => {
+const reviewReducer = (state = {}, action) => {
 
-// // refactor for categories 
+// refactor for categories 
 
-//     Object.freeze(state);
-//     let newState = Object.assign({}, state);
+    Object.freeze(state);
+    let newState = Object.assign({}, state);
 
-//     switch(action.type){
-//         case RECIEVE_ALL_RESTAURANTS:
-//             newState.all = action.restaurants;
-//             return newState;
-            
-//         case RECIEVE_RESTAURANT:
-//             newState.all[action.restaurant.id] = action.restaurant;
-//             return newState;
+
+    switch(action.type){
+        case RECIEVE_REVIEW:
+            newState[action.review.restaurant_id] = action.review;
+            return newState;
         
-//         case DELETE_RESTAURANT:
-//             delete newState.all[action.id];
-//             return newState;
+        case DELETE_REVIEW:
+            delete newState[action.review.id];
+            return newState;
 
-//         default:
-//             return state;
-//     }
+        default:
+            return state;
+    }
 
-// }
+}
 
-// export default restaurantReducer;
+export default reviewReducer;

@@ -5,7 +5,8 @@ import { createReservation } from '../../actions/reservation_actions';
 class ReservationForm extends React.Component {
     constructor(props) {
         super(props)
-        let dateNow = new Date;
+        let dateNow = new Date(this);
+
         this.date = ''
         this.time = ''
         
@@ -36,12 +37,14 @@ class ReservationForm extends React.Component {
     }
 
     handleSubmit () {
+        this.setState({date: `${this.date} ${this.time}`})
         this.props.action(this.state)
     }
     render() {
         let options = [];
         for(let i = 1; i <= 20; i ++){
             options.push(<option 
+                                key={i}
                                 value={i}
                                 onClick={() => this.setState({people: i})}
                                 className="option"
@@ -49,16 +52,16 @@ class ReservationForm extends React.Component {
         }
 
         return (
-            <form className="reservation-form" onSubmit={this.handleSubmit()}>
+            <form className="reservation-form" onSubmit={() => this.handleSubmit()}>
                 <select className="people">
                     {options}
                 </select>
                 <div className="date-time-inputs">
-                    <input type="date" onChange={this.handleChange('date')} />
+                    <input type="date" onChange={this.handleChange('date') } />
                     <input type="time" onChange={this.handleChange('time')}/>
                 </div>
 
-                <input type="submit" className="Ouverte-hover"/>
+                <input type="submit" className="Ouverte Ouverte-hover" value="Find a Table"/>
             </form>
         )
     }

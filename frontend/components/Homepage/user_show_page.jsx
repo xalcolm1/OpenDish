@@ -2,6 +2,8 @@ import React,{ useEffect } from 'react';
 import Modal from '../modal/modal';
 import RestaurantForm from '../restaurants/restaurant_form';
 import { RestaurantIndex, RestaurantIndexItem}  from '../restaurants/resaurant_index';
+import ReservationsIndex from '../reservations/reservation_index'
+import ReviewIndex from '../reviews/review_index'
 import { searchRestaurants, getAllRestaurants } from '../../actions/restaurant_actions';
 import { connect } from 'react-redux';
 import PrettyLink from '../pretty_link';
@@ -34,21 +36,28 @@ class UserShowPage extends React.Component {
         let currentItems
 
         if(this.state.restaurants){
-            currentItems = <RestaurantIndex 
+            currentItems = (<RestaurantIndex 
                                 restaurants={restaurants}
                                 search={search}
                                 currentUser={currentUser}
-                            />
+                            />)
             
         } else if (this.state.reservations) {
-            // currentItems = <ReservationsIndex
-            //                     currentUser={currentUser.reservations}
-            //                 />
+
+            currentItems = (
+                            
+                                <ReservationsIndex
+
+                                className="scrollbox"
+                                currentUser={currentUser}
+                                />
+                        
+                            )
            
-        } else if (this.state.reviews) {
-            // currentItems = <ReviewIndex
-            //                     reviews={currentUser.reviews}
-            //                 />
+        } else if (this.state.reviews) { 
+            currentItems = <ReviewIndex
+                                reviews={currentUser.reviews}
+                            />
         } else if (this.state.prevRestaurants) {
                 // currentItems = <PrevRestaurantsIndex
             //                     reviews={currentUser.prevRestaurants}
@@ -59,7 +68,7 @@ class UserShowPage extends React.Component {
             
             <div className='profile-page'>
                 <h1 id="profile-header">
-                    {/* {this.props.currentUser.firstname}'s  */}
+                    {this.props.currentUser.firstname}'s 
                     profile
                 </h1>
     

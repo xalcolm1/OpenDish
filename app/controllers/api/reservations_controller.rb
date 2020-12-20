@@ -1,4 +1,19 @@
 class Api::ReservationsController < ApplicationController
+    def show 
+        @reservation
+
+
+    end
+
+    def index
+        # @reservations
+        # if(params[:type] == "resetaurant")
+        #     @reservations = Reservation.
+        # elsif(params[:type] == "user"){
+
+        # end
+    end
+
     def create
         @reservation = Reservation.new(reservation_params)
         if @reservation.save

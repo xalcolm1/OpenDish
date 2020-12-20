@@ -9,12 +9,12 @@ class Api::ReviewsController < ApplicationController
     # end
 
     def create   
-        review = Review.new(review_params)
+        @review = Review.new(review_params)
 
-        if review.save
-            render json: review
+        if @review.save
+            render :show
         else
-            render json: review.errors.full_messages, status: 401
+            render json: @review.errors.full_messages, status: 401
         end
     end
 
@@ -23,11 +23,11 @@ class Api::ReviewsController < ApplicationController
     end
 
     def destroy
-        review = Review.find_by(id: params[:id])
-        if review.destroy
+        @review = Review.find_by(id: params[:id])
+        if @review.destroy
             p 'success'
         else
-            render json: review.errors.full_messages, status: 401
+            render json: @review.errors.full_messages, status: 401
         end
 
     end

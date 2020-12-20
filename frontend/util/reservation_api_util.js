@@ -23,3 +23,12 @@ export const getReservation = (reservationId) => {
         data: { reservationId }
     })
 }
+
+export const getReservations = (id, type) => {
+    return $.ajax({
+        url: '/api/reservations',
+        method: "GET",
+        data: { id, type }
+
+    })
+}
