@@ -20,16 +20,18 @@
     &:hover:before{
         content: "\2605";
         position: absolute;
-        color: rgb(102, 218, 102);
+        color: #FF523D;
     };
    
     
 }
 .filledStar{
-    color: rgb(102, 218, 102);
+    color: #FF523D;
+    fill: #FF523D;
 }
 .emptyStar{
     color: rgb(224, 222, 222);
+    fill: #dddddd;
 }
 textarea{
     height: 91px;

@@ -8,7 +8,7 @@ const ReviewIndex = props => {
        for(let i = 0; i < props.reviews.length; i++){
        let review =  props.reviews[i] 
 
-            reviews.push(
+                  reviews.push(
                     <li key={i} className="review-index-item">
                         <div className="user-side">
                             {review.firstname}
