@@ -1,4 +1,5 @@
 
+@import "_variables";
 
 .restaurant-finder{
     background-image: image-url('table.jpeg');
@@ -36,13 +37,13 @@
     color: white;
     padding: 5px 20px;
 
-    background-color:  #52c352;
-    border-color:  #52c352;
+    background-color:  $ouverte;
+    border-color:  $ouverte;
     // flex-grow: 0;
     &:hover{
 
-        background-color:  #3ba23b;
-        border-color:  #3ba23b;
+        background-color:  $ouverte-h;
+        border-color:  $ouverte-h;
     }
     flex-grow: 0;
 }
@@ -64,12 +65,13 @@
 .searchbar{
     display: flex;
     flex-direction: row;
-    align-content: baseline;
+    // align-content: baseline;
     flex-wrap: wrap;
-
+    justify-content: center;
     margin-left: 50px;
     margin-right: 50px;
-
+    align-content: space-between;
+    height: 90px;
 
 }
 .params > * {
