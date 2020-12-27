@@ -12,6 +12,7 @@
     color: white;
     min-height: 417px;
 }
+
 .table-img{
   width: 100%;
 }
@@ -54,7 +55,6 @@
     display: flex;
     flex-direction: row;
     align-items: stretch;
-
 }
 
 .search{
@@ -72,8 +72,8 @@
     margin-right: 50px;
     align-content: space-between;
     height: 90px;
-
 }
+
 .params > * {
     height: 38px;
 }
