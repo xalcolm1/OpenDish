@@ -58,7 +58,7 @@ class RestaurantForm extends React.Component{
             } else {
                 this.setState({ imageUrl: "", imageFile: null});
             }
-
+            
         }
      
     }

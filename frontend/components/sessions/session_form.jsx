@@ -26,10 +26,12 @@ class sessionForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault()
-        this.props.action(this.state);
+        this.props.action(this.state)
+        .then(() => {
+            this.props.history.push("/")
+        })
 
-        return () => (<Redirect to="/"/>)
-        
+
     }
 
     handleDemo(){

@@ -24,7 +24,7 @@ class ReviewForm extends React.Component{
     handleSubmit(){
         event.preventDefault()
 
-        this.props.createReview(this.state)  
+        this.props.createReview(this.state) 
         this.setState({
             body: '',
             overall: 1,
