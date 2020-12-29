@@ -14,19 +14,21 @@ const RestaurantShowPage = props => {
     
     React.useEffect(() =>  {
         props.getRestaurant(props.match.params.restaurantId)
-        props.restaurant ? props.restaurant.reviews.push(props.reviews) : []
-      
+        .then(restaurant => {
+            if ( props.restaurant && props.restaurant.reviews){
+               props.restaurant.reviews.push(props.reviews) 
+            }
+        })
     },[])
     
     
     let targetRating = 0
     
     if(props.restaurant && props.restaurant.reviews){
-        
         targetRating = 0;
         if(props.restaurant.reviews.length > 0){
         props.restaurant.reviews.forEach((review) => targetRating += review.overall) 
-        targetRating = targetRating / props.restaurant.reviews.length
+            targetRating = targetRating / props.restaurant.reviews.length
         }
     }
 
@@ -101,7 +103,7 @@ const RestaurantShowPage = props => {
                 <aside className="reservation-box sticky">
                         <div className='reservation'>
                             <h2>make a reservation</h2>
-                            <ReservationForm restaurant={props.restaurant ? props.restaurant : props.match.params.restaurantId}/>
+                            <ReservationForm restaurantId={props.restaurant ? props.restaurant.id : props.match.params.restaurantId}/>
                             
                         </div>
              

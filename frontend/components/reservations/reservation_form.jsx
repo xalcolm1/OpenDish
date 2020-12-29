@@ -5,7 +5,7 @@ import { createReservation } from '../../actions/reservation_actions';
 class ReservationForm extends React.Component {
     constructor(props) {
         super(props)
-        let dateNow = new Date(this);
+        let dateNow = new Date();
 
         this.date = ''
         this.time = ''
@@ -13,16 +13,17 @@ class ReservationForm extends React.Component {
 
         this.state = {
             user_id: this.props.userId,
-            restaurant_id: this.props.restaurant.id,
-            people: 2,
+            restaurant_id: this.props.restaurantId,
+            people: 1,
             date: dateNow
-
         }
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleChange = this.handleChange.bind(this)
 
 
     }
+
+    
 
     handleChange(type) {
         return  e => {
@@ -37,8 +38,11 @@ class ReservationForm extends React.Component {
     }
 
     handleSubmit () {
-        this.setState({date: `${this.date} ${this.time}`})
-        this.props.action(this.state)
+        console.log(this.state.date)
+        this.setState({date: `${this.date} ${this.time}`},
+         () => { this.props.action(this.state)}
+        );
+
     }
     render() {
         let options = [];
