@@ -18,7 +18,7 @@ export function NavList(props) {
                     </div>
                     
                     <div className="items">
-                    {props.children}
+                        {props.children}
                     </div>  
                 </>
                 : null}

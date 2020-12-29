@@ -5,7 +5,7 @@ import { createReservation } from '../../actions/reservation_actions';
 class ReservationForm extends React.Component {
     constructor(props) {
         super(props)
-        let dateNow = new Date(this);
+        let dateNow = new Date();
 
         this.date = ''
         this.time = ''
@@ -13,16 +13,17 @@ class ReservationForm extends React.Component {
 
         this.state = {
             user_id: this.props.userId,
-            restaurant_id: this.props.restaurant.id,
-            people: 2,
+            restaurant_id: this.props.restaurantId,
+            people: 1,
             date: dateNow
-
         }
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleChange = this.handleChange.bind(this)
 
 
     }
+
+    
 
     handleChange(type) {
         return  e => {
@@ -37,8 +38,11 @@ class ReservationForm extends React.Component {
     }
 
     handleSubmit () {
-        this.setState({date: `${this.date} ${this.time}`})
-        this.props.action(this.state)
+        console.log(this.state.date)
+        this.setState({date: `${this.date} ${this.time}`},
+         () => { this.props.action(this.state)}
+        );
+
     }
     render() {
         let options = [];
@@ -48,20 +52,30 @@ class ReservationForm extends React.Component {
                                 value={i}
                                 onClick={() => this.setState({people: i})}
                                 className="option"
-                                >{`for ${i}`}</option>)
+                                >{`For ${i}`}</option>)
         }
 
         return (
             <form className="reservation-form" onSubmit={() => this.handleSubmit()}>
-                <select className="people">
-                    {options}
-                </select>
+                <label htmlFor="people"> Party Size</label>
+                    <select className="people">
+                        {options}
+                    </select>   
+                
+               
                 <div className="date-time-inputs">
-                    <input type="date" onChange={this.handleChange('date') } />
-                    <input type="time" onChange={this.handleChange('time')}/>
+                    <div className="column"> 
+                        <label htmlFor="date"> Date</label>
+                        <input type="date" onChange={this.handleChange('date') } />
+                    </div>
+
+                    <div className="column"> 
+                        <label htmlFor="time">Time</label>
+                        <input type="time" onChange={this.handleChange('time')}/>
+                    </div>
                 </div>
 
-                <input type="submit" className="Ouverte Ouverte-hover" value="Find a Table"/>
+                <input type="submit" className="Ouverte Ouverte-hover span" value="Find a table"/>
             </form>
         )
     }

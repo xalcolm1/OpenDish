@@ -1,0 +1,2 @@
+class PrevousReservation < ApplicationRecord
+end

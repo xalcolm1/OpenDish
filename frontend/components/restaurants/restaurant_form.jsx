@@ -32,20 +32,11 @@ class RestaurantForm extends React.Component{
             restaurant.append('restaurant[address]', this.state.address);
             restaurant.append('restaurant[cuisine]', this.state.cuisine);
             if (this.state.photoFile !== null) {
-                console.log(this.state.imageFile)
+
               restaurant.append('restaurant[photo]', this.state.imageFile);
 
             }
-            // let restaurant = {
-            //     owner_id: this.state.owner_id,
-            //     name: this.state.name,
-            //     address: this.state.address,
-            //     cuisine: this.state.cuisine
-
-            // }
-
-            // if (this.state.imageFile !== null) restaurant['photo'] = this.state.imageFile
-
+          
             this.props.action(restaurant)
 
         }

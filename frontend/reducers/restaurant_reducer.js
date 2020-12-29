@@ -29,6 +29,7 @@ const restaurantReducer = (state = {all: {}, search: {}, categories: {}}, action
         // case RECIEVE_REVIEW:
         //     newState.all[action.review.review.restaurant_id].reviews.push({review: action.review})
         case RECIEVE_REVIEW:
+
             newState.all[action.review.restaurant_id].reviews.push( action.review) 
             return newState;
         case DELETE_RESTAURANT:

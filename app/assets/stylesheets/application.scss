@@ -47,9 +47,7 @@ input[type="search"]::-webkit-search-decoration{
 @import "footer/*";
 @import "header/*";
 @import "homepage/*";
-$primary-color: rgba(250, 246, 246, 0.975);
-$ouverte: #29c729;
-$ouverte-h: rgb(44, 204, 44);
+@import "_variables";
 * {
 	// box-sizing: border-box;
 	margin: 0;
@@ -144,7 +142,7 @@ a{
 	color: $ouverte;
 	&:hover{
 		// color: rgb(60, 85, 34);
-		color: #46ce83;
+		color: $ouverte-h;
 	}
 }
 
@@ -231,8 +229,8 @@ Link {
 	}
 	&:hover{
 		// color: rgb(48, 148, 48);
-		color: #46ff9a;
-		color: $ouverte;
+		// color: #46ff9a;
+		// color: $ouverte;
 		border-bottom: 2px #46ff9a solid;
 		border-bottom: 2px $ouverte solid;
 	}
@@ -240,6 +238,10 @@ Link {
 
 }
 
+
+.clear{
+	background-color: rgba(255, 255, 255, 0);
+}
 
 .Ouverte{
 	background-color: $ouverte;
@@ -252,3 +254,6 @@ Link {
 		
 }
 
+.span{
+	width: 100%;
+}

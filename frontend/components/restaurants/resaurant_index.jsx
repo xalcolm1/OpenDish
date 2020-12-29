@@ -57,16 +57,20 @@ export class RestaurantIndex extends React.Component{
 
                 <div className='restaurant-index' ref={this.slider}>
                     {
+                        //overflow happening here: first restaurant review gradient dictates the rest of the star gradient
                         this.props.restaurants.map((restaurant) => {
                             let targetRating = 0;
 
                             if(restaurant.reviews){
 
+                              
                                 targetRating = 0;
                                 if(restaurant.reviews.length > 0){
                                 restaurant.reviews.forEach((review) => targetRating += review.overall) 
                                 targetRating = targetRating / restaurant.reviews.length
+                                
                                 }
+
                             }
                             return(
                                 <Link to={`/restaurants/${restaurant.id}`} key={restaurant.id}>

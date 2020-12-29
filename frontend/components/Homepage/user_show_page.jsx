@@ -15,19 +15,36 @@ import { getUser } from '../../actions/session_actions';
 class UserShowPage extends React.Component {
     constructor(props){
         super(props)
-
+      
         this.state = {
             reservations: false,
             restaurants: true,
             reviews: false,
             prevRestaurants: false
         }
+        this.date = new Date;
 
+
+        this.pastReservations = [];
+        this.upcomingReservations = [];
+       
+      
+       
     }
     componentDidMount() {
         this.props.getUser(this.props.userId)
+      
     }
 
+    componentDidUpdate(){
+        this.props.currentUser.reservations.forEach(reservation => {
+            if(new Date(reservation.date) < this.date){
+              this.pastReservations.push(reservation)
+            }else {
+              this.upcomingReservations.push(reservation)
+            }
+        })
+    }
     
 
     render() {
@@ -36,32 +53,40 @@ class UserShowPage extends React.Component {
         let currentItems
 
         if(this.state.restaurants){
-            currentItems = (<RestaurantIndex 
+            currentItems = (
+                            <RestaurantIndex 
                                 restaurants={restaurants}
                                 search={search}
                                 currentUser={currentUser}
-                            />)
+                            />
+                            )
             
         } else if (this.state.reservations) {
-
+       
             currentItems = (
-                            
-                                <ReservationsIndex
-
+                            <ReservationsIndex
                                 className="scrollbox"
                                 currentUser={currentUser}
-                                />
-                        
+                                reservations={this.upcomingReservations}
+                            />
                             )
            
         } else if (this.state.reviews) { 
-            currentItems = <ReviewIndex
+            currentItems = (
+                            <ReviewIndex
                                 reviews={currentUser.reviews}
                             />
+                            )   
+
         } else if (this.state.prevRestaurants) {
-                // currentItems = <PrevRestaurantsIndex
-            //                     reviews={currentUser.prevRestaurants}
-            //                 />
+
+            currentItems = (
+                            <ReservationsIndex
+                                currentUser={currentUser}
+                                reservations={this.pastReservations}
+                            />
+                            )
+
         }
 
         return (
@@ -76,9 +101,7 @@ class UserShowPage extends React.Component {
                     <RestaurantForm/>
                 </Modal>
 
-                <div className="index-title">
-                        <PrettyLink to="/restaurants" className="all-restaurants">Your restaurants</PrettyLink> 
-                </div>
+
 
                 <nav className="selection-nav user-nav">
                     <div 
@@ -124,7 +147,10 @@ class UserShowPage extends React.Component {
                     >Previous Restaurants</div>
                 </nav>
 
-                {currentItems}
+                <div className="currentItems">
+                  {currentItems}  
+                </div>
+                
 
             </div>
         )

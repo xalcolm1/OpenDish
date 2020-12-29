@@ -2,14 +2,20 @@ import React from 'react';
 
 
 const ReservationIndex = props => {
+    debugger
     return (
         <ul className="reservation-index">
-            {props.currentUser.reservations.map((reservation, idx) => {
+            {props.reservations.map((reservation, idx) => {
+                let date = new Date(reservation.date).toDateString()
                 return (
                     <li key={idx} className="reservation-index-item">
-                        <div>{props.currentUser.firstname}</div>
-                        <div>{reservation.date}</div>
-                        
+                        <aside>{props.currentUser.firstname}</aside>
+
+                        <main className="reservation-body">
+                            <div>{reservation.name}</div>
+                            <div>{reservation.address}</div>
+                            <div>{date}</div>
+                        </main>
                      </li>
                 )
             })}

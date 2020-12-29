@@ -37,8 +37,10 @@
 // }
 // .logo{
 //     border-right: 1px solid $light-color2;
+@import "_variables";
+
 // }
-$light-color2: rgb(200, 200, 200);
+
 .nav-session{
     
     display: flex;  
@@ -65,8 +67,9 @@ $light-color2: rgb(200, 200, 200);
 .signup{
     // border-right: rgb(53, 98, 149) 2px solid;
     // border-bottom:rgb(53, 98, 149) 2px solid;
-    background-color: rgb(58, 138, 192);
-    border-color: rgb(58, 138, 192);
+    background-color: $ouverte;
+    // border-color: rgb(58, 138, 192);
+    border-color: $ouverte;
 
     color: white;
     &:hover{
@@ -155,5 +158,5 @@ $light-color2: rgb(200, 200, 200);
 
 .createAnAccount{
     text-decoration: none;
-    color: rgb(1, 157, 1)
+    color: $ouverte
 }
