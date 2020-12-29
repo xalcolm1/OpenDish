@@ -2,7 +2,7 @@ import React from 'react';
 
 
 const ReservationIndex = props => {
-    debugger
+
     return (
         <ul className="reservation-index">
             {props.reservations.map((reservation, idx) => {
