@@ -1,3 +1,5 @@
+@import "_variables";
+
 footer{
     padding-top: 18px;
     align-self: flex-end;
@@ -11,8 +13,9 @@ footer{
     // align-content: space-around;
     // background-color: #2d333f;
     background: #2d333f;
-// background: linear-gradient(0deg, rgba(18,23,32,1) 76%, rgba(28,41,71,1) 79%, rgba(106,106,106,1) 88%, rgba(161,161,161,1) 94%, rgba(255,255,255,1) 100%);
+    // background: $footer-color;
     color: rgb(204, 204, 204);
+    // color: #2d333f;
 }
 
 .resources{

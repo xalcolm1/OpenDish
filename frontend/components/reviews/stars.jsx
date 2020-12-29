@@ -8,9 +8,9 @@ const Stars = props => {
     for(let i = 1; i <= 5; i ++){
         let nextStar
         if(i < props.targetRating && props.targetRating < (i + 1)){
-            console.log(props.targetRating)
+
             let percent = Math.floor((props.targetRating - i) * 100) 
-            console.log(percent)
+
             nextStar = (
             //id needs to identify what percent is being used, otherwise the gradient will not be unique in an index
             <svg width="20" height="19" key={ i }>
@@ -60,7 +60,7 @@ const Stars = props => {
            nextStar
         )
     }
-    console.log(rating)
+
     return (
         <div>
                 { rating } 

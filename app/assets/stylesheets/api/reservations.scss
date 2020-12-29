@@ -3,13 +3,15 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "_variables";
 
+
 .reservation > h2{
-    margin: 0 5px 0 5px;
+    margin-bottom: 10px;
     padding-bottom: 10px;
     border-bottom: rgb(224, 224, 224) 1px solid;
 
 }
 .reservation-form > *{
+    
     width: 250px;
     border: none;
     border-bottom: rgb(224, 224, 224) 1px solid;
@@ -17,30 +19,45 @@
 
 }
 
+.reservation-index{
+    width: 100%;
+}
+
 .reservation-index-item{
+    display: flex;
+
     padding: 20px;
     border-bottom: 1px rgb(224, 224, 224) solid;
 }
 
 .reservation-index-item > * {
-    margin-bottom: 10px;
+    margin:5px 20px 0 0;
 
 }
-
+.reservation-body{
+    :first-child{
+        color: $ouverte;
+    }
+}
+.reservation-body > *{
+    margin-bottom: 5px;
+ 
+}
 .date-time-inputs > *{
-    width: 125px;
+    
     border: none;
     border-radius: 0px;
+
     
     border-bottom: rgb(224, 224, 224) 1px solid;
     &:last-child{
-        margin-left: 5px;
+        margin-left: 15px;
     }
 }
 
 .date-time-inputs{
     display: flex;
-    margin: auto;
+    margin: 0px;
     border:  none
    
 }
@@ -49,11 +66,35 @@
 }
 .people{
     margin-top: 5px;
-    padding-bottom: 5px;
-    height: 50px;
+    padding-bottom: 2px;
+    height: 40px;
+    width: 100%;
+
+
     // &:hover{
     //     padding-bottom: 4px;
 
     //     border-bottom: 2px solid rgb(44, 204, 44);
     // }
+}
+
+.column{
+    margin-top: 10px;
+    text-align: start;
+}
+.column > input{
+    width: 120px;
+    height: 40px;
+    border: none;
+    margin-left: none;
+
+}
+.reservation-form > label{
+    border: none;
+    margin-top: 10px;
+    width: 100px;
+
+}
+.reservation-form{
+    text-align: start;
 }

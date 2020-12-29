@@ -12,6 +12,7 @@ import RestaurantSearchIndex from './restaurants/restaurant_search/restaurant_se
 import ReviewForm from './reviews/review_form';
 
 const App = () => (
+
     <>
         <header className='hbar'>
             <Link to="/" className="logo"> 
@@ -36,8 +37,7 @@ const App = () => (
             <Route path='/restaurants' component={RestaurantSearchIndex}/>
             <Route path="/" component={HomePage}/>
         </Switch>
-    
-
+        
         <AuthRoute exact path="/signup" component={signupFormContainer}/>
         <AuthRoute exact path="/login" component={loginFormContainer}/>
 
