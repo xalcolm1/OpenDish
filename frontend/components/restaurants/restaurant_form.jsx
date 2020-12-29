@@ -38,6 +38,7 @@ class RestaurantForm extends React.Component{
             }
           
             this.props.action(restaurant)
+            this.props.setState({})
 
         }
     }
