@@ -28,7 +28,9 @@ class sessionForm extends React.Component {
         e.preventDefault()
         this.props.action(this.state)
         .then(() => {
-            this.props.history.push("/")
+
+            // this.props.history.push("/")
+            return <Redirect to="/"/>
         })
 
 

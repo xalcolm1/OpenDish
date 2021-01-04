@@ -31,7 +31,6 @@ const App = () => (
         
 
         <Switch>
-
             <Route path='/restaurants/:restaurantId' component={RestaurantShowPage}/>
             <Route path='/users/:userId' component={UserShowPage}/>
             <Route path='/restaurants' component={RestaurantSearchIndex}/>

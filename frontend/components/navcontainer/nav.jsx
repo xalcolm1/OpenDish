@@ -2,30 +2,26 @@ import React from 'react';
 import PrettyLink from '../pretty_link';
 import { Link } from 'react-router-dom';
 import { NavItem, NavList} from "./nav_item";
-import Modal from '../modal/modal'
+
 
 const Navbar = props => {
     const{ currentUser, logout } = props;
+    let dif = React.useRef();
     React.useEffect(() => {
-        if(currentUser){
-            props.getUser(currentUser.id)
-        }
-    },[])
+       
+    },[currentUser])
 
     const LoggedOutLinks = () => (
         <nav className="nav-session">
             <Link to="/signup" className="sesh signup">Sign Up</Link>
             <Link to="/login" className="sesh signin">Sign In</Link>
-            
         </nav>  
 
     );
 
     const LoggedInLinks = () => (
         <hgroup className="signedin" >
-            <NavList title={currentUser.firstname ? `Hello ${currentUser.firstname}!` : ''}>
-                
-                
+            <NavList title={currentUser.firstname ? `Hello ${currentUser.firstname}! ` : 'profile'}>
                 
                 <PrettyLink to={`/users/${currentUser.id}`} >
                     <NavItem> profile </NavItem>
@@ -38,13 +34,10 @@ const Navbar = props => {
                 <PrettyLink to={`/restaurants`} >
                     <NavItem>restaurants</NavItem>
                 </PrettyLink>
-                
-                <PrettyLink to="/"  onClick={() => logout()} >
+
+                <PrettyLink to="/login"  onClick={() => logout()} >
                     <NavItem> Log Out</NavItem>
                 </PrettyLink>  
-
-
-                
 
             </NavList>
 
@@ -57,6 +50,7 @@ const Navbar = props => {
                        
         </hgroup>
     )
+        debugger
     return (currentUser ? LoggedInLinks() : LoggedOutLinks())
 };
 

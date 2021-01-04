@@ -1,4 +1,4 @@
-import {RECIEVE_USER} from '../actions/session_actions'
+import { RECIEVE_USER, RECIEVE_CURRENT_USER} from '../actions/session_actions'
 
 
 const usersReducer = (state = {}, action) => {
@@ -8,8 +8,10 @@ const usersReducer = (state = {}, action) => {
         case RECIEVE_USER:
             newState[action.user.id] = action.user;
             return newState;
-        cas
+        case RECIEVE_CURRENT_USER:
         
+            newState[action.user.id] = action.user;
+            return newState;
         default:
             return state;
     }
