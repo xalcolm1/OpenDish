@@ -1,4 +1,4 @@
-
+ 
 export const createRestaurant = restaurant => {
 
     return $.ajax({

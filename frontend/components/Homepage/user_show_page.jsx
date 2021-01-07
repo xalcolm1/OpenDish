@@ -37,11 +37,14 @@ class UserShowPage extends React.Component {
     }
 
     componentDidUpdate(){
+        this.pastReservations = [];
+        this.upcomingReservations = [];
+        
         this.props.currentUser.reservations.forEach(reservation => {
             if(new Date(reservation.date) < this.date){
-              this.pastReservations.push(reservation)
+              this.pastReservations.unshift(reservation)
             }else {
-              this.upcomingReservations.push(reservation)
+              this.upcomingReservations.unshift(reservation)
             }
         })
     }

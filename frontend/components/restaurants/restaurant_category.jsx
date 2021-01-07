@@ -1,13 +1,23 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { searchCategory } from '../../actions/restaurant_actions';
+import { RestaurantIndexItem } from '../restaurants/resaurant_index';
+import Stars from '../reviews/stars';
 
-
-
-
+//props must include : 
+// --category
 
 const RestaurantCategory = (props) => {
 
-  
+    React.useEffect(() => {
+ 
+        props.searchCategory({cuisine: props.category})
+
+    },[])
+
     const slider = React.useRef()
+
     const scroll = (direction) => {
         
         let offset;
@@ -15,48 +25,92 @@ const RestaurantCategory = (props) => {
         let width = slider.current.scrollWidth;
         let newPosition = slider.current.scrollLeft + offset ;
         let overflow = newPosition === width;
-        
         if(overflow) slider.current.scrollTo(0,0);
         if((newPosition < 8 )&&(direction === 'left')) slider.current.scrollTo(width,0);
 
           slider.current.scrollBy(offset ,0)  
     }
     return (
-        <section>
+        
+       
+                    
+        <section className="restaurant-category">
             <div className="index-title">
-                <title>
-                    {props.category.title}
-                </title>
+                <h2>
+                    {props.category}
+                </h2>
+
                 {/* <div className="all-restaurants" onClick={(findRestaurants())}>View all</div>  */}
             </div>
-
             <div className='outer-restaurant-index'>
-                    <div className="left-pointer arrow" onClick={() => scroll('left')}><img src={window.ArrowURL} alt='&#x2347;' className="arrow-svg"/>	</div>
+                            
+                            
+        
+                <div className="left-pointer arrow" onClick={() => scroll('left')}>
+                    <img src={window.ArrowURL} alt='&#x2347;' className="arrow-svg"/>
+                </div>  
+            
 
                 <div className='restaurant-index' ref={slider}>
-                    {
-                        props.category.restaurants.map((restaurant) => {
-                            return(
-                                <div className='restaurant-index-item' key={restaurant.id}>
-                                        <div className='restaurant-img'>
-                                            
-                                        </div>
-                                        <div className='restaurant-information'>
-                                            <h4>{restaurant.name}</h4>
-                                            <h6>{restaurant.cuisine}</h6>
-                                            <h6>{restaurant.address}</h6>                                    
-                                        </div>
-                                    </div>    
-                                    ) 
-                                })
-                            }
-                </div>
-                
-                <div className="right-pointer arrow" onClick={() => scroll('right')}><img src={window.ArrowURL} alt='&#x2347;' className="arrow-svg"/>	</div>       
+                {
 
+                props.restaurants.map((restaurant) => {
+                    let targetRating = 0;
+
+                    if(restaurant.reviews){
+
+                    
+                        targetRating = 0;
+                        if(restaurant.reviews.length > 0){
+                        restaurant.reviews.forEach((review) => targetRating += review.overall) 
+                        targetRating = targetRating / restaurant.reviews.length
+                        
+                        }
+
+                    }
+                    return(
+                        <Link to={`/restaurants/${restaurant.id}`} key={restaurant.id}>
+                            <RestaurantIndexItem >
+                                <div 
+                                    className='restaurant-img'
+                                    style={{backgroundImage : `url(${restaurant.photoUrl ? restaurant.photoUrl: ivyWallURL})`}}
+                                    >
+                                    
+                                </div>
+                                <div className='restaurant-information'>
+                                    <Stars targetRating={targetRating}/>
+                                    <h4>{restaurant.name}</h4>
+                                    <h6>{restaurant.cuisine}</h6>
+                                    <h6>{restaurant.address}</h6>                                    
+                                </div>
+                            </RestaurantIndexItem>    
+                        </Link>
+                    ) 
+                })
+                }
+                </div>
+
+                <div className="right-pointer arrow" onClick={() => scroll('right')}>
+                    <img src={window.ArrowURL} alt='&#x2347;' className="arrow-svg"/>
+                </div>       
             </div>
         </section>
+
     )
 }
+const mSTP = (state, ownProps)=> {
+    let restaurants = state.entities.restaurants.categories[ownProps.category]
+    // debugger
+    return {
+        restaurants:  restaurants ? Object.values(restaurants) : [] 
+    }
+}
 
-export default RestaurantCategory
+const mDTP = () => {
+    return {
+        searchCategory: (category) => dispatch(searchCategory(category))
+    }
+}
+
+
+export default connect(mSTP, mDTP)(RestaurantCategory)

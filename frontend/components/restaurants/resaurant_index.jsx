@@ -33,12 +33,7 @@ export class RestaurantIndex extends React.Component{
     componentDidMount() {
 
         this.props.search({owner_id: this.props.currentUser.id})
-        // .then(() => {
-        //     return (<Redirect to="/restaurants"/>)
-        // })
-        // this.setState({})
         
-        //, address: '', cuisine: '', name: ''
     }
     render() {
 

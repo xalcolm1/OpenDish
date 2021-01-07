@@ -6,10 +6,10 @@ import { NavItem, NavList} from "./nav_item";
 
 const Navbar = props => {
     const{ currentUser, logout } = props;
-    let dif = React.useRef();
-    React.useEffect(() => {
+
+    // React.useEffect(() => {
        
-    },[currentUser])
+    // },[currentUser])
 
     const LoggedOutLinks = () => (
         <nav className="nav-session">
@@ -50,7 +50,7 @@ const Navbar = props => {
                        
         </hgroup>
     )
-        debugger
+
     return (currentUser ? LoggedInLinks() : LoggedOutLinks())
 };
 
