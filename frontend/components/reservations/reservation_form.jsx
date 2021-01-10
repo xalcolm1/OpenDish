@@ -35,14 +35,15 @@ class ReservationForm extends React.Component {
                this.time = change
            }
         }
+
     }
 
     handleSubmit () {
-        console.log(this.state.date)
+
         this.setState({date: `${this.date} ${this.time}`},
          () => { this.props.action(this.state)}
         );
-
+        alert( `You have successfully reserved a table for ${this.state.people} on ${this.state.date.getDate()}, at ${this.state.date.getTime}, `)
     }
     render() {
         let options = [];
