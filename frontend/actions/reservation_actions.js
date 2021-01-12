@@ -2,6 +2,7 @@ import * as reservationApiUtil from '../util/reservation_api_util';
 
 export const RECIEVE_RESERVATION = 'RECIEVE_RESERVATION';
 export const DESTROY_RESERVATION = 'DESTROY_RESERVATION';
+export const UPDATE_RESERVATION = 'UPDATE_RESERVATION';
 
 
 const recieveReservtion = reservation => {
@@ -11,10 +12,10 @@ const recieveReservtion = reservation => {
     }
 }
 
-const destroyReservation = reservationId => {
+const destroyReservation = reservation => {
     return {
         type: DESTROY_RESERVATION,
-        reservationId
+        reservation
     }
 }
 
@@ -25,5 +26,10 @@ export const createReservation = reservation => dispatch => {
 
 export const deleteReservation = reservationId => dispatch => {
     return reservationApiUtil.deleteReservation(reservationId)
-        .then(reservation => dispatch(destroyReservation(reservation.id)))
+        .then(reservation => dispatch(destroyReservation(reservation)))
+}
+
+export const updateReservation = reservation => dispatch => {
+    return reservationApiUtil.updateReservation(reservation)
+            .then(reservation => dispatch(recieveReservtion(reservation)))
 }

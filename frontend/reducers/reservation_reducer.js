@@ -2,7 +2,7 @@
 
 import {
     RECIEVE_RESERVATION,
-    DESTROY_RESERVATION
+    DESTROY_RESERVATION,
 } from '../actions/reservation_actions'
 
 const reservationReducer = (state = {}, action) => {
@@ -13,9 +13,10 @@ const reservationReducer = (state = {}, action) => {
         case RECIEVE_RESERVATION:
             newState[action.reservation.id] = action.reservation;
             return newState;
-        case DESTROY_RESERVATION:
-            newState[action.reservationId] = null;
-            return newState
+        // case DESTROY_RESERVATION:
+
+        //     newState[action.reservationId] = null;
+        //     return newState
         default:
             return state;
     }

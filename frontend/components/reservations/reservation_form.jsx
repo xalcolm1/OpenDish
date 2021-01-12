@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { createReservation } from '../../actions/reservation_actions';
+import Modal from '../modal/modal';
 
 class ReservationForm extends React.Component {
     constructor(props) {
@@ -43,7 +44,7 @@ class ReservationForm extends React.Component {
         this.setState({date: `${this.date} ${this.time}`},
          () => { this.props.action(this.state)}
         );
-        alert( `You have successfully reserved a table for ${this.state.people} on ${this.state.date.getDate()}, at ${this.state.date.getTime}, `)
+        alert( `You have successfully reserved a table for ${this.state.people} on ${this.state.date.toLocaleDateString()} `)
     }
     render() {
         let options = [];
@@ -75,8 +76,10 @@ class ReservationForm extends React.Component {
                         <input type="time" onChange={this.handleChange('time')}/>
                     </div>
                 </div>
-
-                <input type="submit" className="Ouverte Ouverte-hover span" value="Find a table"/>
+                <Modal>
+                    
+                </Modal>
+                <input type="submit" className="Ouverte Ouverte-hover span" value="Find a table" onClick={}/>
             </form>
         )
     }

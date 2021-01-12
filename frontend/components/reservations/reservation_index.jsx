@@ -1,13 +1,17 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import DeleteReservation from '../reservations/delete_reservation';
 
 
 const ReservationIndex = props => {
+
 
     return (
         <ul className="reservation-index">
             {props.reservations.map((reservation, idx) => {
                 let date = new Date(reservation.date).toDateString()
                 return (
+                   reservation.id ? 
                     <li key={idx} className="reservation-index-item">
                         <aside>{props.currentUser.firstname}</aside>
 
@@ -15,8 +19,11 @@ const ReservationIndex = props => {
                             <div>{reservation.name}</div>
                             <div>{reservation.address}</div>
                             <div>{date}</div>
+                            <DeleteReservation reservationId={reservation.id} /> 
                         </main>
                      </li>
+                     :
+                     <></>
                 )
             })}
         </ul>
@@ -27,5 +34,7 @@ const ReservationIndex = props => {
 
 // what needs to happen next : 
 // have the number of people appear  on every reservation
-
-export default ReservationIndex;
+const mSTP = state =>({
+    currentUserId: state.session.id
+})
+export default connect(mSTP)(ReservationIndex);

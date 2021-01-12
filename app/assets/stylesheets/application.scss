@@ -257,3 +257,15 @@ Link {
 .span{
 	width: 100%;
 }
+
+
+button{
+	border: none;
+	border-radius: 10px;
+	padding: 10px;
+	background-color: $ouverte;
+	&:hover{
+		outline: none;
+		background-color: $ouverte-h;
+	}
+}

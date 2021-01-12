@@ -7,7 +7,7 @@
         json.extract! restaurant, :id, :name, :owner_id, :address, :cuisine
         json.photoUrl url_for(restaurant.photo) if restaurant.photo.attached?
         json.reviews restaurant.reviews do |review| 
-            json.extract! review, :id, :body, :overall, :food, :service, :ambiance 
+            json.extract! review, :id, :body, :overall, :food, :service, :ambiance, :user_id
             json.firstname review.user.firstname
             json.image_url review.user.photo if review.user.photo.attached?
         end

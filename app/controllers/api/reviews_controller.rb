@@ -19,17 +19,23 @@ class Api::ReviewsController < ApplicationController
     end
 
     def update
-
-    end
-
-    def destroy
         @review = Review.find_by(id: params[:id])
-        if @review.destroy
-            p 'success'
+
+        if @review.update(review_params)
+            render :show
         else
             render json: @review.errors.full_messages, status: 401
         end
+    end
 
+    def destroy
+
+        @review = Review.find_by(id: params[:id])
+        if @review.destroy
+            render json: @review
+        else
+            render json: @review.errors.full_messages, status: 401
+        end
     end
 
     def review_params

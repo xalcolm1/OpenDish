@@ -16,6 +16,14 @@ export const deleteReservation = reservationId => {
     })
 }
 
+export const updateReservation = reservation => {
+    return $.ajax({
+        url: `/api/reservations/${reservation.id}`,
+        method: "PATCH",
+        data: { reservation }
+    })
+}
+
 export const getReservation = (reservationId) => {
     return $.ajax({
         url: `/api/reservations/${reviewId}`,

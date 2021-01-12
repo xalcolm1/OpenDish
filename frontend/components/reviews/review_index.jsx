@@ -1,5 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import Stars from './stars';
+import DeleteReview from '../reviews/delete_review';
 
 const ReviewIndex = props => {
     const reviews = [];
@@ -26,6 +28,7 @@ const ReviewIndex = props => {
                             { review.body } 
                             </p>
                         </div>
+                        {review.user_id === currentUserId ? <DeleteReview/> : null}
                     </li>
             ) 
         }   
@@ -38,4 +41,7 @@ const ReviewIndex = props => {
     )
 }
 
-export default ReviewIndex
+const mSTP = state =>({
+    currentUserId: state.session.id
+})
+export default connect(mSTP)(ReviewIndex)
