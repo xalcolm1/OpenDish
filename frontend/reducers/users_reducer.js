@@ -10,6 +10,7 @@ import {
 
 const usersReducer = (state = {}, action) => {
     Object.freeze(state);
+    console.log(action.reservation)
     let newState = Object.assign({}, state);
     switch (action.type) {
         case RECIEVE_USER:
@@ -26,9 +27,11 @@ const usersReducer = (state = {}, action) => {
             return newState;
 
         case DESTROY_RESERVATION:
-
-            debugger
-            newState = newState[action.reservation.user_id].reservations.filter(item => item.id !== action.reservation.id)
+            // let newstate = Object.assign({}, state);
+            // delete newState[action.reservation.user_id].reservations;
+            // return newState;
+            // debugger
+            newState[action.reservation.user_id].reservations = newState[action.reservation.user_id].reservations.filter(item => item.id !== action.reservation.id)
             return newState;
         default:
             return state;

@@ -5,7 +5,7 @@ function Modal(props) {
    
     const [open, setOpen] = useState();
    
-    const {children, formType, customColor, icon} = props;
+    const {children, formType, customColor, icon, closeContent} = props;
 
     const handleClick = () => {
            if (event.path[0].className === "modal-backdrop")setOpen(!open) 
@@ -23,7 +23,7 @@ function Modal(props) {
             <div className={customColor ? customColor : "modal-backdrop"} onClick={() => handleClick()}>
                 <div className="modal" onSubmit={() => setOpen(!open)}>
                 
-                    <div onClick={() => setOpen(!open)} className="modal-close">&#x1F33F;</div>
+                    <div onClick={() => setOpen(!open)} className="modal-close">{closeContent ? closeContent : '&#x1F33F;'}</div>
     
                     {children}
     

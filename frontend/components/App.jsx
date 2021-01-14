@@ -35,6 +35,7 @@ const App = () => (
             <Route path='/users/:userId' component={UserShowPage}/>
             <Route path='/restaurants' component={RestaurantSearchIndex}/>
             <Route path="/" component={HomePage}/>
+
         </Switch>
         
         <AuthRoute exact path="/signup" component={signupFormContainer}/>

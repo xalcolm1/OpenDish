@@ -6,7 +6,7 @@ import {
 } from '../actions/restaurant_actions';
 import { 
         RECIEVE_REVIEW,
-        DESTROY_REVIEW
+        DELETE_REVIEW
 } from '../actions/review_actions';
 
 
@@ -14,7 +14,7 @@ import {
 const restaurantReducer = (state = {all: {}, search: {}, categories: {}}, action) => {
 
 // refactor for categories 
-console.log(action.restaurants)
+// console.log(action.restaurants)
 Object.freeze(state);
 let newState = Object.assign({}, state);
 switch(action.type){
@@ -34,7 +34,7 @@ switch(action.type){
             newState.all[action.review.restaurant_id].reviews.push(action.review) 
             return newState;
 
-        case DESTROY_REVIEW:
+        case DELETE_REVIEW:
             debugger
             newState.all[action.review.restaurant_id].restaurant.delete(action.review)
             return newState;
@@ -45,7 +45,6 @@ switch(action.type){
 
         default:
             return state;
-            
     }
 
 }

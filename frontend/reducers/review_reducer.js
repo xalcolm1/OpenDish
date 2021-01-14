@@ -13,9 +13,9 @@ const reviewReducer = (state = {}, action) => {
 
 
     switch(action.type){
-        case RECIEVE_REVIEW:
-            newState[action.review.restaurant_id] = action.review;
-            return newState;
+        // case RECIEVE_REVIEW:
+        //     newState[action.review.restaurant_id] = action.review;
+        //     return newState;
         
         case DELETE_REVIEW:
             delete newState[action.review.id];

@@ -24,8 +24,6 @@ class ReservationForm extends React.Component {
 
     }
 
-    
-
     handleChange(type) {
         return  e => {
            let change = e.target.value
@@ -76,10 +74,9 @@ class ReservationForm extends React.Component {
                         <input type="time" onChange={this.handleChange('time')}/>
                     </div>
                 </div>
-                <Modal>
-                    
-                </Modal>
-                <input type="submit" className="Ouverte Ouverte-hover span" value="Find a table" onClick={}/>
+                
+                     <input type="submit" className="Ouverte Ouverte-hover span" value="Find a table" />
+                {/* <input type="submit" className="Ouverte Ouverte-hover span" value="Find a table" onClick={}/> */}
             </form>
         )
     }

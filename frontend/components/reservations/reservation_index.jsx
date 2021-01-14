@@ -23,7 +23,7 @@ const ReservationIndex = props => {
                         </main>
                      </li>
                      :
-                     <></>
+                     <></> 
                 )
             })}
         </ul>

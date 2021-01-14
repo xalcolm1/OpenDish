@@ -39,18 +39,32 @@ class UserShowPage extends React.Component {
     componentDidUpdate(){
         this.pastReservations = [];
         this.upcomingReservations = [];
-        
-        this.currentUser.reservations.forEach(reservation => {
-            if(new Date(reservation.date) < this.date){
-              this.pastReservations.unshift(reservation)
-            }else {
-              this.upcomingReservations.unshift(reservation)
-            }
-        })
+        if(this.currentUser.reservations){
+            this.currentUser.reservations.forEach(reservation => {
+                if (new Date(reservation.date) < this.date) {
+                    this.pastReservations.unshift(reservation)
+                } else {
+                    this.upcomingReservations.unshift(reservation)
+                }
+            })
+        }  
     }
+
     
 
     render() {
+        // let pastReservations = [];
+        // let upcomingReservations = [];
+        // if(this.currentUser.reservations){
+        //     console.log('passed 58')
+        //     this.currentUser.reservations.forEach(reservation => {
+        //         if (new Date(reservation.date) < this.date) {
+        //             pastReservations.unshift(reservation)
+        //         } else {
+        //             upcomingReservations.unshift(reservation)
+        //         }
+        //     })
+        // }  
         const {search, restaurants } = this.props
 
         let currentItems
@@ -67,7 +81,6 @@ class UserShowPage extends React.Component {
                             )
             
         } else if (this.state.reservations) {
-       
             currentItems = (
                             <ReservationsIndex
                                 className="scrollbox"
@@ -75,6 +88,7 @@ class UserShowPage extends React.Component {
                                 reservations={this.upcomingReservations}
                             />
                             )
+            // console.log(curre)
            
         } else if (this.state.reviews) { 
             currentItems = (
@@ -95,7 +109,7 @@ class UserShowPage extends React.Component {
         }
 
         // debugger
-
+        
         return (
             
             <div className='profile-page'>
@@ -124,7 +138,7 @@ class UserShowPage extends React.Component {
 
                     <div 
                     onClick={() =>
-                         this.setState({
+                        this.setState({
                                         reservations: true,
                                         restaurants: false,
                                         reviews: false,
@@ -143,8 +157,8 @@ class UserShowPage extends React.Component {
                         }
                     >Reviews</div>
 
-                     <div  
-                     onClick={() => 
+                    <div  
+                    onClick={() => 
                         this.setState({reservations: false,
                                         restaurants: false,
                                         reviews: false,
@@ -155,7 +169,7 @@ class UserShowPage extends React.Component {
                 </nav>
 
                 <div className="currentItems">
-                  {currentItems}  
+                {currentItems}  
                 </div>
                 
 

@@ -8,11 +8,13 @@ import ReviewForm from '../reviews/review_form';
 import ReservationForm from '../reservations/reservation_form';
 import Stars from '../reviews/stars';
 
+import { getUser } from '../../actions/session_actions';
 
 const RestaurantShowPage = props => {
     const [open, setOpen] = React.useState(false);
     
     React.useEffect(() =>  {
+        props.getUser(props.currentUser.id)
         props.getRestaurant(props.match.params.restaurantId)
         .then(restaurant => {
             if ( props.restaurant && props.restaurant.reviews){
@@ -108,6 +110,7 @@ const RestaurantShowPage = props => {
                         </div>
              
                 </aside>
+x
             </div>
         </div>
         // </>
@@ -119,13 +122,15 @@ const mapStateToProps = (state, ownProps) => {
 
     return {
         loggedIn: Boolean(state.session.id),
+        currentUser: state.entities.users[state.session.id],
         restaurant: state.entities.restaurants.all[ownProps.match.params.restaurantId],
         reviews: state.entities.reviews[[ownProps.match.params.restaurantId]]
     }
 }
 const mapDispatchToProps = dispatch => {
     return {
-        getRestaurant: (id) => dispatch(getRestaurant(id))
+        getRestaurant: (id) => dispatch(getRestaurant(id)),
+        getUser: (id) => dispatch(getUser(id))
     }
 }
 export default  connect(mapStateToProps ,mapDispatchToProps)(RestaurantShowPage);
