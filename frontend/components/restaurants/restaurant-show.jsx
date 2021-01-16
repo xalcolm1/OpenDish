@@ -9,12 +9,13 @@ import ReservationForm from '../reservations/reservation_form';
 import Stars from '../reviews/stars';
 
 import { getUser } from '../../actions/session_actions';
+import review_index from '../reviews/review_index';
 
 const RestaurantShowPage = props => {
     const [open, setOpen] = React.useState(false);
     
     React.useEffect(() =>  {
-        props.getUser(props.currentUser.id)
+        if(props.currentUser)props.getUser(props.currentUser.id);
         props.getRestaurant(props.match.params.restaurantId)
         .then(restaurant => {
             if ( props.restaurant && props.restaurant.reviews){
@@ -22,14 +23,31 @@ const RestaurantShowPage = props => {
             }
         })
     },[])
+
+    // React.useEffect(() =>  {
+    //     // props.getUser(props.currentUser.id)
+
+    //     props.getRestaurant(props.match.params.restaurantId)
+    //     // .then(restaurant => {
+    //     //     if ( props.restaurant && props.restaurant.reviews){
+    //     //        props.restaurant.reviews.push(props.reviews) 
+    //     //     }
+    //     // })
+    // })
     
     
     let targetRating = 0
-    
+    let reviewsUpdated = []; 
+    //only the reviews in this loop seem to be updated, why?
     if(props.restaurant && props.restaurant.reviews){
         targetRating = 0;
         if(props.restaurant.reviews.length > 0){
-        props.restaurant.reviews.forEach((review) => targetRating += review.overall) 
+        props.restaurant.reviews.forEach((review) => {
+
+            reviewsUpdated.push(review);
+             targetRating += review.overall;
+        }) 
+
             targetRating = targetRating / props.restaurant.reviews.length
         }
     }
@@ -41,7 +59,7 @@ const RestaurantShowPage = props => {
         } else {
             reviewForm = <div className="Rev-button" onClick={() => setOpen(!open)}> write a review </div>
         }
-    
+        // props.restaurant ? props.restaurant.reviews : []
 
     return (
         // <>
@@ -98,7 +116,7 @@ const RestaurantShowPage = props => {
                      
                         {/* add  */}
 
-                        <ReviewIndex reviews={props.restaurant ? props.restaurant.reviews : []}/>
+                        <ReviewIndex reviews={reviewsUpdated}/>
                     
                 </main>  
 
@@ -110,7 +128,7 @@ const RestaurantShowPage = props => {
                         </div>
              
                 </aside>
-x
+
             </div>
         </div>
         // </>

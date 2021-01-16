@@ -1,17 +1,38 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import DeleteReservation from '../reservations/delete_reservation';
+import {deleteReservation} from '../../actions/reservation_actions';
+
+// import DeleteReservation from '../reservations/delete_reservation';
 
 
 const ReservationIndex = props => {
+    // let reservations = props.reservations
+    const [rejects] = React.useState({}) 
+    
+    const handleDelete = (index, reservationId) => {
+        return event => {
+            event.preventDefault();
+            props.deleteReservation(reservationId);
+            // window.location.reload(false);
+            // setRejects({reservationId: reservationId})
+            rejects[reservationId] = reservationId;
 
+            // reservations = reservations.splice(index, 1);
+     
+        }
+    };
+   
 
+    //posible solution to deletion, if the index in the deleted indexes don't show the item, if the item is 
     return (
         <ul className="reservation-index">
-            {props.reservations.map((reservation, idx) => {
-                let date = new Date(reservation.date).toDateString()
-                return (
-                   reservation.id ? 
+            {            
+                props.reservations.map((reservation, idx) => {
+                    if(!(reservation.id in rejects)){
+
+                    let date = new Date(reservation.date).toDateString()
+
+                    return (
                     <li key={idx} className="reservation-index-item">
                         <aside>{props.currentUser.firstname}</aside>
 
@@ -19,13 +40,19 @@ const ReservationIndex = props => {
                             <div>{reservation.name}</div>
                             <div>{reservation.address}</div>
                             <div>{date}</div>
-                            <DeleteReservation reservationId={reservation.id} /> 
+
                         </main>
-                     </li>
-                     :
-                     <></> 
-                )
-            })}
+                        <div className='editDeleteArea'>
+                            <button onClick={handleDelete(idx, reservation.id)}>Cancel Reservation</button>
+                            <button onClick={handleDelete(idx, reservation.id)}>Edit Reservation</button>
+                        </div>
+
+                    </li>
+                    )
+                }})
+
+            }
+
         </ul>
     )
 };
@@ -37,4 +64,10 @@ const ReservationIndex = props => {
 const mSTP = state =>({
     currentUserId: state.session.id
 })
-export default connect(mSTP)(ReservationIndex);
+
+const mDTP = dispatch => ({
+    deleteReservation: (reservationId) => dispatch(deleteReservation(reservationId))
+})
+
+
+export default connect(mSTP, mDTP)(ReservationIndex);

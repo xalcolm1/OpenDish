@@ -2,14 +2,17 @@ import React from 'react';
 import PrettyLink from '../pretty_link';
 import { Link } from 'react-router-dom';
 import { NavItem, NavList} from "./nav_item";
+import { getUser } from '../../util/session_api_util';
 
 
 const Navbar = props => {
-    const{ currentUser, logout } = props;
+    const{ currentUser,getUser, logout } = props;
 
-    // React.useEffect(() => {
+    React.useEffect(() => {
        
-    // },[currentUser])
+       if(currentUser) getUser(currentUser.id) ;
+        
+    },[])
 
     const LoggedOutLinks = () => (
         <nav className="nav-session">

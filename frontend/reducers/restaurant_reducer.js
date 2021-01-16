@@ -35,8 +35,8 @@ switch(action.type){
             return newState;
 
         case DELETE_REVIEW:
-            debugger
-            newState.all[action.review.restaurant_id].restaurant.delete(action.review)
+            // debugger
+            newState.all[action.review.restaurant_id].reviews.filter(review => review.id !== action.review.id)
             return newState;
 
         case DELETE_RESTAURANT:

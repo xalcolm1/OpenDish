@@ -309,3 +309,18 @@
     padding-bottom: 5px;
 
 }
+.editDeleteArea{
+    margin-left: 100px;
+    height: 110px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    
+    & > * {
+        height: 50px;
+
+        color: white;
+        background-color: black;
+    }
+}

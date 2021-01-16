@@ -6,7 +6,7 @@ import Modal from '../modal/modal';
 class ReservationForm extends React.Component {
     constructor(props) {
         super(props)
-        let dateNow = new Date();
+       this.dateNow = new Date();
 
         this.date = ''
         this.time = ''
@@ -16,7 +16,7 @@ class ReservationForm extends React.Component {
             user_id: this.props.userId,
             restaurant_id: this.props.restaurantId,
             people: 1,
-            date: dateNow
+            date: this.dateNow
         }
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleChange = this.handleChange.bind(this)
@@ -25,24 +25,46 @@ class ReservationForm extends React.Component {
     }
 
     handleChange(type) {
-        return  e => {
-           let change = e.target.value
+        return  event => {
+           let change = event.target.value
 
            if(type === 'date'){
                this.date = change;
            } else if (type === 'time'){
                this.time = change
            }
+
         }
 
     }
 
     handleSubmit () {
-
+        // let reservationDate = `${this.date} ${this.time}`
+        // let people = this.state.people
         this.setState({date: `${this.date} ${this.time}`},
-         () => { this.props.action(this.state)}
-        );
-        alert( `You have successfully reserved a table for ${this.state.people} on ${this.state.date.toLocaleDateString()} `)
+        () => { 
+            this.props.action(this.state)
+            .then(() => {
+                this.setState({ 
+                    people: 1,
+                    date: this.dateNow
+                })
+            });
+        });
+
+        // this.setState({date: `${this.date} ${this.time}`});
+        // this.props.action(this.state).then(() => {
+        //     this.setState({ 
+        //         people: 1,
+        //         date: dateNow
+        //     })
+        // });
+
+        // this.setState({date: `${this.date} ${this.time}`},
+        //  () => { this.props.action(this.state)}
+        // );
+        // let formatTime = this.time.slice(0,1) >= 13 ? this.time.slice(0,2)
+        alert( `You have successfully reserved a table for ${this.state.people} on ${this.date}, at  ${this.time}`)
     }
     render() {
         let options = [];
@@ -50,7 +72,7 @@ class ReservationForm extends React.Component {
             options.push(<option 
                                 key={i}
                                 value={i}
-                                onClick={() => this.setState({people: i})}
+                                onClick={() => this.setState({people: i}).bind(this)}
                                 className="option"
                                 >{`For ${i}`}</option>)
         }

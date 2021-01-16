@@ -20,7 +20,7 @@ class UserShowPage extends React.Component {
             reservations: false,
             restaurants: true,
             reviews: false,
-            prevRestaurants: false
+            prevReservations: false
         }
         this.date = new Date;
 
@@ -40,7 +40,10 @@ class UserShowPage extends React.Component {
         this.pastReservations = [];
         this.upcomingReservations = [];
         if(this.currentUser.reservations){
-            this.currentUser.reservations.forEach(reservation => {
+            // this.currentUser.reservations.forEach(reservation => {
+                // debugger
+            
+            this.props.reservations.forEach(reservation => {
                 if (new Date(reservation.date) < this.date) {
                     this.pastReservations.unshift(reservation)
                 } else {
@@ -49,6 +52,7 @@ class UserShowPage extends React.Component {
             })
         }  
     }
+
 
     
 
@@ -97,7 +101,7 @@ class UserShowPage extends React.Component {
                             />
                             )   
 
-        } else if (this.state.prevRestaurants) {
+        } else if (this.state.prevReservations) {
 
             currentItems = (
                             <ReservationsIndex
@@ -125,47 +129,52 @@ class UserShowPage extends React.Component {
 
 
                 <nav className="selection-nav user-nav">
-                    <div 
+                    <div
+                    className={this.state.restaurants ? 'selected' : ''}
                     onClick={() => 
                         this.setState({
                                         reservations: false,
                                         restaurants: true,
                                         reviews: false,
-                                        prevRestaurants: false
+                                        prevReservations: false
                                     })
                             }
                     >Restaurants</div>
 
                     <div 
+                    className={this.state.reservations ? 'selected' : ''}
                     onClick={() =>
+
                         this.setState({
                                         reservations: true,
                                         restaurants: false,
                                         reviews: false,
-                                        prevRestaurants: false
+                                        prevReservations: false
                                     })
                         }
                     >Reservations</div>
 
                     <div  
+                    className={this.state.reviews ? 'selected' : ''}
                     onClick={() => 
                         this.setState({reservations: false,
                                         restaurants: false,
                                         reviews: true,
-                                        prevRestaurants: false
+                                        prevReservations: false
                                     })
                         }
                     >Reviews</div>
 
-                    <div  
+                    <div 
+                    className={this.state.prevReservations ? 'selected' : ''}
                     onClick={() => 
                         this.setState({reservations: false,
                                         restaurants: false,
                                         reviews: false,
-                                        prevRestaurants: true
+                                        prevReservations: true
                                     })
                         }
-                    >Previous Restaurants</div>
+                    >Previous Reservations</div>
                 </nav>
 
                 <div className="currentItems">
@@ -183,6 +192,8 @@ const mapStateToProps = ({session, entities : {users, restaurants}}) => {
     
     return{ 
         currentUser: users[session.id],
+        reservations:  users[session.id].reservations,
+        reviews: users[session.id].reviews,
         userId: session.id,
         restaurants: Object.values(restaurants.all)
     }

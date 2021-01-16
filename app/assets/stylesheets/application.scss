@@ -230,7 +230,7 @@ Link {
 	&:hover{
 		// color: rgb(48, 148, 48);
 		// color: #46ff9a;
-		// color: $ouverte;
+		color: $ouverte;
 		border-bottom: 2px #46ff9a solid;
 		border-bottom: 2px $ouverte solid;
 	}
@@ -238,6 +238,11 @@ Link {
 
 }
 
+.selected{
+	color: $ouverte;
+	border-bottom: 2px #46ff9a solid;
+	border-bottom: 2px $ouverte solid;
+}
 
 .clear{
 	background-color: rgba(255, 255, 255, 0);

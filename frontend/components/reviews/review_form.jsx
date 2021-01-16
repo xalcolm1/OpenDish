@@ -5,6 +5,7 @@ import { createReview } from '../../actions/review_actions';
 import Stars from './stars';
 
 
+
 class ReviewForm extends React.Component{
     constructor(props){
         super(props)
@@ -24,12 +25,13 @@ class ReviewForm extends React.Component{
     handleSubmit(){
         event.preventDefault()
 
-        this.props.createReview(this.state) 
+        this.props.createReview(this.state)
+        .then(() => {this.forceUpdate()})
         this.setState({
             body: '',
-            overall: 1,
-
+            // overall: 1,
         })
+
 
 
 
@@ -121,4 +123,5 @@ const mDTP = dispatch => ({
     createReview: (review) => dispatch(createReview(review))
     
 })
-export default withRouter(connect(mSTP, mDTP)(ReviewForm));
+export default connect(mSTP, mDTP)(ReviewForm);
+///remove withRouter

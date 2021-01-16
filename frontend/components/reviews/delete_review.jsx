@@ -2,10 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 import {deleteReview} from '../../actions/review_actions';
 
+//depriciated
+
 const DeleteReview = props => {
     const handleClick = () => {
         event.preventDefault();
         deleteReview(reviewId);
+        window.location.reload(false);
+
     };
     let {deleteReview, reviewId} = props;
 
