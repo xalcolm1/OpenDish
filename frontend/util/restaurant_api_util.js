@@ -14,7 +14,7 @@ export const updateRestaurant = restaurant => {
 
     return $.ajax({
         url: "/api/restaurants",
-        method: "UPDATE",
+        method: "PATCH",
         data:  restaurant ,//removed {}
         contentType: false,
         processData: false

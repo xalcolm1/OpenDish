@@ -194,21 +194,13 @@
     z-index: 2;
 }
 .restaurant{
-    position: relative;
+
     top: -187px;
     display: flex;
     max-width: 992px;
     justify-content: space-around;
-    margin: 150px auto 0 auto ;
-    // margin-left: auto;
-    // margin-right: auto;
+    margin: -38px auto 0 auto ;
     min-height: 600px;
-
-    // margin-top: 100px;
-    
-    // grid-template-rows: 200px 3fr 2fr ;
-    // grid-template-columns: 2fr 1fr;
-    // column-gap: 2rem;
 }
 
 .restaurant-box{
@@ -220,7 +212,6 @@
     width: 616px;
     // border: 1px solid grey;
     // box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.164);
-
     padding: 2px 12px 8px 12px;
     border-radius: 2px;
     background-color: white;
@@ -310,7 +301,7 @@
 
 }
 .editDeleteArea{
-    margin-left: 100px;
+    margin-left: auto;
     height: 110px;
     display: flex;
     flex-direction: column;
@@ -323,4 +314,23 @@
         color: white;
         background-color: black;
     }
+}
+
+
+
+.edit{ 
+    background: none;
+
+    & > *{
+        height: -webkit-fill-available;
+        width: -webkit-fill-available;
+        background: black;
+        color: white;
+        &:last-child{
+            margin-top: 10px;
+            height: 50px;
+
+        }
+    }
+    
 }

@@ -30,6 +30,7 @@ export const deleteReservation = reservationId => dispatch => {
 }
 
 export const updateReservation = reservation => dispatch => {
+    console.log(reservation)
     return reservationApiUtil.updateReservation(reservation)
             .then(reservation => dispatch(recieveReservtion(reservation)))
 }

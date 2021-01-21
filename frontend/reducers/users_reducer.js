@@ -24,14 +24,16 @@ const usersReducer = (state = {}, action) => {
 
         case RECIEVE_RESERVATION:
 
+            newState[action.reservation.user_id].reservations = newState[action.reservation.user_id].reservations.filter(reservation => {
+                return reservation.id !== action.reservation.id
+            }) // secret line
+
             newState[action.reservation.user_id].reservations.push(action.reservation)
+
             return newState;
 
         case DESTROY_RESERVATION:
-            // let newstate = Object.assign({}, state);
-            // delete newState[action.reservation.user_id].reservations;
-            // return newState;
-            // debugger
+        
             newState[action.reservation.user_id].reservations = newState[action.reservation.user_id].reservations.filter(item => item.id !== action.reservation.id)
             return newState;
 

@@ -17,6 +17,7 @@ export const deleteReservation = reservationId => {
 }
 
 export const updateReservation = reservation => {
+    console.log(reservation)
     return $.ajax({
         url: `/api/reservations/${reservation.id}`,
         method: "PATCH",
@@ -26,7 +27,7 @@ export const updateReservation = reservation => {
 
 export const getReservation = (reservationId) => {
     return $.ajax({
-        url: `/api/reservations/${reviewId}`,
+        url: `/api/reservations/${reservationId}`,
         method: "GET",
         data: { reservationId }
     })
