@@ -19,10 +19,17 @@ class Api::ReviewsController < ApplicationController
     end
 
     def update
-        # debugger
+        debugger
+        #id is missing
 
-        @review = Review.find_by(id: review_params[:id])
-        if @review.update(review_params)
+        @review = Review.find_by(id: params[:id])
+        if @review.update(
+            overall: params[:review][:overall], 
+            food: params[:review][:food], 
+            service: params[:review][:service],
+            ambiance: params[:review][:ambiance],
+            body: params[:review][:body])
+
             render :show
         else
             render json: @review.errors.full_messages, status: 401

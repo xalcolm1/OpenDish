@@ -21,7 +21,10 @@ const ReviewIndexItem = props => {
     
     const handleClick = (rating) => {
         return e => {
-            setState({[rating]: parseInt(e.target.id)});
+            debugger
+            setState(prevState => ({
+                ...prevState,
+                [rating]: parseInt(e.target.id)}));
             let ratingElements = e.target.parentElement.children;
             let targetRating = e.target;
             let color = "#FF523D";
@@ -35,12 +38,11 @@ const ReviewIndexItem = props => {
     }
 
     const handleSubmit = () => {
-
         setState(prevState => ({
             ...prevState,
             id: review.id
         }))
-        console.log(state, review.id)
+        
         edit(state)
         setOpen(!open)
     }
@@ -70,6 +72,7 @@ const ReviewIndexItem = props => {
                                         </>
                                         ) : (
                                             <>
+
                                                 <Stars targetRating={state.overall} onClick={handleClick('overall')}/>
                                                 <Stars targetRating={state.food} onClick={handleClick('food')}/>
                                                 <Stars targetRating={state.service} onClick={handleClick('service')}/>
@@ -98,15 +101,7 @@ const ReviewIndexItem = props => {
                                         review.user_id === parseInt(props.currentUserId) ? (
                                             <div className='editDeleteArea'>
                                                 <button onClick={handleDelete(review.id)}> Delete </button> 
-                                                <button onClick={() => {
-                                                    setOpen(!open)
-                                                    setState({
-                                                        body: review.body,
-                                                        overall: review.overall,
-                                                        food: review.food,
-                                                        service: review.service, 
-                                                        ambiance: review.ambiance,
-                                                    })}
+                                                <button onClick={() => setOpen(!open)
                                                     }>{open ? 'Cancel' : 'Edit'}</button>
                                                 {open ?  <button onClick={() => handleSubmit() }>Save</button> : null}
                                             </div>

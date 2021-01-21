@@ -73,7 +73,7 @@ const ReservationIndexItem = (props) => {
         }
     }
     const options = [];
-    const currentDate = new Date(reservation.date).toDateString()
+    const currentDate = new Date(state.date).toDateString()
 
     //create options
     for(let i = 1; i <= 20; i ++){
@@ -98,13 +98,13 @@ const ReservationIndexItem = (props) => {
                 { open ? (
                     <>
                          <label htmlFor="people"> Party Size</label>
-                            <select className="people" onChange={handleSelection()}>
+                            <select className="people" onChange={handleSelection()} value={state.people}>
                             {options}
                             </select> 
 
                          <div className="column"> 
                         <label htmlFor="date"> Date</label>
-                        <input type="date" onChange={handleChange('date') } />
+                        <input type="date" onChange={handleChange('date') }  />
                         <label htmlFor="time">Time</label>
                         <input type="time" onChange={handleChange('time')} />
                     </div>
