@@ -8,10 +8,12 @@ const Homepage = props => (
                 <h1 className="headline">Find your table for any occasion</h1>
                 <RestaurantSearch />
         </div>
+                <RestaurantCategory category="japanese"/>
+                <RestaurantCategory category="cafe"/>
                 <RestaurantCategory category="italian"/>
                 <RestaurantCategory category="mexican"/>
-                <RestaurantCategory category="boba"/>
                 <RestaurantCategory category="american"/>
+
     </div>
 )
 
