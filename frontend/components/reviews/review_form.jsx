@@ -37,21 +37,33 @@ class ReviewForm extends React.Component{
 
     }
     
+    // handleClick(rating){
+    //     return e => {
+    //         this.setState({[ rating ]: parseInt(e.target.id)});
+
+    //         let ratingElements = e.target.parentElement.children;
+    //         let targetRating = e.target;
+    //         let color = "#FF523D"
+
+    //         for(let i = ratingElements.length - 1; i >= 0; i--){
+    //             e.target.parentElement.children[i].style.color = color
+    //             if(ratingElements[i] === targetRating) color = "rgb(224, 222, 222)"
+    //         }
+    //         // let ratingElements = e.target 
+
+
+    //     }
+    // }
+
     handleClick(rating){
         return e => {
-            this.setState({[ rating ]: parseInt(e.target.id)});
+            // it's beautiful (*_*)
+            let collection = Array.from(event.target.parentElement.parentElement.parentElement.parentElement.children)
+            let newRating = collection.indexOf(event.target.parentElement.parentElement.parentElement) + 1
 
-            let ratingElements = e.target.parentElement.children;
-            let targetRating = e.target;
-            let color = "#FF523D"
-
-            for(let i = ratingElements.length - 1; i >= 0; i--){
-                e.target.parentElement.children[i].style.color = color
-                if(ratingElements[i] === targetRating) color = "rgb(224, 222, 222)"
-            }
-            // let ratingElements = e.target 
-
-
+            this.setState(prevState => ({
+                ...prevState,
+                [rating]: newRating}));
         }
     }
    
@@ -62,45 +74,58 @@ class ReviewForm extends React.Component{
 
             <form 
             onSubmit={() => this.handleSubmit()}>
-                <label htmlFor="rating">Overall: </label>
-                <span className="rating"> 
+                <label htmlFor="rating">Overall: 
+                    <Stars targetRating={this.state.overall} onClick={this.handleClick('overall')}/>
+                </label>
+
+                {/* <span className="rating"> 
                    <span id='5' onClick={this.handleClick('overall')}>&#x2605;</span>
                    <span id='4' onClick={this.handleClick('overall')}>&#x2605;</span>
                    <span id='3' onClick={this.handleClick('overall')}>&#x2605;</span>
                    <span id='2' onClick={this.handleClick('overall')}>&#x2605;</span>
                    <span id='1' onClick={this.handleClick('overall')}>&#x2605;</span>
-                </span>
-                {/* <Stars targetRating={this.state.overall} onClick={() => {debugger} } /> */}
+                </span> */}
                 
-                <label htmlFor="rating1">Food: </label>
-                <span className="rating"> 
+                
+                <label htmlFor="rating1">Food: 
+                    <Stars targetRating={this.state.food} onClick={this.handleClick('food')}/>
+                </label>
+                {/* <span className="rating"> 
                    <span id='5' onClick={this.handleClick('food')}>&#x2605;</span>
                    <span id='4' onClick={this.handleClick('food')}>&#x2605;</span>
                    <span id='3' onClick={this.handleClick('food')}>&#x2605;</span>
                    <span id='2' onClick={this.handleClick('food')}>&#x2605;</span>
                    <span id='1' onClick={this.handleClick('food')}>&#x2605;</span>
-                </span>
-                {/* <Stars targetRating={this.state.food} onClick={this.handleClick('food')}/> */}
+                </span> */}
 
-                <label htmlFor="rating2">Service: </label>
-                <span className="rating"> 
+                <label>Service: 
+                    <Stars targetRating={this.state.service} onClick={this.handleClick('service')}/>
+
+                </label>
+                {/* <span className="rating"> 
+                 htmlFor="rating2"
                    <span id='5' onClick={this.handleClick('service')}>&#x2605;</span>
                    <span id='4' onClick={this.handleClick('service')}>&#x2605;</span>
                    <span id='3' onClick={this.handleClick('service')}>&#x2605;</span>
                    <span id='2' onClick={this.handleClick('service')}>&#x2605;</span>
                    <span id='1' onClick={this.handleClick('service')}>&#x2605;</span>
-                </span>
-                {/* <Stars targetRating={this.state.service} onClick={this.handleClick('service')}/> */}
+                </span> */}
 
-                <label htmlFor="rating3">Ambiance: </label>
-                <span className="rating"> 
+                <label >Ambiance:
+                    <Stars targetRating={this.state.ambiance} onClick={this.handleClick('ambiance')}/>
+                </label>
+
+                {/* <span className="rating"> 
+                // htmlFor="rating3"
                    <span id='5' onClick={this.handleClick('ambiance')}>&#x2605;</span>
                    <span id='4' onClick={this.handleClick('ambiance')}>&#x2605;</span>
                    <span id='3' onClick={this.handleClick('ambiance')}>&#x2605;</span>
                    <span id='2' onClick={this.handleClick('ambiance')}>&#x2605;</span>
                    <span id='1' onClick={this.handleClick('ambiance')}>&#x2605;</span>
-                </span>
+                </span> */}
                 {/* <Stars targetRating={this.state.ambiance} onClick={this.handleClick('ambiance')}/> */}
+
+                
 
                 <textarea name="" id="" cols="30" rows="10" onChange={e => this.setState({body: e.target.value})} value={this.state.body}></textarea>
                 <input type="submit" value="publish"/>

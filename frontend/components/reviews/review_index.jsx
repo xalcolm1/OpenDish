@@ -21,19 +21,13 @@ const ReviewIndexItem = props => {
     
     const handleClick = (rating) => {
         return e => {
-            debugger
+            // it's beautiful (*_*)
+            let collection = Array.from(event.target.parentElement.parentElement.parentElement.parentElement.children)
+            let newRating = collection.indexOf(event.target.parentElement.parentElement.parentElement) + 1
+
             setState(prevState => ({
                 ...prevState,
-                [rating]: parseInt(e.target.id)}));
-            let ratingElements = e.target.parentElement.children;
-            let targetRating = e.target;
-            let color = "#FF523D";
-
-            for(let i = ratingElements.length - 1; i >= 0; i--){
-                e.target.parentElement.children[i].style.color = color
-                if(ratingElements[i] === targetRating) color = "rgb(224, 222, 222)"
-            }
-            // let ratingElements = e.target 
+                [rating]: newRating}));
         }
     }
 
@@ -72,11 +66,18 @@ const ReviewIndexItem = props => {
                                         </>
                                         ) : (
                                             <>
-
+                                            <label>Overall:
                                                 <Stars targetRating={state.overall} onClick={handleClick('overall')}/>
+                                            </label>
+                                            <label>Food:
                                                 <Stars targetRating={state.food} onClick={handleClick('food')}/>
+                                            </label>
+                                            <label>Service:
                                                 <Stars targetRating={state.service} onClick={handleClick('service')}/>
+                                            </label>
+                                            <label>Ambiance:
                                                 <Stars targetRating={state.ambiance} onClick={handleClick('ambiance')}/>
+                                            </label>
 
                                                 <textarea 
                                                 name="" 
@@ -101,7 +102,18 @@ const ReviewIndexItem = props => {
                                         review.user_id === parseInt(props.currentUserId) ? (
                                             <div className='editDeleteArea'>
                                                 <button onClick={handleDelete(review.id)}> Delete </button> 
-                                                <button onClick={() => setOpen(!open)
+                                                <button onClick={() => {
+                                                    setOpen(!open);
+                                                    setState({
+                                                        id: review.id,
+                                                        body: review.body,
+                                                        overall: review.overall,
+                                                        food: review.food,
+                                                        service: review.service, 
+                                                        ambiance: review.ambiance,
+                                                    });
+                                                
+                                                }
                                                     }>{open ? 'Cancel' : 'Edit'}</button>
                                                 {open ?  <button onClick={() => handleSubmit() }>Save</button> : null}
                                             </div>

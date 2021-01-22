@@ -39,15 +39,22 @@ class ReviewForm extends React.Component{
     
     handleClick(rating){
         return e => {
-            this.setState({[ rating ]: parseInt(e.target.id)});
+           debugger
 
-            let ratingElements = e.target.parentElement.children;
-            let targetRating = e.target;
+            let ratingElements =  event.target.parentElement.parentElement.parentElement.parentElement.children[i].children
+            let targetRating = event.target;
             let color = "#FF523D"
 
             for(let i = ratingElements.length - 1; i >= 0; i--){
                 e.target.parentElement.children[i].style.color = color
-                if(ratingElements[i] === targetRating) color = "rgb(224, 222, 222)"
+                event.target.parentElement.parentElement.parentElement.parentElement.children[i].children[0].children[1].children[0].style.color = color
+                if(ratingElements[i] === targetRating) {
+                     color ="rgb(224, 222, 222)";
+                     setState(prevState => ({
+                         ...prevState,
+                         [ rating ]: i
+                        }));
+                }
             }
             // let ratingElements = e.target 
 

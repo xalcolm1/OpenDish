@@ -122,7 +122,16 @@ const ReservationIndexItem = (props) => {
             <div className='editDeleteArea'>
                 <button onClick={props.delete(reservation.id)}>Cancel Reservations</button>
                 <div className="edit">
-                     <button onClick={() => setOpen(!open)}>{open ? 'Cancel' : 'Edit'}</button>
+                     <button onClick={() => {
+                         setOpen(!open);
+                        setState({
+                            id: props.reservation.id,
+                            user_id: props.reservation.user_id,
+                            restaurant_id: props.reservation.restaurant_id,
+                            people: props.reservation.people,
+                            date: props.reservation.date
+                        })}}>{open ? 'Cancel' : 'Edit'}</button>
+
                 {  open ? (<button onClick={() => handleSubmit()}> Done </button>) : null}
                 </div>
                

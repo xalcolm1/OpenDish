@@ -31,7 +31,8 @@ switch(action.type){
             return newState;
             
         case RECIEVE_REVIEW:
-            newState.all[action.review.restaurant_id].reviews.push(action.review) 
+
+            newState.all[action.review.restaurant_id].reviews.map(review => {return  review.id === action.review.id ? action.review : review}) 
             return newState;
 
         case DELETE_REVIEW:

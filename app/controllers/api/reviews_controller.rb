@@ -19,7 +19,7 @@ class Api::ReviewsController < ApplicationController
     end
 
     def update
-        debugger
+        # debugger
         #id is missing
 
         @review = Review.find_by(id: params[:id])
