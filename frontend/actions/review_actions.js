@@ -3,10 +3,18 @@ import * as reviewApiUtil from '../util/review_api_util'
 
 export const RECIEVE_REVIEW = 'RECIEVE_REVIEW';
 export const DELETE_REVIEW = 'DELETE_REVIEW';
+export const UPDATE_REVIEW = 'UPDATE_REVIEW';
 
 const recieveReview = review => {
     return {
         type: RECIEVE_REVIEW,
+        review
+    }
+}
+
+const editReview = review => {
+    return {
+        type: UPDATE_REVIEW,
         review
     }
 }
@@ -26,7 +34,7 @@ export const createReview = review => dispatch => {
 
 export const updateReview = review => dispatch => {
     return reviewApiUtil.updateReview(review)
-    .then(review => dispatch(recieveReview(review)))
+    .then(review => dispatch(editReview(review)))
 
     
 }

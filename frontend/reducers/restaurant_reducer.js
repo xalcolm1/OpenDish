@@ -1,3 +1,4 @@
+import { UPDATE_RESERVATION } from '../actions/reservation_actions';
 import {
     RECIEVE_RESTAURANT,
     RECIEVE_ALL_RESTAURANTS,
@@ -6,7 +7,8 @@ import {
 } from '../actions/restaurant_actions';
 import { 
         RECIEVE_REVIEW,
-        DELETE_REVIEW
+        DELETE_REVIEW,
+        UPDATE_REVIEW
 } from '../actions/review_actions';
 
 
@@ -32,8 +34,15 @@ switch(action.type){
             
         case RECIEVE_REVIEW:
 
-            newState.all[action.review.restaurant_id].reviews.map(review => {return  review.id === action.review.id ? action.review : review}) 
+            newState.all[action.review.restaurant_id].reviews.push(action.review)
+
             return newState;
+
+        case UPDATE_REVIEW:
+            newState.all[action.review.restaurant_id].reviews = 
+            newState.all[action.review.restaurant_id].reviews.map(review => {return  review.id === action.review.id ? action.review : review})
+            debugger 
+        return newState;
 
         case DELETE_REVIEW:
             // debugger

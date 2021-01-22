@@ -4,9 +4,14 @@ import {
 } from '../actions/session_actions'
 import {
     RECIEVE_RESERVATION,
-    DESTROY_RESERVATION
+    DESTROY_RESERVATION,
+    UPDATE_RESERVATION
 } from '../actions/reservation_actions'
-import { DELETE_REVIEW,  RECIEVE_REVIEW} from '../actions/review_actions';
+import { 
+    DELETE_REVIEW,
+    RECIEVE_REVIEW,
+    UPDATE_REVIEW
+} from '../actions/review_actions';
 
 
 const usersReducer = (state = {}, action) => {
@@ -23,26 +28,28 @@ const usersReducer = (state = {}, action) => {
             return newState;
 
         case RECIEVE_RESERVATION:
-
-            newState[action.reservation.user_id].reservations = newState[action.reservation.user_id].reservations.filter(reservation => {
-                return reservation.id !== action.reservation.id
-            }) // secret line
-
             newState[action.reservation.user_id].reservations.push(action.reservation)
 
             return newState;
 
-        case DESTROY_RESERVATION:
-        
-            newState[action.reservation.user_id].reservations = newState[action.reservation.user_id].reservations.filter(item => item.id !== action.reservation.id)
+        case UPDATE_RESERVATION:
+            newState[action.reservation.user_id].reservations = 
+            newState[action.reservation.user_id].reservations.filter(reservation => reservation.id !== action.reservation.id) // secret line
+
             return newState;
-        // case RECIEVE_REVIEW:
 
-        //         newState.all[action.review.user_id].reviews.map(review => {
+        case DESTROY_RESERVATION:
+            newState[action.reservation.user_id].reservations =
+             newState[action.reservation.user_id].reservations.filter(item => item.id !== action.reservation.id)
+            return newState;
 
-        //             return  review.id === action.review.id ? action.review : review}) 
-        //         return newState;
-    
+        case RECIEVE_REVIEW:
+            newState[action.review.user_id].reviews.push(action.review) 
+                return newState;
+        case UPDATE_REVIEW:
+            newState[action.review.user_id].reviews = newState[action.review.user_id].reviews.map(review => {
+                return  review.id === action.review.id ? action.review : review}) 
+                return newState;
         case DELETE_REVIEW:
             newState[action.review.user_id].reviews = newState[action.review.user_id].reviews.filter(item => item.id !== action.review.id)
             return newState;

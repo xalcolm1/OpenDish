@@ -12,6 +12,14 @@ const recieveReservtion = reservation => {
     }
 }
 
+const editReservation = reservation => {
+    return {
+        type: UPDATE_RESERVATION,
+        reservation
+    }
+}
+
+
 const destroyReservation = reservation => {
     return {
         type: DESTROY_RESERVATION,
@@ -32,5 +40,5 @@ export const deleteReservation = reservationId => dispatch => {
 export const updateReservation = reservation => dispatch => {
     console.log(reservation)
     return reservationApiUtil.updateReservation(reservation)
-            .then(reservation => dispatch(recieveReservtion(reservation)))
+            .then(reservation => dispatch(editReservation(reservation)))
 }
