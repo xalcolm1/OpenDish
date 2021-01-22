@@ -16,7 +16,7 @@ const ReviewIndexItem = props => {
             overall: review.overall,
             food: review.food,
             service: review.service, 
-            ambiance: review.ambiance,
+            ambiance: review.ambiance
     })
     
     const handleClick = (rating) => {
@@ -139,7 +139,12 @@ const ReviewIndex= props => {
                     [reviewId]: reviewId
                 }))
             }
-        }
+        }   
+
+        React.useEffect(() => {
+            console.log(props.reviews)
+       
+        }, [props.reviews])
 
         return (
             <ul className="review-index">
@@ -149,7 +154,7 @@ const ReviewIndex= props => {
                         props.reviews.map((review, idx)=> {
                             if(!(review.id in rejects)){
                                 return <ReviewIndexItem 
-                                key={idx}
+                                key={review.id}
                                 review={review} 
                                 edit={props.editReview} 
                                 handleDelete={handleDelete} 

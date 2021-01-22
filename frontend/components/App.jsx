@@ -6,7 +6,7 @@ import { AuthRoute } from '../util/route_util';
 import NavContainer from './navcontainer/NavContainer';
 import HomePage from './Homepage/Homepage'
 import Modal from './modal/modal';
-import UserShowPage from './Homepage/user_show_page';
+import UserShowPage from './sessions/user_show_page';
 import RestaurantShowPage from './restaurants/restaurant-show';
 import RestaurantSearchIndex from './restaurants/restaurant_search/restaurant_search_index';
 import ReviewForm from './reviews/review_form';

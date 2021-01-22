@@ -31,16 +31,14 @@ export class RestaurantIndex extends React.Component{
     }
     
     componentDidMount() {
-
-        this.props.search({owner_id: this.props.currentUser.id})
-        
+        if(this.props.currentUser){
+            this.props.search({owner_id: this.props.currentUser.id})
+        }
     }
-    render() {
 
+    render() {
         return (
             <div className='outer-restaurant-index'>
-                
-                  
                         {/* {
                         (this.slider.current && this.slider.current.scrollLeft - 800 > this.slider.current.scrollWidth) ? */}
                             <div className="left-pointer arrow" onClick={() => this.scroll('left')}>
