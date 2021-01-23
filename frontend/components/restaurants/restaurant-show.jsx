@@ -1,15 +1,15 @@
 import React from 'react';
+// import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { getRestaurant } from '../../actions/restaurant_actions';
-import { Link } from 'react-router-dom';
-
-import ReviewIndex from '../reviews/review_index';
-import ReviewForm from '../reviews/review_form';
-import CreateReservation from '../reservations/create_reservation_container';
-import Stars from '../reviews/stars';
-
 import { getUser } from '../../actions/session_actions';
-import review_index from '../reviews/review_index';
+import { getRestaurant } from '../../actions/restaurant_actions';
+
+import Stars from '../reviews/stars';
+import ReviewForm from '../reviews/review_form';
+import ReviewIndex from '../reviews/review_index';
+import CreateReservation from '../reservations/create_reservation_container';
+import AnchorLink from 'react-anchor-link-smooth-scroll';
+import {HashLink as Link} from 'react-router-hash-link';
 
 const RestaurantShowPage = props => {
     const [open, setOpen] = React.useState(false);
@@ -24,16 +24,6 @@ const RestaurantShowPage = props => {
         })
     },[])
 
-    // React.useEffect(() =>  {
-    //     // props.getUser(props.currentUser.id)
-
-    //     props.getRestaurant(props.match.params.restaurantId)
-    //     // .then(restaurant => {
-    //     //     if ( props.restaurant && props.restaurant.reviews){
-    //     //        props.restaurant.reviews.push(props.reviews) 
-    //     //     }
-    //     // })
-    // })
     
     
     let targetRating = 0
@@ -76,10 +66,10 @@ const RestaurantShowPage = props => {
              
                 <main className="restaurant-box">
                     <nav className="selection-nav sticky">
-                        <Link to={`/restauarants/${props.match.params.restaurantId}#overview`}>Overview</Link>
-                        <Link to={`/restauarants/${props.match.params.restaurantId}#menu`}>Menu</Link>
-                        <Link to={`/restauarants/${props.match.params.restaurantId}#photos`}>Photos</Link>
-                        <Link to={`/restauarants/${props.match.params.restaurantId}#reviews`}>Reviews</Link>
+                        <Link smooth to={`/restaurants/${props.match.params.restaurantId}#overview`}>Overview</Link>
+                        <Link smooth to={`/restaurants/${props.match.params.restaurantId}#menu`}>Menu</Link>
+                        <Link smooth to={`/restaurants/${props.match.params.restaurantId}#photos`}>Photos</Link>
+                        <Link smooth to={`/restaurants/${props.match.params.restaurantId}#reviews`}>Reviews</Link>
                     </nav>
 
                     {props.restaurant ?
