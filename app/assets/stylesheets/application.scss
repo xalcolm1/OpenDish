@@ -82,7 +82,7 @@ body {
 	font-family: 'Commissioner', sans-serif;
 	background-color: rgb(255, 253, 253);
 }
-footer{
+footer {
 	justify-self: flex-end;
 	align-self: flex-end;
 
@@ -102,7 +102,7 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-input{
+input {
 	
 	width: 400px;
 	height: 60px;
@@ -110,14 +110,14 @@ input{
 	border-radius: 4px;
 	padding-left: 5px;
 }
-html{
+html {
 
 	height: 100%;
 	background-color: rgb(241, 241, 241);
 	// background:	rgb(118,255,185);
 	// background: linear-gradient(0deg, rgb(14, 91, 55) 0%, rgb(68, 184, 143) 36%, rgb(199, 255, 173) 85%);
 }
-main{
+main {
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -125,17 +125,17 @@ main{
     // background: linear-gradient(0deg, rgb(249, 249, 249) 15% rgb(199, 255, 173) 85%);
 }
 
-h1{
+h1 {
 	font-size: 42px;
 }
-h2{
+h2 {
 	font-size: 21px;
 }
 
-button{
+button {
 	appearance: none;
 }
-a{
+a {
 	text-decoration: none;
 	// color: rgb(96, 141, 52);
 	// color: #46ff9a;
@@ -146,15 +146,16 @@ a{
 	}
 }
 
-#root{
+#root {
 	background-color: white;
+	min-height: 100vh;
 }
 
-.errors{
+.errors {
 	color: red
 }
 
-.pretty-link{
+.pretty-link {
 	text-decoration: none;
 	color: black;
 	&:hover{
@@ -169,7 +170,7 @@ Link {
 		color: rgb(43, 43, 43);
 	}
 }
-.modal-backdrop{
+.modal-backdrop {
 	background-color: rgba(2, 2, 2, 0.486);
     position: absolute;
     display: flex;
@@ -181,7 +182,7 @@ Link {
     right: 0;
     z-index: 2;
 }
-.modal{
+.modal {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -195,7 +196,7 @@ Link {
 	
 }
 
-.modal-close{
+.modal-close {
 	margin: 5px;
 	height: 20px;
 	width: 20px;
@@ -212,15 +213,15 @@ Link {
 	align-self: flex-end;
 }
 
-.sticky{
+.sticky {
 	position: sticky;
 	top: 0;
 	background-color: white;
 }
-.selection-nav{
+.selection-nav {
 	padding: 9.5px;
 }
-.selection-nav > *{
+.selection-nav > * {
 	margin-left: 30px;
 	color: black;
 	padding: 8px 0px 8px 0px;
@@ -238,33 +239,33 @@ Link {
 
 }
 
-.selected{
+.selected {
 	color: $ouverte;
 	border-bottom: 2px #46ff9a solid;
 	border-bottom: 2px $ouverte solid;
 }
 
-.clear{
+.clear {
 	background-color: rgba(255, 255, 255, 0);
 }
 
-.Ouverte{
+.Ouverte {
 	background-color: $ouverte;
 	color: white;
 	border:none;
 }
 
-.Ouverte-hover:hover{
+.Ouverte-hover:hover {
 		background-color: $ouverte-h;
 		
 }
 
-.span{
+.span {
 	width: 100%;
 }
 
 
-button{
+button {
 	border: none;
 	border-radius: 10px;
 	padding: 10px;
@@ -275,6 +276,6 @@ button{
 	}
 }
 
-.personalLink{
-margin: 20px;
+.personalLink {
+	margin: 20px;
 }

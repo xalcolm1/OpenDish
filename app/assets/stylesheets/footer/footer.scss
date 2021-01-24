@@ -32,11 +32,16 @@ footer{
 .sources{
     display: flex;
     // max-width: 33%;
-	flex-flow: row wrap;
+	flex-flow: row ;
     justify-content: space-between;
     padding-bottom: 50px;
     margin-bottom: 50px;
     border-bottom: 1px rgb(124, 124, 124) solid;
+}
+.sources > * {
+    display: flex;
+    // max-width: 33%;
+	flex-flow: column ;
 }
 .external-links{
     display: flex;
