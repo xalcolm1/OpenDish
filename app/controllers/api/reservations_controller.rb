@@ -5,14 +5,6 @@ class Api::ReservationsController < ApplicationController
         render :show
     end
 
-    def index
-        # @reservations
-        # if(params[:type] == "resetaurant")
-        #     @reservations = Reservation.
-        # elsif(params[:type] == "user"){
-
-        # end
-    end
 
     def create
         
@@ -26,8 +18,8 @@ class Api::ReservationsController < ApplicationController
 
     def update 
         @reservation = Reservation.find_by(id: params[:id])
-
-        if @reservation.update(reservation_params)
+        
+        if @reservation && @reservation.update(reservation_params)
             render json: @reservation
         else
             render json: @reservation.errors.full_messages, status: 422
@@ -46,6 +38,6 @@ class Api::ReservationsController < ApplicationController
     end
 
     def reservation_params
-        params.require(:reservation).permit(:user_id, :restaurant_id, :date)
+        params.require(:reservation).permit(:user_id, :restaurant_id, :date, :people)
     end
 end
