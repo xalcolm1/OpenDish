@@ -39,7 +39,7 @@ class ReviewForm extends React.Component{
     
     handleClick(rating){
         return e => {
-           debugger
+           
 
             let ratingElements =  event.target.parentElement.parentElement.parentElement.parentElement.children[i].children
             let targetRating = event.target;

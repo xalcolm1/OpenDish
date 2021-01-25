@@ -23,12 +23,7 @@ class Api::ReviewsController < ApplicationController
         #id is missing
 
         @review = Review.find_by(id: params[:id])
-        if @review.update(
-            overall: params[:review][:overall], 
-            food: params[:review][:food], 
-            service: params[:review][:service],
-            ambiance: params[:review][:ambiance],
-            body: params[:review][:body])
+        if @review && @review.update(review_params)
 
             render :show
         else
@@ -49,4 +44,7 @@ class Api::ReviewsController < ApplicationController
     def review_params
         params.require(:review).permit(:body, :restaurant_id, :user_id, :overall, :food, :service, :ambiance)
     end
+
+
+
 end
