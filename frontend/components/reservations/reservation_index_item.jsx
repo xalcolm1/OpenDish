@@ -4,7 +4,6 @@ import React from 'react';
 
 
 const ReservationIndexItem = (props) => {
-    //if the state is in open possition, displaycertain items else don't
     const {reservation, userName, action} = props;
 
     let date = new Date(props.reservation.date).toLocaleDateString()
@@ -30,13 +29,9 @@ const ReservationIndexItem = (props) => {
     };
     
     const handleSubmit = () => {
-
         // date = new Date(state.date).toLocaleDateString()
         // time = new Date(state.date).toLocaleTimeString()
         // console.log(state.date)
-        debugger
-
-        
         action(state).then(
         
             value => alert( `Reservation confirmed for ${state.people} on ${date}, at  ${time}`),
@@ -56,16 +51,7 @@ const ReservationIndexItem = (props) => {
               
             } else if (type === 'time'){
                 time = change;
-            //     let d = date.split('/').reverse()
-            //     let t =  time.split
-            //     let dateArgs = d.concat(t,[0,0]).map(number => parseInt(number))
-
-            //     setState(prevState => ({
-            //         ...prevState,
-            //         date:  new Date(...dateArgs)
-            //     }))
             }
-            // debugger
             setState(prevState => ({
                 ...prevState,
                 date:  `${date} ${time}`

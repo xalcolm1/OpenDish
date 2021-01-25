@@ -31,42 +31,29 @@ const RestaurantCategory = (props) => {
           slider.current.scrollBy(offset ,0)  
     }
     return (
-        
-       
                     
         <section className="restaurant-category">
             <div className="index-title">
                 <h2>
                     {props.category}
                 </h2>
-
-                {/* <div className="all-restaurants" onClick={(findRestaurants())}>View all</div>  */}
             </div>
             <div className='outer-restaurant-index'>
-                            
-                            
-        
                 <div className="left-pointer arrow" onClick={() => scroll('left')}>
                     <img src={window.ArrowURL} alt='&#x2347;' className="arrow-svg"/>
                 </div>  
             
-
                 <div className='restaurant-index' ref={slider}>
                 {
-
                 props.restaurants.map((restaurant) => {
                     let targetRating = 0;
 
                     if(restaurant.reviews){
-
-                    
                         targetRating = 0;
                         if(restaurant.reviews.length > 0){
                         restaurant.reviews.forEach((review) => targetRating += review.overall) 
                         targetRating = targetRating / restaurant.reviews.length
-                        
                         }
-
                     }
                     return(
                         <Link to={`/restaurants/${restaurant.id}`} key={restaurant.id}>
@@ -75,7 +62,6 @@ const RestaurantCategory = (props) => {
                                     className='restaurant-img'
                                     style={{backgroundImage : `url(${restaurant.photoUrl ? restaurant.photoUrl: ivyWallURL})`}}
                                     >
-                                    
                                 </div>
                                 <div className='restaurant-information'>
                                     <Stars targetRating={targetRating}/>
@@ -95,12 +81,12 @@ const RestaurantCategory = (props) => {
                 </div>       
             </div>
         </section>
-
     )
 }
+
 const mSTP = (state, ownProps)=> {
     let restaurants = state.entities.restaurants.categories[ownProps.category]
-    // debugger
+
     return {
         restaurants:  restaurants ? Object.values(restaurants) : [] 
     }

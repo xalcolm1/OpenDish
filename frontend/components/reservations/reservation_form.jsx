@@ -9,16 +9,17 @@ class ReservationForm extends React.Component {
         this.time = ''
             
 
-            this.state = {
-                user_id: this.props.userId,
-                name: '',
-                restaurant_id: this.props.restaurantId,
-                people: 1,
-                date: this.dateNow
-            }
+        this.state = {
+            user_id: this.props.userId,
+            name: '',
+            restaurant_id: this.props.restaurantId,
+            people: 1,
+            date: this.dateNow
+        }
        
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleChange = this.handleChange.bind(this)
+        this.handleSelection = this.handleSelection.bind(this)
         
     }
 
@@ -31,33 +32,43 @@ class ReservationForm extends React.Component {
             } else if (type === 'time'){
                 this.time = change;
             }
+
+            this.setState( prevState => ({
+                ...prevState,
+                date: `${this.date} ${this.time}`
+            }))
+
         }
     }
 
     handleSelection(){
-        return event => {
-            this.setState({people: parseInt(event.target.value)}) 
+        return e => {
+            this.setState(prevState => ({
+                ...prevState,
+                people: parseInt(event.target.value)
+            }), console.log(this.state)) 
         }
     }
 
-    handleSubmit () {
-        // let reservationDate = `${this.date} ${this.time}`
-        // let people = this.state.people
-        console.log(this.state, "date:", this.state.date);
+    handleSubmit() {
+        let reservationDate = `${this.date}, at ${this.time}`
+        let people = this.state.people
 
-        this.setState({date: `${this.date} ${this.time}`},
-            () => { 
-                this.props.action(this.state)
-                .then(
-                    value =>   alert( `You have successfully reserved a table for ${this.state.people} on ${this.date}, at  ${this.time}`),
-                    rejection => alert( `You have failed succesfully to reserve a table`)
-                )
-            },
+        console.log(this.state, "people:", this.state.people);  
+        // debugger
+
+           
+            this.props.action(this.state)
+            .then(
+                value =>   alert( `Reservation confirmed for ${people} on ${reservationDate}`),
+                rejection => alert( `Reservation Failed`)
+            )
+            
             this.setState({ 
                 people: 1,
                 date: this.dateNow
             })
-            );
+
 
       
     }
@@ -68,7 +79,7 @@ class ReservationForm extends React.Component {
             options.push(<option 
                         key={i}
                         value={i}
-                        onClick={() => this.setState({people: i}, console.log('people:',i, this.state.people))}
+                        onClick={this.handleSelection()}
                         className="option"
                         >{`For ${i}`}</option>)
         }

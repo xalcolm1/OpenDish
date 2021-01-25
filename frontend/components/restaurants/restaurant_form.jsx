@@ -21,35 +21,26 @@ class RestaurantForm extends React.Component{
     handleSubmit() {
         
         return e => {
-
-
             e.preventDefault();
             const restaurant = new FormData();
-            // debugger
-
             restaurant.append('restaurant[owner_id]', this.state.owner_id);
             restaurant.append('restaurant[name]', this.state.name);
             restaurant.append('restaurant[address]', this.state.address);
             restaurant.append('restaurant[cuisine]', this.state.cuisine);
+
             if (this.state.photoFile !== null) {
-
               restaurant.append('restaurant[photo]', this.state.imageFile);
-
             }
-          
             this.props.action(restaurant)
             this.props.setState({})
-
         }
     }
 
     previewFile() {
         
        return e => {
-
             const reader = new FileReader();
             const file = e.currentTarget.files[0];
-        
 
             reader.onloadend = () =>
             this.setState({ imageUrl: reader.result, imageFile: file });
@@ -58,17 +49,13 @@ class RestaurantForm extends React.Component{
             } else {
                 this.setState({ imageUrl: "", imageFile: null});
             }
-            
         }
-     
     }
 
     render() {
-
         return(
             <div>
             <form onSubmit={this.handleSubmit()} className='restaurant-form'>
-               
                 <input 
                     type="text" 
                     onChange={this.handleInput('name')}
@@ -97,7 +84,6 @@ class RestaurantForm extends React.Component{
                         /> 
                     <img src={this.state.imageUrl} alt="" height="50"/>
                 </div>
-                
                 <input type="submit" value="Create Restaurant"/>
             </form>
         </div>

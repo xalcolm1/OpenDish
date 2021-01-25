@@ -41,11 +41,10 @@ switch(action.type){
         case UPDATE_REVIEW:
             newState.all[action.review.restaurant_id].reviews = 
             newState.all[action.review.restaurant_id].reviews.map(review => {return  review.id === action.review.id ? action.review : review})
-            debugger 
         return newState;
 
         case DELETE_REVIEW:
-            // debugger
+
             newState.all[action.review.restaurant_id].reviews.filter(review => review.id !== action.review.id)
             return newState;
 

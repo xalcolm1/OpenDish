@@ -77,7 +77,7 @@ class ReviewForm extends React.Component{
                    <span id='2' onClick={this.handleClick('overall')}>&#x2605;</span>
                    <span id='1' onClick={this.handleClick('overall')}>&#x2605;</span>
                 </span>
-                {/* <Stars targetRating={this.state.overall} onClick={() => {debugger} } /> */}
+                {/* <Stars targetRating={this.state.overall} onClick={() => {} } /> */}
                 
                 <label htmlFor="rating1">Food: </label>
                 <span className="rating"> 

@@ -3,11 +3,7 @@ class Api::ReviewsController < ApplicationController
     def show 
         render :show
     end
-
-    # def index
-    #     render :index
-    # end
-
+    
     def create   
         @review = Review.new(review_params)
 
@@ -19,9 +15,6 @@ class Api::ReviewsController < ApplicationController
     end
 
     def update
-        # debugger
-        #id is missing
-
         @review = Review.find_by(id: params[:id])
         if @review && @review.update(review_params)
 
@@ -32,7 +25,6 @@ class Api::ReviewsController < ApplicationController
     end
 
     def destroy
-
         @review = Review.find_by(id: params[:id])
         if @review.destroy
             render json: @review
