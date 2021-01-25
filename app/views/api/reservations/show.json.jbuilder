@@ -1,6 +1,5 @@
-reservation.set! reservation.id do 
-    json.date reservation.date
-    json.extract! reservation.restaurant, :name, :address
-    json.extract! reservation.user, :firstname, :lastname, :email
-end
+json.extract! @reservation, :id, :date,:user_id, :restaurant_id, :people
+json.extract! @reservation.restaurant, :name, :address
+json.extract! @reservation.user, :firstname, :lastname, :email
+
 

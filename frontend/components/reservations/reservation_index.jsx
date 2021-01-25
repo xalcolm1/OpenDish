@@ -4,7 +4,6 @@ import { deleteReservation, updateReservation } from '../../actions/reservation_
 import ReservationIndexItem from './reservation_index_item';
 
 const ReservationIndex = props => {
-    // let reservations = props.reservations
     const [rejects] = React.useState({}) 
 
     
@@ -12,12 +11,7 @@ const ReservationIndex = props => {
         return event => {
             event.preventDefault();
             props.deleteReservation(reservationId);
-            // window.location.reload(false);
-            // setRejects({reservationId: reservationId})
             rejects[reservationId] = reservationId;
-
-            // reservations = reservations.splice(index, 1);
-     
         }
     };
 
@@ -28,7 +22,7 @@ const ReservationIndex = props => {
                 props.reservations.map((reservation, idx) => {
                     if(!(reservation.id in rejects)){
                         
-                    return <ReservationIndexItem userName={props.currentUser.firstname} key={idx} reservation={reservation} action={props.editReservation} delete={handleDelete}/>
+                    return <ReservationIndexItem userName={props.currentUser.firstname} key={reservation.id} reservation={reservation} action={props.editReservation} delete={handleDelete}/>
  
                 }})
 

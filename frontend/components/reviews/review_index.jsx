@@ -142,7 +142,6 @@ const ReviewIndex= props => {
         }   
 
         React.useEffect(() => {
-            console.log(props.reviews)
        
         }, [props.reviews])
 

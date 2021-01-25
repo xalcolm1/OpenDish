@@ -34,25 +34,28 @@ const usersReducer = (state = {}, action) => {
 
         case UPDATE_RESERVATION:
             newState[action.reservation.user_id].reservations = 
-            newState[action.reservation.user_id].reservations.filter(reservation => reservation.id !== action.reservation.id) // secret line
+            newState[action.reservation.user_id].reservations.map(reservation => action.reservation.id === reservation.id ? action.reservation : reservation) // secret line
 
             return newState;
-
         case DESTROY_RESERVATION:
             newState[action.reservation.user_id].reservations =
-             newState[action.reservation.user_id].reservations.filter(item => item.id !== action.reservation.id)
+             newState[action.reservation.user_id].reservations.filter(reservation => reservation.id !== action.reservation.id)
             return newState;
 
         case RECIEVE_REVIEW:
             newState[action.review.user_id].reviews.push(action.review) 
                 return newState;
+                
         case UPDATE_REVIEW:
-            newState[action.review.user_id].reviews = newState[action.review.user_id].reviews.map(review => {
-                return  review.id === action.review.id ? action.review : review}) 
-                return newState;
+            newState[action.review.user_id].reviews = 
+            newState[action.review.user_id].reviews.map(review => {return  review.id === action.review.id ? action.review : review}) 
+
+            return newState;
+
         case DELETE_REVIEW:
             newState[action.review.user_id].reviews = newState[action.review.user_id].reviews.filter(item => item.id !== action.review.id)
             return newState;
+
         default:
             return state;
     }

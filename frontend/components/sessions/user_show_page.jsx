@@ -15,35 +15,44 @@ import { getUser } from '../../actions/session_actions';
 class UserShowPage extends React.Component {
     constructor(props){
         super(props)
-      
+      //change state to only include 
         this.state = {
-            reservations: false,
-            restaurants: true,
-            reviews: false,
-            prevReservations: false
+            reservations: this.props.reservations,
+            display: {
+                    reservations: false,
+                    restaurants: true,
+                    reviews: false,
+                    prevReservations: false
+                }
         }
         this.date = new Date;
 
 
         this.pastReservations = [];
         this.upcomingReservations = [];
+    
         this.currentUser  = this.props.currentUser ?  this.props.currentUser : this.props.getUser(this.props.userId).then(user => user)
 
        
     }
     componentDidMount() {
         this.props.getUser(this.props.userId)
-      
     }
 
     componentDidUpdate(){
-        this.pastReservations = [];
-        this.upcomingReservations = [];
-        if(this.currentUser.reservations){
-            // this.currentUser.reservations.forEach(reservation => {
-                // debugger
+        if(this.props.reservations){
+                this.pastReservations = [];
+                this.upcomingReservations = [];
+       
+            // when a new reservation comes from state it first
+            // goes here to be split into the categories of past and future reservatons
             
             this.props.reservations.forEach(reservation => {
+                console.log(reservation)
+                console.log(new Date(reservation.date))
+                console.log(this.date)
+
+
                 if (new Date(reservation.date) < this.date) {
                     this.pastReservations.unshift(reservation)
                 } else {
@@ -57,25 +66,14 @@ class UserShowPage extends React.Component {
     
 
     render() {
-        // let pastReservations = [];
-        // let upcomingReservations = [];
-        // if(this.currentUser.reservations){
-        //     console.log('passed 58')
-        //     this.currentUser.reservations.forEach(reservation => {
-        //         if (new Date(reservation.date) < this.date) {
-        //             pastReservations.unshift(reservation)
-        //         } else {
-        //             upcomingReservations.unshift(reservation)
-        //         }
-        //     })
-        // }  
+
         const { search, restaurants } = this.props
 
         let currentItems
 
         this.currentUser  = this.props.currentUser ?  this.props.currentUser : this.props.getUser(this.props.userId).then(user => user)
 
-        if(this.state.restaurants){
+        if(this.state.display.restaurants){
             currentItems = (
                             <RestaurantIndex 
                                 search={search}
@@ -84,7 +82,7 @@ class UserShowPage extends React.Component {
                             />
                             )
             
-        } else if (this.state.reservations) {
+        } else if (this.state.display.reservations) {
             currentItems = (
                             <ReservationsIndex
                                 className="scrollbox"
@@ -94,14 +92,14 @@ class UserShowPage extends React.Component {
                             )
             // console.log(curre)
            
-        } else if (this.state.reviews) { 
+        } else if (this.state.display.reviews) { 
             currentItems = (
                             <ReviewIndex
                                 reviews={this.currentUser.reviews}
                             />
                             )   
 
-        } else if (this.state.prevReservations) {
+        } else if (this.state.display.prevReservations) {
 
             currentItems = (
                             <ReservationsIndex
@@ -130,49 +128,63 @@ class UserShowPage extends React.Component {
 
                 <nav className="selection-nav user-nav">
                     <div
-                    className={this.state.restaurants ? 'selected' : ''}
+                    className={this.state.display.restaurants ? 'selected' : ''}
                     onClick={() => 
-                        this.setState({
+                        this.setState(prevState => ({
+                                    ...prevState,
+                                   display: {
                                         reservations: false,
                                         restaurants: true,
                                         reviews: false,
                                         prevReservations: false
-                                    })
+                                    }
+                                }))
                             }
                     >Restaurants</div>
 
                     <div 
-                    className={this.state.reservations ? 'selected' : ''}
+                    className={this.state.display.reservations ? 'selected' : ''}
                     onClick={() =>
 
-                        this.setState({
+                        this.setState(prevState => ({
+                                    ...prevState,
+                                    display: {
                                         reservations: true,
                                         restaurants: false,
                                         reviews: false,
                                         prevReservations: false
-                                    })
+                                    }
+                                }))
                         }
                     >Reservations</div>
 
                     <div  
-                    className={this.state.reviews ? 'selected' : ''}
+                    className={this.state.display.reviews ? 'selected' : ''}
                     onClick={() => 
-                        this.setState({reservations: false,
+                        this.setState(prevState => ({
+                                    ...prevState,
+                                    display: {
+                                        reservations: false,
                                         restaurants: false,
                                         reviews: true,
                                         prevReservations: false
-                                    })
+                                    }
+                                }))
                         }
                     >Reviews</div>
 
                     <div 
-                    className={this.state.prevReservations ? 'selected' : ''}
+                    className={this.state.display.prevReservations ? 'selected' : ''}
                     onClick={() => 
-                        this.setState({reservations: false,
+                        this.setState(prevState => ({
+                                    ...prevState,
+                                    display: {
+                                        reservations: false,
                                         restaurants: false,
                                         reviews: false,
                                         prevReservations: true
-                                    })
+                                    }
+                                }))
                         }
                     >Previous Reservations</div>
                 </nav>
