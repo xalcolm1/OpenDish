@@ -11,7 +11,6 @@ class ReservationForm extends React.Component {
 
         this.state = {
             user_id: this.props.userId,
-            name: '',
             restaurant_id: this.props.restaurantId,
             people: 1,
             date: this.dateNow
