@@ -13,10 +13,11 @@
 #  lastname        :string
 #
 class User < ApplicationRecord
-    validates :email, :session_token, presence: true, uniqueness: true
+    validates :email, presence: true, uniqueness: true, format: {with: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i , message: 'Invalid email format, please try again'}
+
+    validates :session_token, presence: true, uniqueness: true
     validates :password_digest, presence: true
     validates :password, length: {minimum: 6, allow_nil: true}
-
     attr_reader :password
 
     after_initialize :ensure_session_token
@@ -39,6 +40,24 @@ class User < ApplicationRecord
     
 
     has_one_attached :photo
+
+    # validate email
+
+
+    # def is_email?(email)
+    #     return false if email.nil?
+
+    #    return email.match(regex)
+
+     # email_segments = email.split('@'
+        # # email is invalid if the last segment of the email has a dot at the begginning, or a 
+        # return false if email_segments.length < 2
+        # email_segments[-1].each_char do |char, idx| 
+        #     idx == 0 ? false : true if char == '.'
+        # end
+    # end
+
+       
 
     #spire
 
