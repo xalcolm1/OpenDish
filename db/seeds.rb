@@ -280,32 +280,38 @@ restaurant30.photo.attach(io: File.open(Rails.root + 'app/assets/images/restaura
 reservation1 = Reservation.create!(
     user_id: user1.id,
     restaurant_id: restaurant30.id,
-    date: '2021-01-26T13:51:50.417-07:00'
+    date: '2021-01-26T13:51:50.417-07:00',
+    people: 2
 )
 reservation2 = Reservation.create!(
     user_id: user1.id,
     restaurant_id: restaurant9.id,
-    date: '2021-02-23T13:51:50.417-07:00'
+    date: '2021-02-23T13:51:50.417-07:00',
+    people: 4
 )
 reservation3 = Reservation.create!(
     user_id: user1.id,
     restaurant_id: restaurant20.id,
-    date: '2021-02-28T13:51:50.417-07:00'
+    date: '2021-02-28T13:51:50.417-07:00',
+    people: 2
 )
 reservation4 = Reservation.create!(
     user_id: user1.id,
     restaurant_id: restaurant11.id,
-    date: '2021-02-20T13:51:50.417-07:00'
+    date: '2021-02-20T13:51:50.417-07:00',
+    people: 8
 )
 reservation5 = Reservation.create!(
     user_id: user1.id,
     restaurant_id: restaurant18.id,
-    date: '2021-08-26T13:51:50.417-07:00'
+    date: '2021-08-26T13:51:50.417-07:00',
+    people: 2
 )
 reservation6 = Reservation.create!(
     user_id: user1.id,
     restaurant_id: restaurant29.id,
-    date: '2021-04-20T13:51:50.417-07:00'
+    date: '2021-04-20T13:51:50.417-07:00',
+    people: 10
 )
 
 
