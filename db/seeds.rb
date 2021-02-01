@@ -328,7 +328,7 @@ review2 = Review.create!(
     body: 'Truely this restaurant is a place to go if you have a fancy dinner in mind'
 )
 review3 = Review.create!(
-    user_id: user1.id,a
+    user_id: user1.id,
     restaurant_id: restaurant3.id,
     overall: 5,
     food: 5,
@@ -555,7 +555,7 @@ review27 = Review.create!(
     body: 'This restaurant serves some of the best chinese food I have ever had'
 )
 review28 = Review.create!(
-    user_id: user1.id
+    user_id: user1.id,
     restaurant_id: restaurant28.id,
     overall: 5,
     food: 5,
@@ -565,7 +565,7 @@ review28 = Review.create!(
 )
 review29 = Review.create!(
     user_id: user1.id,
-    restaurant_id:  restaurant29.id
+    restaurant_id:  restaurant29.id,
     overall: 5,
     food: 5,
     service: 5,
@@ -574,7 +574,7 @@ review29 = Review.create!(
 )
 review30 = Review.create!(
     user_id: user1.id,
-    restaurant_id:  restaurant30.id
+    restaurant_id:  restaurant30.id,
     overall: 3,
     food: 5,
     service: 3,
@@ -1105,10 +1105,10 @@ review87 = Review.create!(
 review88 = Review.create!(
     user_id: user3.id,
     restaurant_id: restaurant28.id,
-    overall: ,
-    food: ,
-    service: ,
-    ambiance:,
+    overall: 5,
+    food: 5,
+    service: 4,
+    ambiance: 4,
     body: 'The beef stew was excellently cooked, I have not had anything like it in quite some time'
 )
 review89 = Review.create!(
