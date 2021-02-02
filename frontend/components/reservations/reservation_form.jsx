@@ -33,7 +33,7 @@ class ReservationForm extends React.Component {
             }
 
             let milliseconds = new Date(`${this.date}T${this.time}`).getTime();
-            debugger
+
             this.setState( prevState => ({
                 ...prevState,
                 date: milliseconds
@@ -54,7 +54,6 @@ class ReservationForm extends React.Component {
         let reservationDate = `${this.date}, at ${this.time}`
         let people = this.state.people
 
-        // debugger
 
            
             this.props.action(this.state)

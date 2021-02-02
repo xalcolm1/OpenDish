@@ -10,19 +10,19 @@ const confirmationPage = props => {
 
     const handleClick = () => {
         return e => {
-            debugger
+
             props.history.goBack();
         }
     }
     const handleOffClick = () => {
         return e => {
-            debugger
+
             props.history.goBack();
         }
     }
 
 
-    debugger
+
     //look into backdrops
     console.log(props.reservation)
     return (
