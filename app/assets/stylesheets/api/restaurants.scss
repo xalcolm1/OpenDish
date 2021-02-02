@@ -326,17 +326,26 @@
 
 .edit{ 
     background: none;
-
+    border: none;
     & > *{
         height: -webkit-fill-available;
         width: -webkit-fill-available;
-        background: black;
-        color: white;
+        background: white;
+        color: black;
+        border: 1px solid black;
         &:last-child{
             margin-top: 10px;
             height: 50px;
 
         }
+        &:hover{
+            color: $ouverte;
+            background-color: rgb(255, 255, 255);
+            border: 1px solid $ouverte;
+        }
+    }
+    &:hover{
+        border: none;
     }
     
 }
