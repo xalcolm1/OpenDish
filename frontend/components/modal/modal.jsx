@@ -23,7 +23,7 @@ function Modal(props) {
             <div className={customColor ? customColor : "modal-backdrop"} onClick={() => handleClick()}>
                 <div className="modal" onSubmit={() => setOpen(!open)}>
                 
-                    <div onClick={() => setOpen(!open)} className="modal-close">{closeContent ? closeContent : '&#x1F33F;'}</div>
+                    <div onClick={() => setOpen(!open)} className="modal-close">&#x1F33F;</div>
     
                     {children}
     

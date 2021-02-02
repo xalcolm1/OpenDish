@@ -6,8 +6,13 @@ import React from 'react';
 const ReservationIndexItem = (props) => {
     const {reservation, userName, action} = props;
 
-    let date = new Date(props.reservation.date).toLocaleDateString()
-    let time = new Date(props.reservation.date).toLocaleTimeString()
+    let dateNow = new Date(props.reservation.date);
+    const reformatDate = number => number > 9 ?   number : `0${number}`;
+    let date = `${dateNow.getFullYear()}-${reformatDate(dateNow.getMonth() + 1)}-${reformatDate(dateNow.getDate())}`;
+    let time = `${reformatDate(dateNow.getHours())}:${reformatDate(dateNow.getMinutes())}:${reformatDate(dateNow.getSeconds())}`;
+
+    // let date = new Date(props.reservation.date).toDateString()
+    // let time = new Date(props.reservation.date).toTimeString()
 
     const [open, setOpen] = React.useState(false);
     const [state, setState] = React.useState({
@@ -29,12 +34,12 @@ const ReservationIndexItem = (props) => {
     };
     
     const handleSubmit = () => {
-        // date = new Date(state.date).toLocaleDateString()
-        // time = new Date(state.date).toLocaleTimeString()
+        date = new Date(state.date).toLocaleDateString()
+        time = new Date(state.date).toLocaleTimeString()
         // console.log(state.date)
         action(state).then(
         
-            value => alert( `Reservation confirmed for ${state.people} on ${date}, at  ${time}`),
+            value => alert( `Reservation confirmed for ${state.people} on ${date}, at ${time}`),
             rejection => alert( `Reservation failed`)
         )  
 
@@ -52,9 +57,10 @@ const ReservationIndexItem = (props) => {
             } else if (type === 'time'){
                 time = change;
             }
+            let milliseconds = new Date(`${date}T${time}`).getTime()
             setState(prevState => ({
                 ...prevState,
-                date:  `${date} ${time}`
+                date:  milliseconds
             }))
           
 
@@ -62,7 +68,7 @@ const ReservationIndexItem = (props) => {
         }
     }
     const options = [];
-    const currentDate = new Date(state.date).toDateString()
+    const currentDate = new Date(state.date)
 
     //create options
     for(let i = 1; i <= 20; i ++){
@@ -99,8 +105,9 @@ const ReservationIndexItem = (props) => {
                     </>
                 ):(
                 <>
-                    <div> On {date} At {time}</div>
-                    <div>{reservation.people > 1 ? `${reservation.people} people` : `${reservation.people} person`}</div>
+                    <div> On {`${reformatDate(currentDate.getMonth() + 1)}/${reformatDate(currentDate.getDate())}/${currentDate.getFullYear()} `} 
+                    At {`${reformatDate(currentDate.getHours())}:${reformatDate(currentDate.getMinutes())}`}</div>
+                    <div>{state.people > 1 ? `${state.people} people` : `${state.people} person`}</div>
                 </>
                 )}
 
@@ -117,7 +124,7 @@ const ReservationIndexItem = (props) => {
                             user_id: props.reservation.user_id,
                             restaurant_id: props.reservation.restaurant_id,
                             people: props.reservation.people,
-                            date: props.reservation.date
+                            date: dateNow.getTime()
                         })}}>{open ? 'Cancel' : 'Edit'}</button>
 
                 {  open ? (<button onClick={() => handleSubmit()}> Done </button>) : null}

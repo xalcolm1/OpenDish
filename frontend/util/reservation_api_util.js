@@ -17,7 +17,6 @@ export const deleteReservation = reservationId => {
 }
 
 export const updateReservation = reservation => {
-    console.log(reservation)
     return $.ajax({
         url: `/api/reservations/${reservation.id}`,
         method: "PATCH",

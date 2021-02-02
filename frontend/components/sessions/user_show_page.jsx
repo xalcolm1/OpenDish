@@ -48,10 +48,6 @@ class UserShowPage extends React.Component {
             // goes here to be split into the categories of past and future reservatons
             
             this.props.reservations.forEach(reservation => {
-                console.log(reservation)
-                console.log(new Date(reservation.date))
-                console.log(this.date)
-
 
                 if (new Date(reservation.date) < this.date) {
                     this.pastReservations.unshift(reservation)

@@ -3,17 +3,17 @@ import { getRestaurant } from '../../actions/restaurant_actions'
 class ReservationForm extends React.Component {
     constructor(props) {
         super(props)
-       this.dateNow = new Date();
-
-        this.date = ''
-        this.time = ''
+        this.dateNow = new Date();
+        this.reformatDate = number => number > 9 ?   number : `0${number}`;
+        this.date = `${this.dateNow.getFullYear()}-${this.reformatDate(this.dateNow.getMonth() + 1)}-${this.reformatDate(this.dateNow.getDate())}`;
+        this.time = `${this.reformatDate(this.dateNow.getHours())}:${this.reformatDate(this.dateNow.getMinutes())}:${this.reformatDate(this.dateNow.getSeconds())}`;
             
-
+        console.log('date:', this.date, 'time:', this.time)
         this.state = {
             user_id: this.props.userId,
             restaurant_id: this.props.restaurantId,
             people: 1,
-            date: this.dateNow
+            date: this.dateNow.getTime()
         }
        
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -32,11 +32,12 @@ class ReservationForm extends React.Component {
                 this.time = change;
             }
 
+            let milliseconds = new Date(`${this.date}T${this.time}`).getTime();
+            debugger
             this.setState( prevState => ({
                 ...prevState,
-                date: `${this.date} ${this.time}`
+                date: milliseconds
             }))
-
         }
     }
 
@@ -45,7 +46,7 @@ class ReservationForm extends React.Component {
             this.setState(prevState => ({
                 ...prevState,
                 people: parseInt(event.target.value)
-            }), console.log(this.state)) 
+            })) 
         }
     }
 
@@ -53,7 +54,6 @@ class ReservationForm extends React.Component {
         let reservationDate = `${this.date}, at ${this.time}`
         let people = this.state.people
 
-        console.log(this.state, "people:", this.state.people);  
         // debugger
 
            
@@ -103,7 +103,7 @@ class ReservationForm extends React.Component {
                     </div>
                 </div>
 
-                <input type="submit" className="Ouverte Ouverte-hover span" value="Find a table" />
+                <input type="submit" className="Ouverte Ouverte-hover span" value="Find a table"/>
                 {/* <input type="submit" className="Ouverte Ouverte-hover span" value="Find a table" onClick={}/> */}
             </form>
         )
