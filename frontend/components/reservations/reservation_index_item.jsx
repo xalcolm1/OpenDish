@@ -37,11 +37,17 @@ const ReservationIndexItem = (props) => {
         date = new Date(state.date).toLocaleDateString()
         time = new Date(state.date).toLocaleTimeString()
         // console.log(state.date)
-        action(state).then(
+        action(state)
+        // .then(
+        //     value => 
+        //     rejection => 
+        // )
         
-            value => alert( `Reservation confirmed for ${state.people} on ${date}, at ${time}`),
-            rejection => alert( `Reservation failed`)
-        )  
+        // .then(action => {
+        //     let reservationId = action.reservation.id
+        //     console.log(props)
+        //     props.history.push(`/confirmation/${reservationId}`)
+        //  })
 
         setOpen(!open)
     }
