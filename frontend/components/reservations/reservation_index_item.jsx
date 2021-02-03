@@ -1,6 +1,6 @@
 
 import React from 'react';
-
+import {withRouter} from 'react-router-dom'
 
 
 const ReservationIndexItem = (props) => {
@@ -43,11 +43,11 @@ const ReservationIndexItem = (props) => {
         //     rejection => 
         // )
         
-        // .then(action => {
-        //     let reservationId = action.reservation.id
-        //     console.log(props)
-        //     props.history.push(`/confirmation/${reservationId}`)
-        //  })
+        .then(action => {
+            let reservationId = action.reservation.id
+            console.log(props)
+            props.history.push(`/confirmation/${reservationId}`)
+         })
 
         setOpen(!open)
     }
@@ -143,4 +143,4 @@ const ReservationIndexItem = (props) => {
 }
 
 // index
-export default ReservationIndexItem;
+export default withRouter(ReservationIndexItem);
