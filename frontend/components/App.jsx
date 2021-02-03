@@ -10,7 +10,7 @@ import UserShowPage from './sessions/user_show_page';
 import RestaurantShowPage from './restaurants/restaurant-show';
 import RestaurantSearchIndex from './restaurants/restaurant_search/restaurant_search_index';
 import ReviewForm from './reviews/review_form';
-
+import ConfirmationPage from './reservations/confirmation_page';
 const App = () => (
 
     <>
@@ -31,15 +31,16 @@ const App = () => (
         
 
         <Switch>
+            <Route path={`/confirmation/:reservationId`} component={ConfirmationPage}/>
             <Route path='/restaurants/:restaurantId' component={RestaurantShowPage}/>
             <Route path='/users/:userId' component={UserShowPage}/>
             <Route path='/restaurants' component={RestaurantSearchIndex}/>
             <Route path="/" component={HomePage}/>
-
         </Switch>
         
         <AuthRoute exact path="/signup" component={signupFormContainer}/>
         <AuthRoute exact path="/login" component={loginFormContainer}/>
+
 
 
     </>

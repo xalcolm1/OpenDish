@@ -1,4 +1,5 @@
 import React from 'react';
+import { Redirect, withRouter } from 'react-router-dom';
 import { getRestaurant } from '../../actions/restaurant_actions'
 class ReservationForm extends React.Component {
     constructor(props) {
@@ -53,19 +54,23 @@ class ReservationForm extends React.Component {
     handleSubmit() {
         let reservationDate = `${this.date}, at ${this.time}`
         let people = this.state.people
-
+        // let reservationId;
 
            
             this.props.action(this.state)
-            .then(
-                value =>   alert( `Reservation confirmed for ${people} on ${reservationDate}`),
-                rejection => alert( `Reservation Failed`)
-            )
+            .then(action => {
+               let reservationId = action.reservation.id
+
+               this.props.history.push(`/confirmation/${reservationId}`)
+            })
+    
             
             this.setState({ 
                 people: 1,
                 date: this.dateNow
             })
+
+        // this.props.history.push(`/confirmation/${reservationId}`)
 
 
       
@@ -113,4 +118,5 @@ class ReservationForm extends React.Component {
     //auto completes dateTime to the current day 
 };
 
-export default ReservationForm;
+
+export default withRouter(ReservationForm);

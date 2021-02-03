@@ -98,3 +98,55 @@
 .reservation-form{
     text-align: start;
 }
+
+
+.confirmation-box {
+    height: auto;
+    width: auto;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    margin: 100px;
+    border-radius: 10px;
+    padding: 0 0 20px;
+    box-shadow: 0 4px 10px 1px rgba(0, 0, 0, 0.059);      
+
+}
+.confirmation-box > h3 {
+    padding: 20px;
+}
+
+.confirmation-box > h2 {
+    padding: 20px 0 10px;
+    border-radius: 10px 10px 0 0;
+    text-align: center;
+    box-shadow:0 4px 10px 1px rgba(0, 0, 0, 0.059);
+    
+}
+
+
+
+.confirmation-header{
+    background-color: $ouverte-h;
+}
+
+.failure-header{
+    background-color: $ouverte-alt;
+}
+
+.confirm-reservation{
+    align-self: center;
+    margin-top: 20px;
+    width: 200px;
+    height: 75px;
+    border: rgb(140, 139, 139) 1px solid;
+    background: none;
+    color: $light-color2;
+
+    &:hover{
+        border-color: $ouverte;
+        background: none;
+        color: $ouverte;
+
+    }
+}
