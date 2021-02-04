@@ -121,7 +121,7 @@ const ReservationIndexItem = (props) => {
             </main>
         
             <div className='editDeleteArea'>
-                <button onClick={props.delete(reservation.id)}>Cancel Reservations</button>
+                <button onClick={props.delete(reservation.id)}>Cancel Reservation</button>
                 <div className="edit">
                      <button onClick={() => {
                          setOpen(!open);
