@@ -12,25 +12,25 @@ class Api::RestaurantsController < ApplicationController
         if(params[:q][:name].present?)
             sql_string += " OR "if(sql_string.length > 1)
 
-            sql_string += " lower(name) LIKE '%#{params[:q][:name]}%'"
+            sql_string += " lower(name) LIKE '%#{params[:q][:name].downcase}%'"
         end
 
         if(params[:q][:address].present?)
             sql_string += " OR "if(sql_string.length > 1)
 
-            sql_string += " lower(address) LIKE '%#{params[:q][:address]}%'"
+            sql_string += " lower(address) LIKE '%#{params[:q][:address].downcase}%'"
         end
 
         if (params[:q][:cuisine].present?)
             sql_string += " OR "if(sql_string.length > 1)
 
-            sql_string += " lower(cuisine) LIKE '%#{params[:q][:cuisine]}%'"
+            sql_string += " lower(cuisine) LIKE '%#{params[:q][:cuisine].downcase}%'"
         end
 
         if (params[:q][:owner_id].present?)
             sql_string += " OR "if(sql_string.length > 1)
 
-            sql_string += " owner_id = #{params[:q][:owner_id]}"
+            sql_string += " owner_id = #{params[:q][:owner_id].downcase}"
         end
 
         sql_order = " ORDER BY #{sql_order} DESC" if(sql_order.length > 0)
