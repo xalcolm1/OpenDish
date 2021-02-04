@@ -12,6 +12,7 @@ const RestaurantSearch = (props) => {
 
     const [dateTime, setDateTime] = useState(todaysDate);
     const [time, setTime] = useState(todaysTime);
+    const [people, setPeople] = useState(1)
     const [query, setQuery] = useState('');
    
     const handleSearch = () => {
@@ -28,14 +29,32 @@ const RestaurantSearch = (props) => {
     }
 
 
+
+
     //  next step make a restaurant index for displaying all restaurants 
+
+    let options = [];
+
+    for(let i = 1; i <= 20; i ++){
+        options.push(<option 
+                    key={i}
+                    value={i}
+                    onClick={() => setPeople(i)}
+                    className="option"
+                    >{`For ${i}`}</option>)
+    }
     
     return (
         <form className="searchbar" onSubmit={handleSearch()}>
             <div className="params">
                 <input type="date" className="restaurant-data" placeholder='today' value={dateTime} onChange={(event) => setDateTime(event.value)}/>
                 <input type="time" className="restaurant-data" value={time} onChange={(event) => setTime(event.value)}/>
-                <input type="number" className="restaurant-data"/>
+                {/* <input type="number" className="restaurant-data"/> */}
+
+                <select className="restaurant-data" >
+                {options}
+                </select>   
+
             </div>
 
             <div className="search-text">
