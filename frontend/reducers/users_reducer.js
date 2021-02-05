@@ -27,12 +27,12 @@ const usersReducer = (state = {}, action) => {
             newState[action.user.id] = action.user;
             return newState;
 
-        case RECIEVE_RESERVATION:
-            newState[action.reservation.user_id].reservations ?
-             newState[action.reservation.user_id].reservations.push(action.reservation) :
-               newState[action.reservation.user_id].reservations = [action.reservation]
+        // case RECIEVE_RESERVATION:
+        //     newState[action.reservation.user_id].reservations ?
+        //      newState[action.reservation.user_id].reservations.push(action.reservation) :
+        //        newState[action.reservation.user_id].reservations = [action.reservation]
                
-            return newState;
+        //     return newState;
 
         case UPDATE_RESERVATION:
             newState[action.reservation.user_id].reservations = 

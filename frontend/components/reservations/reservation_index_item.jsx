@@ -34,6 +34,7 @@ const ReservationIndexItem = (props) => {
     };
     
     const handleSubmit = () => {
+        event.preventDefault();
         date = new Date(state.date).toLocaleDateString()
         time = new Date(state.date).toLocaleTimeString()
         // console.log(state.date)

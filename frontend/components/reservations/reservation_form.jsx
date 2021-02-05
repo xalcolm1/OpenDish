@@ -1,6 +1,5 @@
 import React from 'react';
 import { Redirect, withRouter } from 'react-router-dom';
-import { getRestaurant } from '../../actions/restaurant_actions'
 class ReservationForm extends React.Component {
     constructor(props) {
         super(props)
@@ -52,28 +51,13 @@ class ReservationForm extends React.Component {
     }
 
     handleSubmit() {
-        let reservationDate = `${this.date}, at ${this.time}`
-        let people = this.state.people
-        // let reservationId;
-
-           
+            event.preventDefault() // without prevent default form is sent incorrectly
             this.props.action(this.state)
             .then(action => {
                let reservationId = action.reservation.id
 
                this.props.history.push(`/confirmation/${reservationId}`)
             })
-    
-            
-            this.setState({ 
-                people: 1,
-                date: this.dateNow
-            })
-
-        // this.props.history.push(`/confirmation/${reservationId}`)
-
-
-      
     }
     render() {
         let options = [];

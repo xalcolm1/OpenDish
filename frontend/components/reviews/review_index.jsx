@@ -32,6 +32,7 @@ const ReviewIndexItem = props => {
     }
 
     const handleSubmit = () => {
+        event.preventDefault();
         setState(prevState => ({
             ...prevState,
             id: review.id

@@ -19,7 +19,7 @@ const RestaurantShowPage = props => {
         props.getRestaurant(props.match.params.restaurantId)
         .then(restaurant => {
             if ( props.restaurant && props.restaurant.reviews){
-               props.restaurant.reviews.push(props.reviews) 
+               props.restaurant.reviews.unshift(props.reviews) 
             }
         })
     },[])
@@ -34,7 +34,7 @@ const RestaurantShowPage = props => {
         if(props.restaurant.reviews.length > 0){
         props.restaurant.reviews.forEach((review) => {
 
-            reviewsUpdated.push(review);
+            reviewsUpdated.unshift(review);
              targetRating += review.overall;
         }) 
 
