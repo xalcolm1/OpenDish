@@ -157,7 +157,7 @@ restaurant15.photo.attach(io: File.open(Rails.root + 'app/assets/images/restaura
 restaurant16 = Restaurant.create!(
     owner_id: user2.id,
     name: "House Of Tariyaki",
-    cuisine: "Japanese",
+    cuisine: "Japanese / Korean",
     address: "1177 N Pleasant St, Amherst, MA 01002"
 )
 restaurant16.photo.attach(io: File.open(Rails.root + 'app/assets/images/restaurant_imgs/markus-winkler-paMbZ0iNka8-unsplash.jpg'), filename: 'markus-winkler-paMbZ0iNka8-unsplash.jpg')
