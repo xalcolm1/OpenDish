@@ -3,9 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "_variables";
 
-.review-form > *{
-    margin-bottom: 20px;
-}
+// .review-form > *{
+//     margin-bottom: 20px;
+// }
 .rating {
     display: flex;
     flex-direction: row-reverse;
@@ -42,15 +42,19 @@ textarea{
 
 
 .restaurant-box .modal-backdrop{
-    background: rgba(0, 0, 0, 0);
+    background: rgb(255,255,255);
+    background: linear-gradient(0deg, rgba(255,255,255,0.3) 0%, rgba(10,10,10,0.5) 100%);
+    border: none;
 }
-.Rev-button{
-    background-color: rgb(245, 245, 245);
+.Lea-button{
+    background-color: rgb(245, 244, 244);
+    color: black;
     text-align: center;
     border-radius: 5px;
     border: 1px solid rgb(202, 199, 199);
     &:hover{
-        background-color: rgb(231, 230, 230);
+
+        background-color: rgb(242, 239, 239);
     }
 }
 
@@ -70,4 +74,10 @@ textarea{
 .review-side > *{
     
     margin-bottom: 10px;
+}
+.review-form{
+    height: 1000000000px; //someone tell me why this works?? so confused
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }

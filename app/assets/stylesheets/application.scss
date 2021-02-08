@@ -111,7 +111,6 @@ input {
 	padding-left: 5px;
 }
 html {
-
 	height: 100%;
 	background-color: rgb(241, 241, 241);
 	// background:	rgb(118,255,185);
@@ -211,6 +210,7 @@ Link {
     text-decoration: none;
     border:1px solid;
 	align-self: flex-end;
+	cursor: pointer;
 }
 
 .sticky {
