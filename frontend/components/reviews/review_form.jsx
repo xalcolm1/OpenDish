@@ -73,7 +73,8 @@ class ReviewForm extends React.Component{
        return (
 
             <form 
-            onSubmit={() => this.handleSubmit()}>
+            onSubmit={() => this.handleSubmit()}
+            className="review-form">
                 <label htmlFor="rating">Overall: 
                     <Stars targetRating={this.state.overall} onClick={this.handleClick('overall')}/>
                 </label>

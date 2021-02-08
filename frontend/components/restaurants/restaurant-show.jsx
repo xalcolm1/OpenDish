@@ -8,7 +8,7 @@ import Stars from '../reviews/stars';
 import ReviewForm from '../reviews/review_form';
 import ReviewIndex from '../reviews/review_index';
 import CreateReservation from '../reservations/create_reservation_container';
-import AnchorLink from 'react-anchor-link-smooth-scroll';
+import Modal from '../modal/modal'
 import {HashLink as Link} from 'react-router-hash-link';
 
 const RestaurantShowPage = props => {
@@ -100,7 +100,9 @@ const RestaurantShowPage = props => {
                     <h2 id="reviews">Reviews</h2>
                         {
                             props.loggedIn ?
-                            reviewForm 
+                            <Modal formType="Leave a review" >
+                              <ReviewForm restaurantId={props.match.params.restaurantId}/>
+                            </Modal>
                             : null
                         }
                      

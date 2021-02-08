@@ -20,7 +20,7 @@ function Modal(props) {
             className={classname}
             >{formType ? formType : icon}</div>
         ) : (
-            <div className={customColor ? customColor : "modal-backdrop"} onClick={() => handleClick()}>
+            <div className='modal-backdrop' onClick={() => handleClick()}>
                 <div className="modal" onSubmit={() => setOpen(!open)}>
                 
                     <div onClick={() => setOpen(!open)} className="modal-close">&#x1F33F;</div>
