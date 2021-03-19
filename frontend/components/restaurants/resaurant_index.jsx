@@ -19,15 +19,13 @@ export class RestaurantIndex extends React.Component{
         let newPosition = this.slider.current.scrollLeft + offset ;
         let overflow = newPosition === width;
         
-        if(overflow) {this.slider.current.scrollTo(7,0)} 
-        
-        if((newPosition < 8 )&&(direction === 'left')){ this.slider.current.scrollTo(width,0) }
-     
+        if(overflow) {
+            this.slider.current.scrollTo(7,0)
+        } else if ((newPosition < 8 )&&(direction === 'left')){ 
+            this.slider.current.scrollTo(width,0) 
+        }else {
             this.slider.current.scrollBy(offset, 0) 
-        
-
-        
-
+        }
     }
     
     componentDidMount() {
@@ -50,7 +48,6 @@ export class RestaurantIndex extends React.Component{
 
                 <div className='restaurant-index' ref={this.slider}>
                     {
-                        //overflow happening here: first restaurant review gradient dictates the rest of the star gradient
                         this.props.restaurants.map((restaurant) => {
                             let targetRating = 0;
 
