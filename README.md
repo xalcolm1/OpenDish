@@ -4,9 +4,7 @@
 
 ## Welcome to Table Ouverte
 
-Table Ouverte is a clone project of Open Table
-
-[visit Open Table:](https://www.opentable.com/ "Logo Title Text 1")
+Table Ouverte is a clone project of OpenTable
 
 [visit Table Ouverte:](https://tableouverte.herokuapp.com)
 
